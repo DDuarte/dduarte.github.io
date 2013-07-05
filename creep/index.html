@@ -55,8 +55,8 @@
           <h1>Creep Score Calculator</h1>
         </div>
         <form>
-          Minute
-          <input type="number" name="min" min="0" max="30" value="0" step="0.5">
+          Minute <input type="number" name="min" min="0" max="30" value="0" step="0.5"><br>
+          Current Farm <input type="number" name="farm" min="0" max="400" value="0" step="1">
           <!-- <input type="submit"> -->
         </form>
        
@@ -65,6 +65,8 @@
         <p><b>Max Creep Gold:</b> <i id="cgold">0</i></p>
         <p><b>Passive Gold:</b> <i id="pgold">475</i></p>
         <p><b>Max Gold:</b> <i id="mgold">475</i></p>
+        <br>
+        <p><i id="loss">You lost 0 creeps.</i></p>
       </div>
       <div id="push"></div>
     </div>
@@ -141,16 +143,41 @@
       map[29.5] = [57,364,8329,2659,10998];
       map[30]   = [58,370,8479,2698,11177];
 
-      var $slider = $('input[name="min"]');
-      $slider.bind('change', function(e)
+      var $minuteTime = $('input[name="min"]');
+      var $farm = $('input[name="farm"]');
+      
+      $minuteTime.bind('change', function(e)
       {
         e.preventDefault();
-        $("#wave").html(map[$(this).val()][0]);
-        $("#score").html(map[$(this).val()][1]);
-        $("#cgold").html(map[$(this).val()][2]);
-        $("#pgold").html(map[$(this).val()][3]);
-        $("#mgold").html(map[$(this).val()][4]);
+        updateValues();
+        updateLoss();
       });
+      
+      $farm.bind('change', function(e)
+      {
+        e.preventDefault();
+        updateLoss();
+      });
+
+      function updateValues()
+      {
+        $("#wave").html(map[$minuteTime.val()][0]);
+        $("#score").html(map[$minuteTime.val()][1]);
+        $("#cgold").html(map[$minuteTime.val()][2]);
+        $("#pgold").html(map[$minuteTime.val()][3]);
+        $("#mgold").html(map[$minuteTime.val()][4]);
+        
+        $farm.attr("max",map[$minuteTime.val()][1]);
+      }
+
+      function updateLoss()
+      {
+        var $curr = $farm.val();
+        var $max = map[$minuteTime.val()][1];
+        var $lost = $max - $curr;
+        
+        $("#loss").html("You lost " + $lost + " creeps (you could have " + $max + ").");
+      }
     </script>
   </body>
 </html>
