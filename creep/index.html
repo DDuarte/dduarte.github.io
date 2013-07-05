@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Creep Score Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+      }
+
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -60px;
+      }
+
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+      .container {
+        width: auto;
+        max-width: 680px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div class="container">
+        <div class="page-header">
+          <h1>Creep Score Calculator</h1>
+        </div>
+        <form>
+          Minute
+          <input type="number" name="min" min="0" max="30" value="0" step="0.5">
+          <!-- <input type="submit"> -->
+        </form>
+       
+        <p><b>Creep Wave: </b><i id="wave">0</i></p>
+        <p><b>Max Creep Score:</b> <i id="score">0</i> <b><---</b></p>
+        <p><b>Max Creep Gold:</b> <i id="cgold">0</i></p>
+        <p><b>Passive Gold:</b> <i id="pgold">475</i></p>
+        <p><b>Max Gold:</b> <i id="mgold">475</i></p>
+      </div>
+      <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">By <a href="https://github.com/DDuarte">Duarte Duarte</a>. Source: <a href="http://leagueoflegends.wikia.com/wiki/Farming">League of Legends Wikia</a>.</p>
+      </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+      var map = new Object();
+      map[0]    = [0,0,0,475,475];
+      map[0.5]  = [0,0,0,475,475];
+      map[1]    = [0,0,0,475,475];
+      map[1.5]  = [1,6,114,475,589];
+      map[2]    = [2,12,234,514,748];
+      map[2.5]  = [3,19,381,553,934];
+      map[3]    = [4,25,501,592,1093];
+      map[3.5]  = [5,31,621,631,1252];
+      map[4]    = [6,38,768,670,1438];
+      map[4.5]  = [7,44,888,709,1597];
+      map[5]    = [8,50,1008,748,1756];
+      map[5.5]  = [9,57,1156,787,1943];
+      map[6]    = [10,63,1276,826,2102];
+      map[6.5]  = [11,69,1396,865,2261];
+      map[7]    = [12,76,1550,904,2454];
+      map[7.5]  = [13,82,1676,943,2619];
+      map[8]    = [14,88,1802,982,2784];
+      map[8.5]  = [15,95,1957,1021,2978];
+      map[9]    = [16,101,2083,1060,3143];
+      map[9.5]  = [17,107,2209,1099,3308];
+      map[10]   = [18,114,2365,1138,3503];
+      map[10.5] = [19,120,2491,1177,3668];
+      map[11]   = [20,126,2617,1216,3833];
+      map[11.5] = [21,133,2773,1255,4028];
+      map[12]   = [22,139,2905,1294,4199];
+      map[12.5] = [23,145,3037,1333,4370];
+      map[13]   = [24,152,3200,1372,4572];
+      map[13.5] = [25,158,3332,1411,4743];
+      map[14]   = [26,164,3464,1450,4914];
+      map[14.5] = [27,171,3627,1489,5116];
+      map[15]   = [28,177,3759,1528,5287];
+      map[15.5] = [29,183,3891,1567,5458];
+      map[16]   = [30,190,4055,1606,5661];
+      map[16.5] = [31,196,4187,1645,5832];
+      map[17]   = [32,202,4325,1684,6009];
+      map[17.5] = [33,209,4496,1723,6219];
+      map[18]   = [34,215,4634,1762,6396];
+      map[18.5] = [35,221,4772,1801,6573];
+      map[19]   = [36,228,4943,1840,6783];
+      map[19.5] = [37,234,5081,1879,6960];
+      map[20]   = [38,240,5219,1918,7137];
+      map[20.5] = [39,247,5391,1957,7348];
+      map[21]   = [40,253,5529,1996,7525];
+      map[21.5] = [41,260,5701,2035,7736];
+      map[22]   = [42,266,5845,2074,7919];
+      map[22.5] = [43,273,6024,2113,8137];
+      map[23]   = [44,279,6168,2152,8320];
+      map[23.5] = [45,286,6347,2191,8538];
+      map[24]   = [46,292,6491,2230,8721];
+      map[24.5] = [47,299,6670,2269,8939];
+      map[25]   = [48,305,6814,2308,9122];
+      map[25.5] = [49,312,6994,2347,9341];
+      map[26]   = [50,318,7138,2386,9525];
+      map[26.5] = [51,325,7318,2425,9743];
+      map[27]   = [52,331,7468,2464,9932];
+      map[27.5] = [53,338,7655,2503,10158];
+      map[28]   = [54,344,7805,2542,10347];
+      map[28.5] = [55,351,7992,2581,10573];
+      map[29]   = [56,357,8142,2620,10762];
+      map[29.5] = [57,364,8329,2659,10998];
+      map[30]   = [58,370,8479,2698,11177];
+
+      var $slider = $('input[name="min"]');
+      $slider.bind('change', function(e)
+      {
+        e.preventDefault();
+        $("#wave").html(map[$(this).val()][0]);
+        $("#score").html(map[$(this).val()][1]);
+        $("#cgold").html(map[$(this).val()][2]);
+        $("#pgold").html(map[$(this).val()][3]);
+        $("#mgold").html(map[$(this).val()][4]);
+      });
+    </script>
+  </body>
+</html>
