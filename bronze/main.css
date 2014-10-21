@@ -2,16 +2,22 @@ body {
   background-color: black;
   padding-top: 50px;
 }
+
 .container {
-  width: 50%;
-  height: 50%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  text-align: center;
+    left: 0;
+    margin-top: -200px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
 }
+
 h1 {
   font-family: 'Share Tech', sans-serif;
   color: white;
-};
+}
+
+img {
+    margin: 0 auto;
+    display: block;
+}
