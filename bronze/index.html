@@ -9,36 +9,24 @@
     <title>League of Legends - Season 4</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
-    <script src="js/countdown.js"></script>
+    <link href="css/flipclock.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="container">
-      <h1>How much time do I have to get out of Bronze league?</h1><br/>
+      <h1>How much time do I have to get out of <span id="bronze">Bronze</span> league?</h1><br/>
       <div id="counter"></div><br/>
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-      var myCountdown1 = new Countdown({
-        year: 2014,
-        month: 11,
-        day: 11,
-        hour: 1,
-        ampm: "am",
-        minute: 00,
-        second: 00,
-        width: 400,
-        height: 65,
-        inline: true,
-        target: "counter",
-        style: "flip",
-        rangeHi: "day",
-        labels: {
-          font: "Share Tech",
-          color: "#FFFFFF",
-          weight: "normal"
-        }});
+    <script src="js/flipclock.min.js"></script>
+    <script type="text/javascript">
+      var endDate = new Date(2014, 10, 11, 1, 0, 0);
+      var nowDate = new Date();
+      var diff = (endDate - nowDate) / 1000;
+      var clock = $('#counter').FlipClock(diff, {
+          clockFace: 'DailyCounter',
+          countdown: true
+      });
     </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
