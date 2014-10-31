@@ -28,7 +28,8 @@ body {
 #league-title {
   font-family: 'Share Tech', sans-serif;
   color: white;
-  text-align: center
+  text-align: center;
+  display: inline-block;
 }
 
 #league {
