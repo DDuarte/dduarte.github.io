@@ -197,14 +197,14 @@
             var name = attr_name == 'name' ? new_val : user.get('name');
             var region = attr_name == 'server' ? new_val : user.get('server');
 
-            if (initiator !== user) {
+            if (initiator !== user && name) {
                 user.set(attr_name, new_val);
                 var uri = updateQueryStringParameter(location.search, 'name', name);
                 uri = updateQueryStringParameter(uri, 'region', region);
                 if (window.history)
-                    window.history.pushState({}, "Title", uri);
+                    window.history.pushState({}, "League of Legends - Season 4 - " + name, uri);
 
-                if ((attr_name == 'name' || attr_name == 'server') && name) {
+                if ((attr_name == 'name' || attr_name == 'server')) {
                     $('.hyperlinkList').empty();
 
                     for (var i = 0; i < links.length; ++i) {
