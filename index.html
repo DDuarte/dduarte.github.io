@@ -232,7 +232,7 @@
                     var colors = ['#CD7F32', '#C0C0C0', '#FFD700', '#E5E4E2', '#00D8D8', '#00CED1', '#0000CD'];
                     var league;
 
-                    requestCrossDomain('http://www.lolskill.net/summoner/' + region.toUpperCase() + '/' + name + '', function (data) {
+                    requestCrossDomain('http://www.lolskill.net/summoner/' + region.toUpperCase() + '/' + name.replace(/\s+/g, '') + '', function (data) {
                         if (data.query && data.query.results && data.query.results.meta) {
                             for (var i = 0; i < data.query.results.meta.length; ++i) {
                                 var content = data.query.results.meta[i].content;
