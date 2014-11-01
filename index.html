@@ -204,7 +204,7 @@
                 if (window.history)
                     window.history.pushState({}, "Title", uri);
 
-                if (attr_name == 'name' || attr_name == 'server') {
+                if ((attr_name == 'name' || attr_name == 'server') && name) {
                     $('.hyperlinkList').empty();
 
                     for (var i = 0; i < links.length; ++i) {
@@ -307,7 +307,7 @@
         user.set('server', prevRegion, true);
     }
 
-    if ($('.hyperlinkList').length == 0 && user.get('name')) {
+    if ($('.hyperlinkList').length == 0) {
         for (var i = 0; i < links.length; ++i) {
             var str = '<li><a href="' + links[i].linkf +
                     '" title="' + links[i].name +
