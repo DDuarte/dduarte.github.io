@@ -307,7 +307,7 @@
         user.set('server', prevRegion, true);
     }
 
-    if ($('.hyperlinkList').length == 0) {
+    if ($('.hyperlinkList').length == 0 && user.get('name')) {
         for (var i = 0; i < links.length; ++i) {
             var str = '<li><a href="' + links[i].linkf +
                     '" title="' + links[i].name +
