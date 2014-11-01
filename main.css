@@ -30,16 +30,17 @@ body {
   color: white;
   text-align: center;
   display: inline-block;
-}
-
-#league {
-  color: #CD7F32; /* default color */
-  transition-property: color;
+  font-size: 4vw;
   transition-duration: 2s;
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+}
+
+#league {
+  color: #CD7F32; /* default color */
+  transition-property: color;
 }
 
 div.hyperlinks {
