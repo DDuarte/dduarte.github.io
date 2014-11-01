@@ -41,6 +41,7 @@ body {
 #league {
   color: #CD7F32; /* default color */
   transition-property: color;
+  transition-duration: 2s;
 }
 
 div.hyperlinks {
