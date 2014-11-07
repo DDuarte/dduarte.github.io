@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Holidays</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Files_10682464.html">Files</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DBC_331816.html">DBC</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Holidays
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> razor2142</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="Holidays-holidays.dbc"><span class="mw-headline">holidays.dbc</span></h2><h2 id="Holidays-Structure"><span class="mw-headline">Structure </span></h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Column</th><th class="confluenceTh">Field</th><th class="confluenceTh">Type</th><th class="confluenceTh">Notes</th><th colspan="1" class="confluenceTh">Extra info</th></tr><tr><td class="confluenceTd">0</td><td class="confluenceTd">eventID</td><td class="confluenceTd">Integer</td><td class="confluenceTd">Holiday event ID</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">eventStage1Duration</td><td class="confluenceTd">Integer</td><td class="confluenceTd">Stage1 event length (for stage1, either as preparation or main event. See eventSchedulerType for more info)</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">eventStage2Duration</td><td class="confluenceTd">Integer</td><td class="confluenceTd">Stage2 event length (for stage2, either as main event or cooldown. See eventSchedulerType for more info)</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">11</td><td class="confluenceTd">eventDate</td><td class="confluenceTd">Integer</td><td class="confluenceTd">Packed blizzdate - Epochdate=01.01.2000-00:00 - Year is discarded if column12 is 0</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">37</td><td class="confluenceTd">Region</td><td class="confluenceTd">integer</td><td class="confluenceTd"> ??? (needs more research)</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">38</td><td class="confluenceTd">Looping</td><td class="confluenceTd">integer</td><td class="confluenceTd"> ??? (needs more research - used only on Call To Arms events)</td><td colspan="1" class="confluenceTd"><pre> 283 - Call to Arms: Alterac Valley
+ 284 - Call to Arms: Warsong Gulch
+ 285 - Call to Arms: Arathi Basin
+ 353 - Call to Arms: Eye of the Storm
+ 400 - Call to Arms: Strand of the Ancient
+ 420 - Call to Arms: Isle of Conquest</pre></td></tr><tr><td class="confluenceTd">39</td><td class="confluenceTd">calendarFlags</td><td class="confluenceTd">integer</td><td class="confluenceTd"> ??? (needs more research)</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">49</td><td class="confluenceTd">eventCalendarName</td><td class="confluenceTd">iRefID</td><td class="confluenceTd">Ref to <a href="Localization-lang_333246.html">Loc</a> in HolidayNames.dbc</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">50</td><td class="confluenceTd">eventCalendarDescription</td><td class="confluenceTd">iRefID</td><td class="confluenceTd">Ref to <a href="Localization-lang_333246.html">Loc</a> in HolidayDescriptions.dbc</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">51</td><td class="confluenceTd">eventCalendarOverlay</td><td class="confluenceTd">String</td><td class="confluenceTd">Overlay texture used for ingame calendar event-decorations</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">52</td><td class="confluenceTd">priority</td><td class="confluenceTd">Integer</td><td class="confluenceTd"> ??? (needs more research)</td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd">53</td><td class="confluenceTd">eventSchedulerType</td><td class="confluenceTd">Integer</td><td class="confluenceTd">Definition of which timer is used, see eventSchedulerType below</td><td colspan="1" class="confluenceTd"><pre> -1: repeat, yearly
+  0: repeat, weekly
+  1: repeat, use defined dates
+  2: repeat, hourly
+</pre></td></tr><tr><td class="confluenceTd">54</td><td class="confluenceTd">eventFlags</td><td class="confluenceTd">Integer</td><td class="confluenceTd"> ??? (needs more research)</td><td colspan="1" class="confluenceTd"> </td></tr></tbody></table></div><h2 id="Holidays-eventSchedulerType"><span class="mw-headline"><strong>eventSchedulerType</strong> </span></h2><pre><strong>eventSchedulerType</strong> defines what kind of timer is used for when the event is to stop, start etc. - and if it uses different stages during it's &quot;buildup&quot;-phase (2 stages available)<br /> -1: event repeats every year based on column11, column12 etc dates - length and possible event stages is taken from the information given in column1 and column2
+     (adjusted in DBC to keep it in line with **yearly** changes) - if column12=0, use DATE only from field11
+  0: event repeats every 7 days, with a duration of &lt;eventStage1Duration&gt; hours (hardcoded startdate serverside depending on eventID)
+  1: event repeats based on column11, column12 etc values (see -1) - if &lt;eventStage2Duration&gt; exists, use &lt;eventStage1Duration&gt; as event prestage length
+  2: event repeats every X hours (with &lt;eventStage2Duration&gt; being the eventPause/eventWait timer)</pre><p> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

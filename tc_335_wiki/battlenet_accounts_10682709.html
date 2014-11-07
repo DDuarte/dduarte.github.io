@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : battlenet_accounts</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Auth_331475.html">Auth</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : battlenet_accounts
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> kuesta</span> on Aug 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code><a href="Auth_331475.html">Back-to:</a><a href="Auth_331475.html">Auth</a></code></p><h1 id="battlenet_accounts-Table:battlenet_accounts">Table: battlenet_accounts</h1><p>This table holds information on all available battlenet accounts.</p><h2 id="battlenet_accounts-Structure">Structure</h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="battlenet_accounts_10682709.html">id</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Auto increment</p></td><td class="confluenceTd"><p>Identifier</p></td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">email</a></td><td class="confluenceTd">varchar(320)</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">sha_pass_hash</a></td><td class="confluenceTd">varchar(64)</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">''</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">v</a></td><td class="confluenceTd">varchar(256)</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">''</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">s</a></td><td class="confluenceTd">varchar(64)</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">''</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">sessionKey</a></td><td class="confluenceTd">varchar(128)</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">''</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><a href="battlenet_accounts_10682709.html">joindate</a></td><td colspan="1" class="confluenceTd">timestamp</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">CURRENT_TIMESTAMP</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><a href="battlenet_accounts_10682709.html">last_ip</a></td><td colspan="1" class="confluenceTd">varchar(15)</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">'127.0.0.1'</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">failed_logins</a></td><td class="confluenceTd">int(10)</td><td class="confluenceTd">unsigned</td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">'0'</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">locked</a></td><td class="confluenceTd">tinyint(3)</td><td class="confluenceTd">unsigned</td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">'0'</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">lock_country</a></td><td class="confluenceTd">varchar(2)</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">'00'</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><a href="battlenet_accounts_10682709.html">last_login</a></td><td class="confluenceTd">timestamp</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd"> '0000-00-00 00:00:00'</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><a href="battlenet_accounts_10682709.html">online</a></td><td colspan="1" class="confluenceTd">tinyint(3)</td><td colspan="1" class="confluenceTd">unsigned</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">'0'</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><a href="battlenet_accounts_10682709.html"><span class="confluence-link">locale</span> </a></td><td colspan="1" class="confluenceTd">tinyint(3)</td><td colspan="1" class="confluenceTd">unsigned</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">'0'</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><a href="battlenet_accounts_10682709.html">os</a></td><td colspan="1" class="confluenceTd">varchar(3)</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">''</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr></tbody></table></div><h2 id="battlenet_accounts-Descriptionofthefields">Description of the fields</h2><h3 id="battlenet_accounts-id">id</h3><p>The unique account ID.</p><h3 id="battlenet_accounts-email">email</h3><p><code>field-no-description|</code>2</p><h3 id="battlenet_accounts-sha_pass_hash">sha_pass_hash</h3><p><code>field-no-description|3</code></p><h3 id="battlenet_accounts-v">v</h3><p><code>field-no-description|4</code></p><h3 id="battlenet_accounts-s">s</h3><p><code>field-no-description|5</code></p><h3 id="battlenet_accounts-sessionKey">sessionKey</h3><p><code>field-no-description|6</code></p><h3 id="battlenet_accounts-joindate">joindate</h3><p><code>field-no-description|7</code></p><h3 id="battlenet_accounts-last_ip">last_ip</h3><p><code>field-no-description|8</code></p><h3 id="battlenet_accounts-failed_logins">failed_logins</h3><p><code>field-no-description|9</code></p><h3 id="battlenet_accounts-locked">locked</h3><p><code>field-no-description|10</code></p><h3 id="battlenet_accounts-lock_country">lock_country</h3><p><code>field-no-description|11</code></p><h3 id="battlenet_accounts-last_login">last_login</h3><p><code>field-no-description|12</code></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:58</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

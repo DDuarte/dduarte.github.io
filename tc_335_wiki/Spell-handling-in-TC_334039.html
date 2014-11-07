@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Spell handling in TC</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Advanced_332236.html">Advanced</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Spell handling in TC
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> qaston</span> on Apr 02, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article is meant to introduce you to the concept of a spellcast. It's an important thing for every scripter to know in brief how this works because spells are one of the main  &quot;channel of interaction&quot; between objects ingame. Whenever you pick someone's pocket as a rougue, init a trade with other player, use an item or simply hurt someone's ass using magic - a spell is involved. Each spell is indentified by it's spellId entry in spell.dbc. <strong>SpellInfo</strong> class is a C++ interface to that table (among other related dbc and sql tables). Most of the cast process is handled inside a <strong>Spell</strong> class representing dynamic state of each cast. Behaviour of that class can be affected using <strong>SpellScript</strong> class objects. A mechanism with such big impact on everything is complex, so to simplify our view of what's going on it's split into several phases. Ingame, they occur in order same as in this article.</p><h3 id="SpellhandlinginTC-Spellpreparephase">Spell prepare phase</h3><p>This phase is responsible for handling the &quot;request&quot; from a spell caster - object which has initiated the cast. A request can be made from player client (see SpellHandler.cpp), or from the game objects itself (GameObject::CastSpell, Unit::CastSpell, etc). At this phase gameserver validates and prepares <strong>explicit target</strong> of the spell being cast. What is <strong>Explicit spell target</strong>? Ingame example is: your character has a spell, which has effect on an object you choose - by selecting the object with your character. In essence <strong>explicit spell target</strong> is the target, relatively to which spell selects who's going to be affected by the spell. As mentioned above, for client casts is most often the object you select. Serverside explicit target is selected by first parameter of Unit::CastSpell function. Not all spells require explicit targets though, a simple example is an AOE, no matter what you select ingame, targets around you are affected. Therefore, explicit spell target can be null, and that's natural. In case of many spells explicit target can be also a position on the ground, &quot;blizzard&quot; mage spell for example. What decices whenever spell needs explicit target? As you may have read in <a href="Spell-system_334173.html">Spell system</a> , database decides about most of the spell's behaviour, so is in this case. Spell.dbc's target, implicitTargetA, implicitTargetB decide about that, briefly - flag in target field or implicitTargetX set to one of TARGET_XXX_TARGET (TARGET_UNIT_TARGET for example) target modes mean spell requires an explicit target. The most important consequence of this is that you <strong>CANNOT </strong>cast anything you want on anything you wish, it's all precisely decided by client database and only thing you can do is to follow those rules. Besides explicit spell target validation and preparation there are also done some premature checks for correctness of cast request - a Spell::CheckCast funcion is called (which uses db data for checks), there are also some checks done in cast request functions unfortunally spread all over the core. On failure, error is sent, otherwise spell is enqueued for execution on next object update, or handled immediately in case of <strong>triggered</strong> spells. <strong>Triggered</strong> is a kind of &quot;system&quot; cast, it's not precisely defined what that means exactly as the term is too overused too much to have any specific meaning, but setting the triggered cast flag alters a lot of spell's behaviour and db data interpretation. As an example, spells cast with triggered flag (a parameter of CastSpell()) will ignore item requirements set in dbc,  some caster state requirements and so on. After spell is prepared successfully casting begins, you see castbar ingame. You can follow the code of this phase by searching for Spell:<img class="emoticon emoticon-cheeky" src="images/icons/emoticons/tongue.png" data-emoticon-name="cheeky" alt="(tongue)"/>repare function occurences in core.</p><h3 id="SpellhandlinginTC-Spellcastphase">Spell cast phase</h3><p>Once castbar is full (in case of instant spells immediately) the cast phase begins. During that phase there are done several things, one of the most important is: <strong>spell implicit target</strong> selection. <strong>Spell </strong><strong>implicit targets</strong> are ingame objects which will be affected by your spell. Their selection is based on implicitTargetX columns of Spell.dbc, conditions table and OnObject(Area)TargetSelect hooks of SpellScript. There's nothing done to the targets at this point (please don't break that rule while using scripts - it's unblizzlike), they're just selected for future processing. At the begining of this phase another important thing is done: second call of Spell::CheckCast (which you can affect by using OnCheckCast spell scrpt hook and conditions db table). Also, required items and power is taken in this phase from the caster. You can hook on this phase using BeforeCast, OnCast, AfterCast hooks. the whole phase is handled in Spell::cast.</p><h3 id="SpellhandlinginTC-Spelllaunchphase">Spell launch phase</h3><p>Launch comes immediately after cast is finished, it's the moment when spell &quot;leaves hands of the caster&quot;, you can notice that for spells which are flying for some amount of time before they reach targets. Some <strong>spell effects</strong> are handled during this phase, for example damage from caster must be calculated at the moment spell is being launched instead of the moment of hit, charge must begin at launch, etc. When (and if) your spell reaches it's target (immediately for spells with no delay) the next (hit) phase begins. Launch is handled in Spell::HandleLaunchPhase. You can affect execution of spell effects during this phase by using OnEffectLaunch and OnEffectLaunchTarget hooks. The difference between those two is that OnEffectLaunch is called once for each <strong>spell effect </strong>the spell has, regardless of it's targets; while OnEffectLaunchTarget is called once for every available<strong> implicit target </strong>of the spell (selected in cast phase before). </p><h3 id="SpellhandlinginTC-Spellhitphase">Spell hit phase</h3><p>Hit is the phase where most of <strong>effects</strong> of the spell are handled. <strong>Spell effects </strong>are small operations affecting either caster of the spell or implicit spell targets. Each spell entry has EffectX columns (in dbc) which contain id of effects that spell aplies to it's target. Each effect has it's own separate target list, so a single spell can operate on many different objects at once. For example, a spell may apply heal effect to your friends and give you a buff aura at once. Similarly to launch phase, you can override behaviour of <strong>spell effects </strong>in this phase by OnEffectHit and OnEffectHitTarget SpellScript hooks. You can also use: BeforeHit, OnHit and AfterHit hooks. Important thing during this phase is <strong>spell proc </strong>- special event trigger system which does things accordingly to what auras are applied to caster and implicit target of the spell. Some parts of proc system should be handled by the proc system in other spell cast phases, but that's not implemented atm.</p><h3 id="SpellhandlinginTC-Spellfinishphase">Spell finish phase</h3><p>The finish phase occurs after all spell targets are processed, it's just a cleanup, just a few relevant events happen in this phase.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : reputation_spillover_template</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : reputation_spillover_template
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 30, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code><code><a href="World_331623.html">Back-to:World</a></code></code></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>The `reputation_spillover_rate` table</strong></p>
+</div></div><p><code>field-no-description|0</code></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Structure</strong></p>
+</div></div><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td colspan="1" class="confluenceTd"><strong>Default</strong></td><td colspan="1" class="confluenceTd"><strong>Extra</strong></td><td colspan="1" class="confluenceTd"><strong>Comment</strong></td></tr><tr><td class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">faction</a></p></td><td class="confluenceTd"><p>smallint(6)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd">0</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">faction entry</td></tr><tr><td colspan="1" class="confluenceTd"><a href="reputation_spillover_template_333775.html">faction1</a></td><td colspan="1" class="confluenceTd"><p>smallint(6)</p></td><td colspan="1" class="confluenceTd"><p>unsigned</p></td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">0</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">faction to give spillover for</td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rate_1</a></p></td><td colspan="1" class="confluenceTd">float</td><td colspan="1" class="confluenceTd">signed</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">0</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">the given rep points * rate</td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rank1</a></p></td><td colspan="1" class="confluenceTd"><p>tinyint(3)</p></td><td colspan="1" class="confluenceTd">unsigned</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">0</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"><p>Max rank, above this will not give any spillover</p></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">faction2</a></p></td><td colspan="1" class="confluenceTd"><p>smallint(6)</p></td><td colspan="1" class="confluenceTd">unsigned</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">0</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rate_2</a></p></td><td colspan="1" class="confluenceTd"><p>float</p></td><td colspan="1" class="confluenceTd"><p>signed</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rank_2</a></p></td><td colspan="1" class="confluenceTd"><p>tinyint(3)</p></td><td colspan="1" class="confluenceTd"><p>unsigned</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">faction3</a></p></td><td colspan="1" class="confluenceTd"><p>smallint(6)</p></td><td colspan="1" class="confluenceTd"><p>unsigned</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rate_3</a></p></td><td colspan="1" class="confluenceTd"><p>float</p></td><td colspan="1" class="confluenceTd"><p>signed</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rank_3</a></p></td><td colspan="1" class="confluenceTd"><p>tinyint(3)</p></td><td colspan="1" class="confluenceTd"><p>unsigned</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">faction4</a></p></td><td colspan="1" class="confluenceTd"><p>smallint(6)</p></td><td colspan="1" class="confluenceTd"><p>unsigned</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rate_4</a></p></td><td colspan="1" class="confluenceTd"><p>float</p></td><td colspan="1" class="confluenceTd"><p>signed</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="reputation_spillover_template_333775.html">rank_4</a></p></td><td colspan="1" class="confluenceTd"><p>tinyint(3)</p></td><td colspan="1" class="confluenceTd"><p>unsigned</p></td><td colspan="1" class="confluenceTd"><p> </p></td><td colspan="1" class="confluenceTd"><p>NO</p></td><td colspan="1" class="confluenceTd"><p>0</p></td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr></tbody></table></div><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Description of the fields</strong></p>
+</div></div><h3 id="reputation_spillover_template-faction">faction</h3><p><code>field-no-description|1</code></p><h3 id="reputation_spillover_template-faction1-4">faction1-4</h3><p><code>field-no-description|3</code></p><h3 id="reputation_spillover_template-rate1-4">rate1-4</h3><p><code>field-no-description|4</code></p><h3 id="reputation_spillover_template-rank1-4">rank1-4</h3><p><code>field-no-description|5</code></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

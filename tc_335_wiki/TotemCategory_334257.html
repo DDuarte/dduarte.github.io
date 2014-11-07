@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : TotemCategory</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Files_10682464.html">Files</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DBC_331816.html">DBC</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : TotemCategory
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>&lt;noinclude&gt;|<br /> <code>Back-to:DBC</code></p><p>&lt;big&gt;<strong>TotemCategory.dbc</strong>&lt;/big&gt;</p><p><strong>Version is : 3.3.5a</strong></p><h2 id="TotemCategory-Structure"><span class="mw-headline">Structure</span></h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><pre><strong>Column</strong></pre></th><th class="confluenceTh"><pre><strong>Field</strong></pre></th><th class="confluenceTh"><pre><strong>Type</strong></pre></th><th class="confluenceTh"><pre><strong>Notes</strong></pre></th></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd"><pre>ID</pre></td><td class="confluenceTd"><pre>Integer</pre></td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">2-18</td><td class="confluenceTd"><pre>sRefName</pre></td><td class="confluenceTd"><pre>String + <a href="Localization-lang_333246.html">Loc</a></pre></td><td class="confluenceTd"><pre>Includes all kinds of component things.. not just totems</pre></td></tr><tr><td class="confluenceTd">19</td><td class="confluenceTd"><pre>Category</pre></td><td class="confluenceTd"><pre>Integer</pre></td><td class="confluenceTd"><pre>Which category the tool belongs to (1 = totems, 3 = enchanting rods etc)</pre></td></tr><tr><td class="confluenceTd">20</td><td class="confluenceTd"><pre>CategoryBits</pre></td><td class="confluenceTd"><pre>BitMask</pre></td><td class="confluenceTd"><pre>Which tools in the category the tool can be used as. For instance for totems:</pre><ul><li>bit 0 = earth</li><li>bit 1 = air</li><li>bit 2 = fire</li><li>bit 3 = water</li><li>&quot;Master Totem&quot; has the bitmask 1111b, meaning it can be used instead of all four normal totems.</li></ul></td></tr></tbody></table></div><h2 id="TotemCategory-Content"><strong>Content</strong></h2><p>&lt;/noinclude&gt;</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>ID</strong></p></td><td class="confluenceTd"><p><strong>Name</strong></p></td></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>Skinning Knife (OLD)</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>Earth Totem</p></td></tr><tr><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>Air Totem</p></td></tr><tr><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>Fire Totem</p></td></tr><tr><td class="confluenceTd"><p>5</p></td><td class="confluenceTd"><p>Water Totem</p></td></tr><tr><td class="confluenceTd"><p>6</p></td><td class="confluenceTd"><p>Runed Copper Rod</p></td></tr><tr><td class="confluenceTd"><p>7</p></td><td class="confluenceTd"><p>Runed Silver Rod</p></td></tr><tr><td class="confluenceTd"><p>8</p></td><td class="confluenceTd"><p>Runed Golden Rod</p></td></tr><tr><td class="confluenceTd"><p>9</p></td><td class="confluenceTd"><p>Runed Truesilver Rod</p></td></tr><tr><td class="confluenceTd"><p>10</p></td><td class="confluenceTd"><p>Runed Arcanite Rod</p></td></tr><tr><td class="confluenceTd"><p>11</p></td><td class="confluenceTd"><p>Mining Pick (OLD)</p></td></tr><tr><td class="confluenceTd"><p>12</p></td><td class="confluenceTd"><p>Philosopher's Stone</p></td></tr><tr><td class="confluenceTd"><p>13</p></td><td class="confluenceTd"><p>Blacksmith Hammer (OLD)</p></td></tr><tr><td class="confluenceTd"><p>14</p></td><td class="confluenceTd"><p>Arclight Spanner</p></td></tr><tr><td class="confluenceTd"><p>15</p></td><td class="confluenceTd"><p>Gyromatic Micro-Adjustor</p></td></tr><tr><td class="confluenceTd"><p>21</p></td><td class="confluenceTd"><p>Master Totem</p></td></tr><tr><td class="confluenceTd"><p>41</p></td><td class="confluenceTd"><p>Runed Fel Iron Rod</p></td></tr><tr><td class="confluenceTd"><p>62</p></td><td class="confluenceTd"><p>Runed Adamantite Rod</p></td></tr><tr><td class="confluenceTd"><p>63</p></td><td class="confluenceTd"><p>Runed Eternium Rod</p></td></tr><tr><td class="confluenceTd"><p>81</p></td><td class="confluenceTd"><p>Hollow Quill</p></td></tr><tr><td class="confluenceTd"><p>101</p></td><td class="confluenceTd"><p>Runed Azurite Rod</p></td></tr><tr><td class="confluenceTd"><p>121</p></td><td class="confluenceTd"><p>Virtuoso Inking Set</p></td></tr><tr><td class="confluenceTd"><p>141</p></td><td class="confluenceTd"><p>Drums</p></td></tr><tr><td class="confluenceTd"><p>161</p></td><td class="confluenceTd"><p>Gnomish Army Knife</p></td></tr><tr><td class="confluenceTd"><p>162</p></td><td class="confluenceTd"><p>Blacksmith Hammer</p></td></tr><tr><td class="confluenceTd"><p>165</p></td><td class="confluenceTd"><p>Mining Pick</p></td></tr><tr><td class="confluenceTd"><p>166</p></td><td class="confluenceTd"><p>Skinning Knife</p></td></tr><tr><td class="confluenceTd"><p>167</p></td><td class="confluenceTd"><p>Hammer Pick</p></td></tr><tr><td class="confluenceTd"><p>168</p></td><td class="confluenceTd"><p>Bladed Pickaxe</p></td></tr><tr><td class="confluenceTd"><p>169</p></td><td class="confluenceTd"><p>Flint and Tinder</p></td></tr><tr><td class="confluenceTd"><p>189</p></td><td class="confluenceTd"><p>Runed Cobalt Rod</p></td></tr><tr><td class="confluenceTd"><p>190</p></td><td class="confluenceTd"><p>Runed Titanium Rod</p></td></tr></tbody></table></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

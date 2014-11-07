@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Spell system</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Advanced_332236.html">Advanced</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Spell system
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="Spellsystem-Howdospellswork?">How do spells work?</h3><p>Behavior of each spell is defined in 3 places: database, spell scripts, and spell system code interpreting that database. Mortals should care mostly about first two which are discussed in this article.</p><h3 id="Spellsystem-Database">Database</h3><p>The database part includes data extracted from client loaded from dbc files: </p><p><a href="Spell_334025.html">Spell</a>.dbc, ...</p><p>As this data is extracted from client. It doesn't contain spells needed only serverside, those need to be added inside suplementary db tables in core which are emulating dbcs and have the same structure: </p><p><a href="spell_dbc_334077.html">spell_dbc</a></p><p><a href="spelldifficulty_dbc_334191.html">spelldifficulty_dbc</a></p><p>Data stored in dbcs is extracted from client, ergo it may not be interpreted by TC properly, so it's meaning is a subject of changes and fixing, as dbcs contain most of the data needed by spell system to work.</p><p>Data not needed by client for all spells is stored in <span style="font-size: 10.0pt;line-height: 13.0pt;">following tables of world db:</span></p><p><a href="conditions_330992.html">conditions</a> </p><p><span>-</span><span style="font-size: 10.0pt;line-height: 13.0pt;">CONDITION_SOURCE_TYPE_SPELL_IMPLICIT_TARGET - allows you to define requirements for implicit area targets of the spell, only matching targets will be added to spell target list</span></p><p><span style="font-size: 10.0pt;line-height: 13.0pt;"><span>-CONDITION_SOURCE_TYPE_SPELL - allows you to define requirements for caster/explicit target of the spell, if not met cast will fail</span></span></p><p><span style="font-size: 10.0pt;line-height: 13.0pt;"><span>-<span>CONDITION_SOURCE_TYPE_SPELL_PROC - allows you to define requirements for actor and actionTarget, if not met proc will fail</span></span></span></p><p><span style="font-size: 10.0pt;line-height: 13.0pt;"><span><span><span>-CONDITION_SOURCE_TYPE_SPELL_CLICK_EVENT</span></span></span></span></p><p><span style="font-size: 10.0pt;line-height: 13.0pt;"><span><span><span>-<span>CONDITION_SOURCE_TYPE_SPELL_LOOT_TEMPLATE</span></span></span></span></span></p><p><span style="font-size: 10.0pt;line-height: 13.0pt;"><span><span><span><span>-<span>CONDITION_SOURCE_TYPE_VEHICLE_SPELL</span></span></span></span></span></span></p><p><a href="spell_area_334040.html">spell_area</a> - defines if  aura  should be applied to an object in given area</p><p><a href="spell_enchant_proc_data_334086.html">spell_enchant_proc_data</a> - defines behavior of item enchant procs</p><p><a href="spell_group_stack_rules_334089.html">spell_group_stack_rules</a> - defines stacing rules for each group</p><p><a href="spell_group_334101.html">spell_group</a> - allows grouping spells for convenient handling</p><p><a href="spell_learn_spell_334114.html">spell_learn_spell</a> - defines that learning a given spell should learn you other spell, if not provided in dbcs</p><p><a href="spell_linked_spell_334119.html">spell_linked_spell</a> - allows simple triggering spell casts on certain spell events</p><p><a href="spell_pet_auras_334138.html">spell_pet_auras</a> - defines if a certain aura on pet owner should be linked to other aura on pet</p><p><a href="spell_proc_event_334141.html">spell_proc_event</a> - defines a requirement which needs to be passed for proc event to occur</p><p><a href="spell_proc_334150.html">spell_proc</a> - same as <a href="spell_proc_event_334141.html">spell_proc_event</a>, table in development</p><p><a href="spell_required_334159.html">spell_required</a> - defines requirements for learning a spell</p><p><a href="spell_ranks_334152.html">spell_ranks</a> - implements a concept of spell rank ingame</p><p><a href="spell_script_names_334169.html">spell_script_names</a> - binds spells to their spell scripts</p><p><a href="spell_target_position_334179.html">spell_target_position</a> - allows setting target location for certain spells</p><p><a href="spell_threat_334187.html">spell_threat</a> - contains threat data for spells</p><p>Developers are expected to fill those tables correctly to make spells work correctly. Please follow links for more details about each table.</p><h3 id="Spellsystem-Spellscripts">Spell scripts</h3><p>Spell scripts are a way to provide a way of implementing more complicated behavior, which couldn't be placed in db.</p><h4 id="Spellsystem-Genericstructure">Generic structure</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">// naming scheme: spell_[of who]_[spell name], for example spell_warl_banish, spell_deathwhisper_mana_barrier
+class spell_class_your_name_here : public SpellScriptLoader
+{
+    public:
+		//                                                  should be the same as class name - name in &quot;&quot; is the one used by db in SpellScriptNames table
+        spell_class_your_name_here () : SpellScriptLoader(&quot;spell_class_your_name_here &quot;) { }
+ 
+        // SpellScript object - alters behavior of Spell object ingame
+        class spell_class_your_name_here_SpellScript : public SpellScript
+        {
+            PrepareSpellScript(spell_class_your_name_here_SpellScript);
+			// bool Load() {return true;} - optional - allows loading script only in specific circumstances - see Optional loading below
+  			// bool Validate(SpellInfo const* /*spellInfo*/) - optional - allows checking data integrity - see Validation tests below
+		    /* hooks here - described below*/
+
+            void Register() {/*hook registration here*/}
+        };
+        // function creating script object - must be exactly like this one, but with your class name
+        SpellScript* GetSpellScript() const
+        {
+            return new spell_class_your_name_here_SpellScript();
+        }
+ 
+		// AuraScript object - alters behavior of Aura object ingame
+        class spell_class_your_name_here_AuraScript : public AuraScript
+        {
+            PrepareAuraScript(spell_class_your_name_here_AuraScript);
+
+			// bool Load() {return true;} - optional - allows loading script only in specific circumstances - see Optional loading below
+ 			// bool Validate(SpellInfo const* /*spellInfo*/) - optional - allows checking data integrity - see Validation tests below
+			/* hooks here - described below*/
+            void Register() {/*hook registration here*/}
+        };
+        // function creating script object - must be exactly like this one, but with your class name
+        AuraScript* GetAuraScript() const
+        {
+            return new spell_class_your_name_here_AuraScript();
+        }
+};
+// this function call creates script loader object for us - seek that function at the end of the script file you&#39;re adding to
+// if there&#39;s no such function see http://collab.kpsn.org/display/tc/How-to_CustomScript
+void AddSC_class_spell_scripts()
+{
+    // an entry for our spell script loader, there may be other entries aswell
+	/* ... */
+    new spell_class_your_name_here();
+}</pre>
+</div></div><p>As you see, there are 2 kinds of scripts: SpellScript and AuraScript. You may define both or just one of them in a single script.</p><h4 id="Spellsystem-Bindingyourscripttoaspell/spells">Binding your script to a spell/spells</h4><p>To make sure your script is executed you have to do 2 things (these are c++ requirements, i wish this was simpler).</p><ul style="list-style-type: square;"><li>create <a href="spell_script_names_334169.html">spell_script_names</a> entry - As you've seen above e<span>ach SpellScript/AuraScript is put inside of SpellScriptLoader class. Constructor of that class contains single parameter, that parameter is the value of  ScriptName column inside <a href="spell_script_names_334169.html">spell_script_names</a> table. The table consists of pairs (spellIdToWhichYouBindTheScript, &quot;spell_script_you_re_binding&quot;). You can bind one script to many spells or many scripts to one spell. The latter is needed for example when you want to logically separate scripts of a spell when spell is affected by different talents.</span><span><br /></span></li><li><span><span><span>properly override <span style="font-size: 10.0pt;line-height: 13.0pt;">AuraScript* GetAuraScript() const or <span style="font-size: 10.0pt;line-height: 13.0pt;">SpellScript* GetSpellScript() const to create objects of your script</span></span></span></span></span></li><li>make sure SpellScriptLoader of your script is created - add a call in <span style="font-size: 10.0pt;line-height: 13.0pt;">AddSC_XXXXX function. For more details on that, see </span><a href="CustomScript_332273.html">CustomScript</a></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">class spell_warl_unstable_affliction : public SpellScriptLoader
+{
+    public:
+        spell_warl_unstable_affliction() : SpellScriptLoader(&quot;spell_warl_unstable_affliction&quot;) { }
+ 
+        class spell_warl_unstable_affliction_AuraScript : public AuraScript
+        {
+			// required PrepareAuraScript macro
+			PrepareAuraScript(spell_warl_unstable_affliction_AuraScript);
+			/*...*/
+		};
+        AuraScript* GetAuraScript() const
+        {
+            return new spell_warl_unstable_affliction_AuraScript();
+        }
+		/*...*/
+};
+/*...*/
+void AddSC_warlock_spell_scripts()
+{
+    new spell_warl_unstable_affliction();
+/*...*/
+}</pre>
+</div></div><p> </p><h4 id="Spellsystem-Validationtests">Validation tests</h4><p>Overriding validate function allows you to check if data you're using in your script is present on core load. It's often used to check if spell used in script is still in database, as spells are often removed from client database when client version changes.</p><p>When this function will return false, a &quot;Spell `%u` did not pass Validate() function of script `%s` - script will be not added to the spell&quot; error will appear in log.</p><p>You don't need to check for presence of effects you bind hooks to - it's checked automatically and reported on startup by core for your convenience.</p><h5 id="Spellsystem-Example-checksforexistenceofspellsthescriptisusinglater:">Example - checks for existence of spells the script is using later:</h5><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">	        bool Validate(SpellInfo const* /*spellInfo*/)
+            {
+                if (!sSpellMgr-&gt;GetSpellInfo(SPELL_WARLOCK_IMPROVED_HEALTHSTONE_R1) || !sSpellMgr-&gt;GetSpellInfo(SPELL_WARLOCK_IMPROVED_HEALTHSTONE_R2))
+                    return false;
+                return true;
+            }	</pre>
+</div></div><p> </p><h4 id="Spellsystem-Optionalloading">Optional loading</h4><p>Sometimes you may decide that you want your script only be present in some cases, <span style="font-size: 10.0pt;line-height: 13.0pt;">bool Load() provides you a way to do so. When the function returns false your script will not be loaded to the object (Aura or Spell) - it will have no effect</span></p><h5 id="Spellsystem-Example-wewanttoscriptonlyplayercasts:">Example - we want to script only player casts:</h5><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">            bool Load()
+            {
+                return GetCaster() &amp;&amp; GetCaster()-&gt;GetTypeId() == TYPEID_PLAYER;
+            }</pre>
+</div></div><h4 id="Spellsystem-AuraScripthooks">AuraScript hooks</h4><p>TODO<img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p><h4 id="Spellsystem-SpellScripthooks">SpellScript hooks</h4><p>TODO<img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p><h4 id="Spellsystem-Goodpractices:">Good practices:</h4><p>-always use Validate(<span style="font-size: 10.0pt;line-height: 13.0pt;">SpellInfo const*) function to check all data you use in script for presence</span></p><p><span style="font-size: 10.0pt;line-height: 13.0pt;">-check for runtime errors, they often signal bad script behaviors</span></p><p><span style="font-size: 10.0pt;line-height: 13.0pt;">-put full spell name in comment before the script - this helps finding the script by spell name</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">// 781 - Disengage
+class spell_hun_disengage : public SpellScriptLoader</pre>
+</div></div><h4 id="Spellsystem-Practicalexampleonspellscripts">Practical example on spell scripts</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">// 781 - Disengage
+class spell_hun_disengage : public SpellScriptLoader
+{
+    public:
+        spell_hun_disengage() : SpellScriptLoader(&quot;spell_hun_disengage&quot;) { }
+        class spell_hun_disengage_SpellScript : public SpellScript
+        {
+            PrepareSpellScript(spell_hun_disengage_SpellScript);
+            SpellCastResult CheckCast()
+            {
+                Unit* caster = GetCaster();
+                if (caster-&gt;GetTypeId() == TYPEID_PLAYER &amp;&amp; !caster-&gt;isInCombat())
+                    return SPELL_FAILED_CANT_DO_THAT_RIGHT_NOW;
+                return SPELL_CAST_OK;
+            }
+            void Register()
+            {
+                OnCheckCast += SpellCheckCastFn(spell_hun_disengage_SpellScript::CheckCast);
+            }
+        };
+        SpellScript* GetSpellScript() const
+        {
+            return new spell_hun_disengage_SpellScript();
+        }
+};</pre>
+</div></div><p>Going through line to line:</p><p>TODO<img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p></div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397625088 {padding: 0px;}
+div.rbtoc1415397625088 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397625088 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397625088'>
+<ul class='toc-indentation'>
+<li><a href='#Spellsystem-Howdospellswork?'>How do spells work?</a></li>
+<li><a href='#Spellsystem-Database'>Database</a></li>
+<li><a href='#Spellsystem-Spellscripts'>Spell scripts</a>
+<ul class='toc-indentation'>
+<li><a href='#Spellsystem-Genericstructure'>Generic structure</a></li>
+<li><a href='#Spellsystem-Bindingyourscripttoaspell/spells'>Binding your script to a spell/spells</a></li>
+<li><a href='#Spellsystem-Validationtests'>Validation tests</a>
+<ul class='toc-indentation'>
+<li><a href='#Spellsystem-Example-checksforexistenceofspellsthescriptisusinglater:'>Example - checks for existence of spells the script is using later:</a></li>
+</ul>
+</li>
+<li><a href='#Spellsystem-Optionalloading'>Optional loading</a>
+<ul class='toc-indentation'>
+<li><a href='#Spellsystem-Example-wewanttoscriptonlyplayercasts:'>Example - we want to script only player casts:</a></li>
+</ul>
+</li>
+<li><a href='#Spellsystem-AuraScripthooks'>AuraScript hooks</a></li>
+<li><a href='#Spellsystem-SpellScripthooks'>SpellScript hooks</a></li>
+<li><a href='#Spellsystem-Goodpractices:'>Good practices:</a></li>
+<li><a href='#Spellsystem-Practicalexampleonspellscripts'>Practical example on spell scripts</a></li>
+</ul>
+</li>
+</ul>
+</div></p></div>
+</div>
+</div>
+</div>
+<div class="contentLayout2">
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p> </p></div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p> </p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-1704789"></a>
+                                    <font class="smallfont"><p><a class="confluence-userlink user-mention" data-username="qaston" href="http://collab.kpsn.org/display/~qaston" data-linked-resource-id="1704693" data-linked-resource-type="userinfo" data-base-url="http://collab.kpsn.org">QAston</a> FINISH IT NAO!</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by subv at Feb 18, 2013 02:12
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

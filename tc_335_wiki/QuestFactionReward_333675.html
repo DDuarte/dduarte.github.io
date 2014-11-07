@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : QuestFactionReward</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Files_10682464.html">Files</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DBC_331816.html">DBC</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : QuestFactionReward
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> kingpin</span> on Jan 08, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>&lt;noinclude&gt;|</p>
+
+<p><code>Back-to:DBC</code></p>
+
+<p>&lt;big&gt;<strong>QuestFactionReward.dbc</strong>&lt;/big&gt;</p>
+
+<p>This DBC contains the most often used values of reputation rewarded by quests. If a quest doesn't have <a href="quest_template_333709.html#quest_template-RewardFactionValueIdOverride">RewardFactionValueIdOverride</a> filled in, reputation is looked up in QuestFactionReward.dbc. Absolute value X of <a href="quest_template_333709.html#quest_template-RewardRepValueId">RewardRepValueId</a> gives the RepX column of this DBC. For positive RewRepValueId the first line in DBC is used, for negative RewardRepValueId, the second line is used.</p>
+
+<p><strong>Version is : 3.3.5a</strong></p>
+
+<h2 id="QuestFactionReward-Structure"><strong>Structure</strong></h2>
+<div class="table-wrap"><table class="confluenceTable"><tbody>
+<tr>
+<td class="confluenceTd"><p> <strong>Field Nb</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Name</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Type</strong> </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 1 </p></td>
+<td class="confluenceTd"><p> ID </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 2 </p></td>
+<td class="confluenceTd"><p> Rep0 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 3 </p></td>
+<td class="confluenceTd"><p> Rep1 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 4 </p></td>
+<td class="confluenceTd"><p> Rep2 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 5 </p></td>
+<td class="confluenceTd"><p> Rep3 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 6 </p></td>
+<td class="confluenceTd"><p> Rep4 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 7 </p></td>
+<td class="confluenceTd"><p> Rep5 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 8 </p></td>
+<td class="confluenceTd"><p> Rep6 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 9 </p></td>
+<td class="confluenceTd"><p> Rep7 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 10 </p></td>
+<td class="confluenceTd"><p> Rep8 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 11 </p></td>
+<td class="confluenceTd"><p> Rep9 </p></td>
+<td class="confluenceTd"><p> Int </p></td>
+</tr>
+</tbody></table></div>
+
+
+
+<hr />
+<h2 id="QuestFactionReward-Content"><strong>Content</strong></h2>
+
+<div class="table-wrap"><table class="confluenceTable"><tbody>
+<tr>
+<td class="confluenceTd"><p> <strong>Id</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep0</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep1</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep2</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep3</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep4</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep5</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep6</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep7</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep8</strong> </p></td>
+<td class="confluenceTd"><p> <strong>Rep9</strong> </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 1 </p></td>
+<td class="confluenceTd"><p> 0 </p></td>
+<td class="confluenceTd"><p> 10 </p></td>
+<td class="confluenceTd"><p> 25 </p></td>
+<td class="confluenceTd"><p> 75 </p></td>
+<td class="confluenceTd"><p> 150 </p></td>
+<td class="confluenceTd"><p> 250 </p></td>
+<td class="confluenceTd"><p> 350 </p></td>
+<td class="confluenceTd"><p> 500 </p></td>
+<td class="confluenceTd"><p> 1000 </p></td>
+<td class="confluenceTd"><p> 5 </p></td>
+</tr>
+<tr>
+<td class="confluenceTd"><p> 2 </p></td>
+<td class="confluenceTd"><p> 0 </p></td>
+<td class="confluenceTd"><p> -10 </p></td>
+<td class="confluenceTd"><p> -25 </p></td>
+<td class="confluenceTd"><p> -75 </p></td>
+<td class="confluenceTd"><p> -150 </p></td>
+<td class="confluenceTd"><p> -250 </p></td>
+<td class="confluenceTd"><p> -350 </p></td>
+<td class="confluenceTd"><p> -500 </p></td>
+<td class="confluenceTd"><p> -1000 </p></td>
+<td class="confluenceTd"><p> -5 </p></td>
+</tr>
+</tbody></table></div>
+
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

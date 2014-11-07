@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Valgrind</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Advanced_332236.html">Advanced</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Valgrind
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:World:How-to:Advanced</code></p><h1 id="Valgrind-Overview">Overview</h1><p>Valgrind is a programming tool/debugger.</p><p><strong>To install:</strong></p><ul><li>You can install it from your distro's repo, eg.: <em>apt-get install valgrind</em> in Debian/Ubuntu.</li><li>You can compile the source code from Valgrind's site.</li></ul><p><strong>More info:</strong></p><ul><li><a class="external-link" href="http://en.wikipedia.org/wiki/Valgrind" rel="nofollow">http://en.wikipedia.org/wiki/Valgrind</a></li><li><a class="external-link" href="http://valgrind.org/" rel="nofollow">http://valgrind.org/</a></li></ul><h1 id="Valgrind-Tools">Tools</h1><p>Valgrind has several tools/modes.<br /> The default tool is Memcheck and should be the most useful for Trinity.</p><h1 id="Valgrind-Memcheck">Memcheck</h1><p>Memcheck is a memory error detector. Memcheck can detect a lot of things.</p><p>You should start your core by this command:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">valgrind --tool=memcheck --leak-check=full --log-file=valgrind.log ./worldserver
+</pre>
+</div></div><p>Note that: Your core become so <strong>slow</strong>(core startup 3-5mins+) and lost a lot of performance, so don't try to use it with a lot of players.</p><p>If you do a ctrl-c your log file should contains a lot of information. Most of them are &quot;useless&quot;, like:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">==22709== Conditional jump or move depends on uninitialised value(s)
+==22709==    at 0x401707D: (within /lib/ld-2.10.1.so)
+==22709==    by 0x40052C0: (within /lib/ld-2.10.1.so)
+==22709==    by 0x4007FFA: (within /lib/ld-2.10.1.so)
+==22709==    by 0x400361C: (within /lib/ld-2.10.1.so)
+==22709==    by 0x40153E6: (within /lib/ld-2.10.1.so)
+==22709==    by 0x400138C: (within /lib/ld-2.10.1.so)
+==22709==    by 0x4000AF7: (within /lib/ld-2.10.1.so)
+</pre>
+</div></div><p>The number(22709) is the core's process id(PID).<br /> The log file has a summary part at the end of the log:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">==22709== LEAK SUMMARY:
+==22709==    definitely lost: 1,308,624 bytes in 183,502 blocks.
+==22709==    indirectly lost: 2,960 bytes in 31 blocks.
+==22709==      possibly lost: 49,368 bytes in 1,088 blocks.
+==22709==    still reachable: 69,714,748 bytes in 188,424 blocks.
+==22709==         suppressed: 0 bytes in 0 blocks.
+</pre>
+</div></div><p>The &quot;definitely lost&quot; is a 99.9% memory leak, eg.:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">==22709== 360 bytes in 1 blocks are definitely lost in loss record 1,203 of 1,396
+==22709==    at 0x4C2626C: operator new(unsigned long) (vg_replace_malloc.c:230)
+==22709==    by 0xB65316: OutdoorPvPTF::SetupOutdoorPvP() (OutdoorPvPTF.cpp:228)
+==22709==    by 0xB5DBCC: OutdoorPvPMgr::InitOutdoorPvP() (OutdoorPvPMgr.cpp:79)
+==22709==    by 0xCF8912: World::SetInitialWorldSettings() (World.cpp:1661)
+==22709==    by 0x8F4606: Master::Run() (Master.cpp:234)
+==22709==    by 0x8F3B35: main (Main.cpp:154) 
+</pre>
+</div></div><p>You can see a good and simple example at: <a class="external-link" href="http://valgrind.org/docs/manual/quick-start.html#quick-start.interpret" rel="nofollow">http://valgrind.org/docs/manual/quick-start.html#quick-start.interpret</a></p><p>You can read more about Memcheck at: <a class="external-link" href="http://valgrind.org/docs/manual/mc-manual.html" rel="nofollow">http://valgrind.org/docs/manual/mc-manual.html</a></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

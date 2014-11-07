@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : GDB</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Advanced_332236.html">Advanced</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : GDB
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:World:How-to:Advanced</code></p><p><strong>GDB: The GNU Project Debugger</strong></p><p>This is a simple/dirty tutorial of what is GDB and how to use it.</p><p>This tutorial assumes that you can start your trinity-core by typing:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">trinity-core
+</pre>
+</div></div><p>in the console. Also, it assumes that you installed GDB already. Else, <a href="http://www.tutorialspoint.com/gnu_debugger/installing_gdb.htm" class="external-link" rel="nofollow">check this tutorial</a> for help.</p><p>1. Before you start debugging trinity you need to have ensured that it is compiled with debug information. To build trinity with debug info just add -DWITH_COREDEBUG=1 to your options when running cmake. Then compile and install trinity as usual.<br /> If you want really full debug, without optimization, you can pass -DCMAKE_BUILD_TYPE=Debug as a cmake option. This however might be particulary slow and take a huge amount of ram while compiling.</p><p>2. Now you can start trinity with gdb by typing this.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">gdb trinity-core
+</pre>
+</div></div><p>Then you will most likely see something like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">user@*:~/home/sources/build$ gdb trinity-core
+GNU gdb 6.8-debian
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-linux-gnu&quot;...
+(gdb)
+</pre>
+</div></div><p>(gdb) - is the GDB command prompt , here you can type some commands, almost like in normal shell.</p><p>Now after you have gdb running, you may instruct it to start trinity (by having gdb start trinity you can debug it), here is the command:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">run
+</pre>
+</div></div><p>Just type it and if you are lucky you will have trinity loading.</p><p>Ok ... you made it, now trinity runs. Take a break until it crash, then you can come back</p><p>3. When trinity crashes you will most likely see this message, or any similar.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0x42c5c950 (LWP 9283)]
+Player (this=0x42c598e0, session=0x0) at ../../../src/game/Player.cpp:265
+265    ../../../src/game/Player.cpp: No such file or directory.
+    in ../../../src/game/Player.cpp
+(gdb)
+</pre>
+</div></div><p>Now you can type some comands to get information about the crash, and possibly give it to some dev to fix the problem.</p><p>Here are the commands that are best to be typed ( or at least I find the most usefull for crash report )</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">shell echo -e &quot;\nCRASH ON&quot; `date`
+info program
+shell echo -e &quot;\nBACKTRACE\n&quot;
+bt
+shell echo -e &quot;\nBACKTRACE FULL\n&quot;
+bt full
+shell echo -e &quot;\nTHREADS\n&quot;
+info threads
+shell echo -e &quot;\nTHREADS BACKTRACE\n&quot;
+thread apply all bt full
+</pre>
+</div></div><p>Just type them one after another and give the output in your bug report ...</p><p>OK. Thats it, now we can think of some way to automate all this process. GDB has 2 very good switches:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">--batch            Exit after processing options.
+--command=FILE, -x Execute GDB commands from FILE.
+</pre>
+</div></div><p>4. So you can put all the commands in one file and have GDB execute it, and when it finishes to exit. Lets say we put this in one file called gdb-commands.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">run
+shell echo -e &quot;\nCRASH ON&quot; `date`
+info program
+shell echo -e &quot;\nBACKTRACE\n&quot;
+bt
+shell echo -e &quot;\nBACKTRACE FULL\n&quot;
+bt full
+shell echo -e &quot;\nTHREADS\n&quot;
+info threads
+thread apply all bt full
+</pre>
+</div></div><p>Now you can start the whole monster with:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">gdb trinity-core --batch -x /path/to/gdb-commands
+</pre>
+</div></div><p> </p><p>5. I assume you didn't get this and need more assistance, so i put this together for you</p><div class="code panel pdl" style="border-width: 1px;">
+ <div class="codeHeader panelHeader pdl hide-border-bottom" style="border-bottom-width: 1px;">
+  <b class=" code-title">Restarter</b>
+  <span class="collapse-source expand-control"><span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">Expand source</span></span>
+ </div>
+ <div class="codeContent panelContent pdl hide-toolbar"> 
+  <pre class="theme: RDark; brush: bash; collapse: true; gutter: true" style="font-size:12px;">#! /bin/bash
+DIR=&quot;$( cd &quot;$( dirname &quot;${BASH_SOURCE[0]}&quot; )&quot; &amp;&amp; pwd )&quot;
+echo $DIR
+cd $DIR
+echo &quot;run\n&quot; &gt; gdbcommands
+echo &quot;shell echo -e \&quot;SERVERCRASHEVENT\&quot;        &quot; &gt;&gt; gdbcommands
+echo &quot;shell echo -e \&quot;\nCRASH ON\&quot; `date`       &quot; &gt;&gt; gdbcommands
+echo &quot;info program                              &quot; &gt;&gt; gdbcommands
+echo &quot;shell echo -e \&quot;\nBACKTRACE\n\&quot;           &quot; &gt;&gt; gdbcommands
+echo &quot;bt                                        &quot; &gt;&gt; gdbcommands
+echo &quot;shell echo -e \&quot;\nBACKTRACE FULL\n\&quot;      &quot; &gt;&gt; gdbcommands
+echo &quot;bt full                                   &quot; &gt;&gt; gdbcommands
+echo &quot;shell echo -e \&quot;\nTHREADS\n\&quot;             &quot; &gt;&gt; gdbcommands
+echo &quot;info threads                              &quot; &gt;&gt; gdbcommands
+echo &quot;shell echo -e \&quot;\nTHREADS BACKTRACE\n\&quot;   &quot; &gt;&gt; gdbcommands
+echo &quot;thread apply all bt full                  &quot; &gt;&gt; gdbcommands
+chmod +x gdbcommands
+while :
+do
+    echo &quot;starting worldserver&quot;;
+    #./worldserver
+    mkdir -p crashes
+    gdb worldserver --batch -x gdbcommands | tee crashes/current
+    FILE=$(date +%s)
+    sed -i '1,/SERVERCRASHEVENT/d' crashes/current
+    mv crashes/current crashes/$FILE&quot;.crash&quot;
+    find crashes/ -name '*.crash' -and -size -10k -delete
+    echo &quot;worldserver stopped&quot;;
+    sleep 1
+done</pre> 
+ </div>
+</div><p>This is a restarter that will output crashlogs with unixtime of crash as their filename. Which you can later either send to trinitycore devs or fix yourself!</p><p><a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=TIPS&amp;linkCreation=true&amp;fromPageId=332249">TIPS</a><br /> 1.You can also redirect stdout to some log file. I mean this:<br /> &lt;source lang=&quot;bash&quot;&gt;<br /> gdb trinity-core --batch -x /path/to/gdb-commands &gt; /some/log/file<br /> &lt;/source&gt;</p><p>2.You can add a tail command to gdb-commands file to get the latest lines from your server.log file:<br /> &lt;source lang=&quot;bash&quot;&gt;<br /> shell echo -e &quot;\nSERVER.LOG\n&quot;<br /> shell tail -n 50 /path/to/your/server.log<a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=%2Fcode&amp;linkCreation=true&amp;fromPageId=332249">/code</a>50 means how much lanes to take from server.log<br /> &lt;/source&gt;</p><p>3. You can add -ggdb3 -g3 flags to your CXXFLAGS in order to get more debug output. If you add them there is no need to add --with-debug-info switch in order to get meaningfull backtrace.</p><p>4. You can pass arguments to trinity-core by passing them to the run gdb command ( run -c /path/to/trinitycore.conf ).</p><p>– original by Derex</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

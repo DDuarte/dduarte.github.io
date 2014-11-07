@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : character_action</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : character_action
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `character_action` table</strong></p><p>Contains all the individual button data for each character. A button is any of the places in the GUI where you can place for example a spell, item, or macro as a shortcut.</p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="character_action_330726.html">guid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="character_action_330726.html">spec</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="character_action_330726.html">button</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="character_action_330726.html">action</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="character_action_330726.html">type</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="character_action-guid">guid</h3><p>The GUID of the character. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=characters_tc2&amp;linkCreation=true&amp;fromPageId=330726">characters.guid</a></p><h3 id="character_action-spec">spec</h3><p>spec = 0 is the first spec, spec = 1 is the second spec.</p><h3 id="character_action-button">button</h3><p>The ID of the button on the action bar where the action icon will be placed.</p><p>Special bars are used for stances, auras, pets, stealth, and other similar special modes.</p><div class="panel" style="background-color: #fff;border-color: #ccc;border-style: dashed;border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: dashed;border-bottom-color: #ccc;background-color: #fff;"><b>Possible values</b></div><div class="panelContent" style="background-color: #fff;">
+<div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Button IDs</p></th><th class="confluenceTh"><p>Set (key)</p></th></tr><tr><td class="confluenceTd"><p>1-11</p></td><td class="confluenceTd"><p>1 (SHIFT + 1)</p></td></tr><tr><td class="confluenceTd"><p>12-23</p></td><td class="confluenceTd"><p>2 (SHIFT + 2)</p></td></tr><tr><td class="confluenceTd"><p>24-35</p></td><td class="confluenceTd"><p>3 (SHIFT + 3) h1. Right Side Bar</p></td></tr><tr><td class="confluenceTd"><p>36-47</p></td><td class="confluenceTd"><p>4 (SHIFT + 4) Right Side Bar 2</p></td></tr><tr><td class="confluenceTd"><p>48-59</p></td><td class="confluenceTd"><p>5 (SHIFT + 5) h1. Bottom Right Bar</p></td></tr><tr><td class="confluenceTd"><p>60-71</p></td><td class="confluenceTd"><p>6 (SHIFT + 6) Bottom Left Bar</p></td></tr><tr><td class="confluenceTd"><p>72-83</p></td><td class="confluenceTd"><p>1 SpecialA</p></td></tr><tr><td class="confluenceTd"><p>84-95</p></td><td class="confluenceTd"><p>1 SpecialB</p></td></tr><tr><td class="confluenceTd"><p>96-107</p></td><td class="confluenceTd"><p>1 SpecialC</p></td></tr><tr><td class="confluenceTd"><p>108-119</p></td><td class="confluenceTd"><p>1 SpecialD</p></td></tr></tbody></table></div>
+</div></div><h3 id="character_action-action">action</h3><p>Depending on the type value, this could be either the spell ID (Spell.dbc), the <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=item_template_tc2&amp;linkCreation=true&amp;fromPageId=330726">item ID</a> or macro ID.</p><h3 id="character_action-type">type</h3><p>The type of action:</p><div class="panel" style="background-color: #fff;border-color: #ccc;border-style: dashed;border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: dashed;border-bottom-color: #ccc;background-color: #fff;"><b>Possible types</b></div><div class="panelContent" style="background-color: #fff;">
+<div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p>Spell</p></td></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>Click</p></td></tr><tr><td class="confluenceTd"><p>32</p></td><td class="confluenceTd"><p>Eq set</p></td></tr><tr><td class="confluenceTd"><p>64</p></td><td class="confluenceTd"><p>Macro</p></td></tr><tr><td class="confluenceTd"><p>65</p></td><td class="confluenceTd"><p>Click macro</p></td></tr><tr><td class="confluenceTd"><p>128</p></td><td class="confluenceTd"><p>Item</p></td></tr></tbody></table></div>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:58</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

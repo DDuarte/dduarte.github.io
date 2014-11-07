@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : SQL Guidelines</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : SQL Guidelines
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> nayd</span> on Oct 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong class="bbc">HOW TO GIVE YOUR CONTRIBUTION TO THE TRINITY DATABASE PROJECT:</strong><br /><span style="color: rgb(40,40,40);">It is most important that suggested fixes in this section do not take an enormous amount of time to check and test, otherwise they are useless if they take up as much time as writing them from scratch by a Dev (hence also a waste of time for you suggesting the fix).</span><br /><br /><strong class="bbc">METHOD:</strong><br /><span style="color: rgb(40,40,40);">All the fixes should be done in a &quot;New Issue&quot; on our tracker: </span><a class="external-link" href="http://www.trinitycore.org/t/trinitycore/newticket" style="text-decoration: underline;" title="" rel="nofollow">https://github.com/T...nityCore/issues</a><br /><span style="color: rgb(40,40,40);">If any aspect of the following method is not followed, your ticket might be deleted.</span><br /><br /><strong class="bbc">DO NOT WASTE DEVS' TIME AND YOUR TIME:</strong></p><ul class="bbcol decimal" style="margin-left: 40.0px;"><li>Use the search function to see if the fix you want to provide hasn't already been posted or already accepted and comitted. Use multiple words search if necessary, do not stop at the first attempt just because the search engine does not return any result. (Search both on the forums and on the tracker)</li><li>Always state the Trinity Core Hash you are using, make sure you are using the latest TDB release and state any addon you are using.</li><li>Cross-check a bug you found with a clean world DB. Any custom addition or change you may have done on your DB could cause your bug, you never know.</li><li>Always state the source of your fixes (website, offy account, another project, etc) and provide as many links or details as possible. Always pretend that the Dev reading doesn't know the quest/mob/etc you are trying to fix.</li><li>Keep the section tidy. Use tags ```sql ``` to precisely define what your are fixing, and use the &quot;Description&quot; field to state whether you are fixing the spawn, the template, etc and make ONE ticket per fix, DO NOT make one ticket with many fixes. (Follow the example bellow.)</li></ul><p><br /><strong class="bbc">MAKE YOUR FIX USEFUL:</strong></p><ul class="bbcol decimal" style="margin-left: 40.0px;"><li>Always comment your queries for better understanding with the -- format.</li><li>The ticket will not support too many queries. Attach a sql file to your ticket whenever necessary.</li><li>Any INSERT INTO query must be preceded by a DELETE query to prevent import errors. Always write the fields in the query to better trace any structure change and adapt your fix to newer core revs.</li><li>If you are modifying an existing line, use an UPDATE query. We do not delete and re-insert a full line just to modify a few fields. Be as precise as you can to make sure your query updates ONLY the line expected.</li><li>If you are writing a text, make sure you use '' instead of ' when writing an apostrophe or it will give an import error</li><li>If you are providing an SQL query fix, please advise if it has been tested or not (be honest). Others might then test it for you and give feedback, this is a Community work! If you have tested your own work.</li><li>DO NOT CHANGE ANY WDB FIELD: <a class="external-link" href="http://www.trinitycore.org/f/index.php?/topic/58-wdb-fields/" style="text-decoration: underline;" title="" rel="nofollow">http://www.trinityco.../58-wdb-fields/</a></li></ul><p><br /><strong class="bbc">TICKET EXAMPLE:</strong><br /><strong class="bbc">Title</strong><span style="color: rgb(40,40,40);">: [ITEM] Broken Longbow</span><br /><strong class="bbc">Description</strong><span style="color: rgb(40,40,40);">:</span></p><blockquote><p><span style="color: rgb(40,40,40);">Missing from Abjurist Belmara's loot</span><br /><span style="color: rgb(40,40,40);">Core: Hash 809694408aaee6a20203</span><br /><span style="color: rgb(40,40,40);">Database: TDB 43</span><br /><span style="color: rgb(40,40,40);">Addons: Anticheat 1</span><br /><span style="color: rgb(40,40,40);">Abjurist Belmara should drop Broken Longbow but doesn't.</span><br /><span style="color: rgb(40,40,40);">Tested Query: Yes</span><br /><span style="color: rgb(40,40,40);">Suggested Fix:</span><br /><span style="color: rgb(40,40,40);">```sql</span><br /><span style="color: rgb(40,40,40);">-- Adding Broken Rainbow to Abjurist Belmara in Netherstorm</span><br /><span style="color: rgb(40,40,40);">DELETE FROM `creature_loot_template` WHERE `item`=25406;</span><br /><span style="color: rgb(40,40,40);">INSERT INTO `creature_loot_template` (`entry`,`item`,`ChanceOrQuestChance`,`lootmode`,`groupid`,`mincountOrRef`,`maxcount`,`lootcondition`,`con</span><br /><span style="color: rgb(40,40,40);">dition_value1`,`condition_value2`) VALUES</span><br /><span style="color: rgb(40,40,40);">(19546,25406,24,1,0,1,1,0,0,0);</span><br /><span style="color: rgb(40,40,40);">```</span></p><p><span style="color: rgb(40,40,40);"><span style="color: rgb(40,40,40);">(note: ``` ``` is the code tag in GH: Issues)</span><br /><br /><span style="color: rgb(40,40,40);">Source: </span><a href="http://www.wowhead.com/?npc=19546" style="text-decoration: underline;" title="External link" class="external-link" rel="nofollow">http://www.wowhead.com/?npc=19546</a></span></p></blockquote><p><br /><br /><strong class="bbc">CONCLUSION:</strong><br /><span style="color: rgb(40,40,40);">Use the wiki to learn more about the DB structure. Although new things are added more quickly than the wiki is updated to explain them, it is very very useful.</span><br /><span style="color: rgb(40,40,40);">We will be very harsh if we realise that a suggested fix is just a copy-paste from another project without linking the original post. </span><strong class="bbc">We do not tolerate leeching.</strong><span style="color: rgb(40,40,40);"> Credits must always be given.</span><br /><span style="color: rgb(40,40,40);">Finally, </span><strong class="bbc">thank you</strong><span style="color: rgb(40,40,40);">, because if you are reading this it means you really care about helping and wish not to waste the Devs' time!</span><br /><br /><strong class="bbc">EXAMPLES:</strong><br /><span style="color: rgb(40,40,40);">Note: This may not be a working code, it is used for this thread as an example.</span><br /><span style="color: rgb(40,40,40);">Notice how table and field names are always included in `` symbols, and how values are written plainly, only texts are included in '' symbols.</span></p><p><strong style="line-height: 1.4285715;"><br /></strong></p><p><strong style="line-height: 1.4285715;">Delete before insert into and always put fields in the query.</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Wrong</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">INSERT INTO creature_loot_template VALUES (19546, 25406, 24, 0, 1, 1, 0, 0, 0);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Correct</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">-- Add item Broken Longbow to Abjurist Belmara loot in Netherstorm
+DELETE FROM `creature_loot_template` WHERE `entry`=19546 AND `item`=25406;
+INSERT INTO creature_loot_template (`entry`,`item`,`ChanceOrQuestChance`,`lootmode`,`groupid`,`mincountOrRef`,`maxcount`,`lootcondition`,`condition_value1`,`condition_value2`) VALUES
+(19546,25406,24,1,0,1,1,0,0,0);</pre>
+</div></div><p><strong style="line-height: 1.4285715;"><br /></strong></p><p><strong style="line-height: 1.4285715;">Make sure your update queries are precise. You might and up changing more lines then you thought of.</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Wrong</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">UPDATE `creature_loot_template` SET `ChanceOrQuestChance`=100 WHERE `item`=25406;</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Correct</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">-- Changing droprate for Broken Longbow dropped by Abjurist Belmara from 24 to 100.
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`=100 WHERE `entry`=19546 AND `item`=25406;</pre>
+</div></div><p><strong>Remember to use '' instead of a single apostrophe when writing texts, or there will be import errors.</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Wrong</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">UPDATE `page_text` SET `text`=&#39;Hello Morgan, you shouldn&#39;t be here&#39; WHERE `entry`=15;</pre>
+</div></div><p><span style="color: rgb(40,40,40);">Note that shouldn't is written shouldn''t</span></p><p><br /><strong class="bbc">SIDENOTES:</strong><br /><span style="color: rgb(40,40,40);">Remember that a query must always end with a semicolon( ; ).</span><br /><span style="color: rgb(40,40,40);">In general, always import your own queries into you DB to check if there are any import errors and also any startup errors!</span><br /><br /><br /><strong class="bbc">Additional guidelines:</strong><br /><span style="color: rgb(40,40,40);">Submit micro-fixes instead of huge ones. For example:</span><br /><span style="color: rgb(40,40,40);">One-type only fix submission (Loot or Stats (and eventual spawns)...; Normal or Heroic and so on)</span><br /><br /><span style="color: rgb(40,40,40);">Comment the lines (especially loot fixes). This way the dev can easily check it without staying ages on WowHead to check the ID of each item. For example:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">-- Ingvar the Plunderer (Normal)
+-- delete previous loot template
+DELETE FROM `creature_loot_template` WHERE `entry`=23954;
+DELETE FROM `reference_loot_template` WHERE `entry` IN (14002,14003);
+ 
+-- create new loot template
+-- data: WoW Armory
+INSERT INTO `creature_loot_template` (`entry`,`item`,`ChanceOrQuestChance`,`groupid`,`mincountOrRef`,`maxcount`,`lootcondition`,`condition_value1`,`condition_value2`) VALUES
+(23954,35576,0,1,1,1,0,0,0), -- Ingvar`s Monolithic Cleaver
+(23954,35577,0,1,1,1,0,0,0), -- Holistic Patchwork Breeches
+(23954,35578,0,1,1,1,0,0,0), -- Overlaid Chain Spaulders
+(23954,14002,100,0,-14002,1,0,0,0), -- referenced Ingvar`s Head for quest 11252
+(23954,14003,100,0,-14003,1,0,0,0), -- referenced Ingvar`s Head for quest 11262
+(23954,33470,4,0,1,7,0,0,0), -- Frostweave Cloth, chance by WowHead
+(23954,43228,100,0,1,1,0,0,0); -- Stone Keeper`s Shard
+ 
+-- create Ingvar`s Head reference loot template
+-- data: WoW Armory
+INSERT INTO `reference_loot_template` (`entry`,`item`,`ChanceOrQuestChance`,`groupid`,`mincountOrRef`,`maxcount`,`lootcondition`,`condition_value1`,`condition_value2`) VALUES
+(14002,33330,-100,0,1,1,9,11252,0), -- Ingvar`s Head (quest 11252)
+(14003,33330,-100,0,1,1,9,11262,0); -- Ingvar`s Head (quest 11262)</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">Yes it's a more time consuming work, but it allows us to check them quickly.</span><br /><br /><span style="color: rgb(40,40,40);">Titles (summary) of the fix submissions, i.e.:</span><br /><span style="color: rgb(40,40,40);">[LOOT][Normal] Instance name</span><br /><span style="color: rgb(40,40,40);">[LOOT][Normal] Boss name</span><br /><span style="color: rgb(40,40,40);">[STATS] Creature name</span><br /><span style="color: rgb(40,40,40);">[SPAWN] Creature name</span><br /><br /><span style="color: rgb(40,40,40);">AND REMEMBER: always check if the fix has been submitted before! If you don't check, don't be surprised if your ticket will be closed</span><br /><br /><strong class="bbc">Demonstration of proper SmartAI submission.</strong><br /><span style="color: rgb(40,40,40);">SAI Guide: </span><a class="external-link" href="http://www.trinitycore.org/f/index.php?/topic/1187-sai-scripting-tutorial/" style="text-decoration: underline;" title="" rel="nofollow">http://www.trinityco...pting-tutorial/</a><br /><span style="color: rgb(40,40,40);">SAI Wiki: </span><a class="external-link" href="http://www.trinitycore.org/w/Smart_scripts_tc2" style="text-decoration: underline;" title="" rel="nofollow">http://www.trinityco...art_scripts_tc2</a><br /><br /><em class="bbc">Please follow our demonstration(s), failure to do so because of ignorance WILL get the submission deleted.</em><br /><em class="bbc">Please use the search first, you may find your fix already in another thread or in the accepted forums area.</em><br /><em class="bbc">Reminder for submitting queries.... USE the code tag: ```sql sql here ```.</em><br /><br /><span style="color: rgb(40,40,40);">Note: Always state the source_type in the delete query (0 for creature scripts, 9 for timed scripts).</span><br /><span style="color: rgb(40,40,40);">If the creature already has EventAI scripts assigned, do not forget to delete them too.</span><br /><span style="color: rgb(40,40,40);">smart_scripts.comment format: &quot;NPC name - Event name - Action name&quot;</span><br /><br /></p><p class="prettyprint lang-sql prettyprinted"><span class="com" style="color: rgb(136,0,0);"> </span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">-- Fel Cannon MKI SAI
+SET @ENTRY := 22461;
+SET @SPELL1 := 36238; -- Fel Cannon Blast
+UPDATE `creature_template` SET `AIName`=&#39;SmartAI&#39; WHERE `entry`=@ENTRY;
+DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
+-- always have the fields present in query (no spacs are need within the value columns)
+-- comments.. more the better, tell us and everyone what the intention is
+INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
+(@ENTRY,0,0,0,1,0,100,1,1000,1000,1000,1000,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,&#39;Fel Cannon MKI - OOC - Prevent Combat Movement&#39;),
+(@ENTRY,0,1,0,0,0,100,0,0,1000,2500,2500,11,@SPELL1,1,0,0,0,0,2,0,0,0,0,0,0,0,&#39;Fel Cannon MKI - Combat - Cast Fel Cannon Blast&#39;);
+</pre>
+</div></div><p><br /><br /><strong class="bbc">Variables:</strong><br /><span style="color: rgb(40,40,40);">If you reference anything more than 3 times, use a variable: </span><a class="external-link" href="http://dev.mysql.com/doc/refman/5.0/en/user-variables.html" style="text-decoration: underline;" title="External link" rel="nofollow">official mysql documentation</a><br /><br /><span style="color: rgb(40,40,40);">This will cut down on maintenance of your script and also cuts down on typos. Additionally, it makes the script significantly easier to read and interpret (something that will help not only devs but other people trying to learn from your script).</span><br /><br /></p><p class="prettyprint lang-sql prettyprinted"><span class="com" style="color: rgb(136,0,0);"> </span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>(before)</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">-- Ingvar the Plunderer (Normal)
+-- delete previous loot template
+DELETE FROM `creature_loot_template` WHERE `entry`=23954;
+DELETE FROM `reference_loot_template` WHERE `entry` IN (14002,14003);
+
+
+-- create new loot template
+-- data: WoW Armory
+INSERT INTO `creature_loot_template` (`entry`,`item`,`ChanceOrQuestChance`,`groupid`,`mincountOrRef`,`maxcount`,`lootcondition`,`condition_value1`,`condition_value2`) VALUES
+(23954,35576,0,1,1,1,0,0,0), -- Ingvar`s Monolithic Cleaver
+(23954,35577,0,1,1,1,0,0,0), -- Holistic Patchwork Breeches
+(23954,35578,0,1,1,1,0,0,0), -- Overlaid Chain Spaulders
+(23954,14002,100,0,-14002,1,0,0,0), -- referenced Ingvar`s Head for quest 11252
+(23954,14003,100,0,-14003,1,0,0,0), -- referenced Ingvar`s Head for quest 11262
+(23954,33470,4,0,1,7,0,0,0), -- Frostweave Cloth, chance by WowHead
+(23954,43228,100,0,1,1,0,0,0); -- Stone Keeper`s Shard</pre>
+</div></div><p class="prettyprint lang-sql prettyprinted"><span class="com" style="color: rgb(136,0,0);"> </span></p><p class="prettyprint lang-sql prettyprinted"><span class="com" style="color: rgb(136,0,0);"> </span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>(after)</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">-- Ingvar the Plunderer (Normal)
+SET @Ingvar :=23954;
+ 
+-- delete previous loot template
+DELETE FROM `creature_loot_template` WHERE `entry`=@Ingvar;
+DELETE FROM `reference_loot_template` WHERE `entry` IN (14002,14003);
+
+
+-- create new loot template
+-- data: WoW Armory
+INSERT INTO `creature_loot_template` (`entry`,`item`,`ChanceOrQuestChance`,`groupid`,`mincountOrRef`,`maxcount`,`lootcondition`,`condition_value1`,`condition_value2`) VALUES
+(@Ingvar,35576,0,1,1,1,0,0,0), -- Ingvar`s Monolithic Cleaver
+(@Ingvar,35577,0,1,1,1,0,0,0), -- Holistic Patchwork Breeches
+(@Ingvar,35578,0,1,1,1,0,0,0), -- Overlaid Chain Spaulders
+(@Ingvar,14002,100,0,-14002,1,0,0,0), -- referenced Ingvar`s Head for quest 11252
+(@Ingvar,14003,100,0,-14003,1,0,0,0), -- referenced Ingvar`s Head for quest 11262
+(@Ingvar,33470,4,0,1,7,0,0,0), -- Frostweave Cloth, chance by WowHead
+(@Ingvar,43228,100,0,1,1,0,0,0); -- Stone Keeper`s Shard</pre>
+</div></div><p class="prettyprint lang-sql prettyprinted"><span class="com" style="color: rgb(136,0,0);"> </span></p><p><br /><br /><strong class="bbc">(Internal) NOTE TO PUSHERS:</strong></p><ul class="bbc" style="margin-left: 40.0px;"><li>Before committing be sure you have last core/DB revision.</li><li>Always re-check on tip free IDs/GUIDs (use the IRC guid bot or <a href="https://github.com/TrinityCore/TC-Unused-Guid-Search" class="external-link" rel="nofollow">https://github.com/TrinityCore/TC-Unused-Guid-Search</a>)</li></ul><p><em class="bbc">** Various authors (Teacher, unholy, denyde, Nay)</em><span style="color: rgb(40,40,40);"> </span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Correct</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: sql; gutter: false" style="font-size:12px;">-- Correcting text for item William&#39;s Shipment.
+UPDATE `page_text` SET `text`=&#39;Hello Morgan, you shouldn&#39;&#39;t be here&#39; WHERE `entry`=15;</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

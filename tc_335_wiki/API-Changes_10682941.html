@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : API Changes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : API Changes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> nayd</span>, last modified by <span class='editor'> pegasus</span> on Sep 23, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>List of changes to Trinity's &quot;Application Programming Interface&quot;*</p><p><span style="color: rgb(0,0,0);"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397532480 {padding: 0px;}
+div.rbtoc1415397532480 ul {list-style: circle;margin-left: 0px;}
+div.rbtoc1415397532480 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397532480'>
+<ul class='toc-indentation'>
+<li><a href='#APIChanges-18September2014'>18 September 2014</a>
+<ul class='toc-indentation'>
+<li><a href='#APIChanges-Core/Texts:addedTextRangeparametertocreature_text'>Core/Texts: added TextRange parameter to creature_text</a></li>
+</ul>
+</li>
+<li><a href='#APIChanges-16September2014'>16 September 2014</a>
+<ul class='toc-indentation'>
+<li><a href='#APIChanges-BlueCORE/ScriptsCore/Entities:AddedObjectGuidclassfromMaNGOS(Mergebranch&#39;Object&#39;Guid&#39;)'>CORE/SCRIPTS Core/Entities: Added ObjectGuid class from MaNGOS (Merge branch &#39;Object&#39;Guid&#39;)</a></li>
+</ul>
+</li>
+<li><a href='#APIChanges-13September2014'>13 September 2014</a>
+<ul class='toc-indentation'>
+<li><a href='#APIChanges-BlueCORE/ScriptsCore/Chat:cleanupMonsterTextmethods'>CORE/SCRIPTS Core/Chat: cleanup MonsterText methods</a></li>
+<li><a href='#APIChanges-DatabaseCore/Scripts:Nukedb_script_stringtableandmakeSCRIPT_COMMAND_TALKwithbroadcast_textinstead'>DATABASE Core/Scripts: Nuke db_script_string table and make SCRIPT_COMMAND_TALK with broadcast_text instead </a></li>
+</ul>
+</li>
+</ul>
+</div></span></p><p> </p><h2 id="APIChanges-18September2014">18 September 2014</h2><h3 id="APIChanges-Core/Texts:addedTextRangeparametertocreature_text"><a href="https://github.com/TrinityCore/TrinityCore/commit/e567ab95972508adc85a36f867723114a04fe227" class="external-link" rel="nofollow">Core/Texts: added TextRange parameter to creature_text</a></h3><p><span class="status-macro aui-lozenge aui-lozenge-complete">CORE/SCRIPTS</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- TalkToMap(text);
++ Talk(text);</pre>
+</div></div><p><span class="status-macro aui-lozenge">DATABASE</span></p><p>Table `creature_text`: new column `<span style="color: rgb(33,63,77);">TextRange` defines the range of the text: 0 - default, 1 - area, 2 - zone, 3 - map, 4 - world</span></p><h2 id="APIChanges-16September2014">16 September 2014</h2><h3 id="APIChanges-BlueCORE/ScriptsCore/Entities:AddedObjectGuidclassfromMaNGOS(Mergebranch&#39;Object&#39;Guid&#39;)"><span class="status-macro aui-lozenge aui-lozenge-complete">CORE/SCRIPTS</span> <a href="https://github.com/TrinityCore/TrinityCore/commit/2fc52b5af62e828e85e1da021b1d7ff0fe7ddd8e" class="external-link" rel="nofollow">Core/Entities: Added ObjectGuid class from MaNGOS</a> (<a href="https://github.com/TrinityCore/TrinityCore/commit/7d1d55124c1e289748d2afefae896c97f710e57b" class="external-link" rel="nofollow">Merge branch 'Object'Guid'</a>)</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- uint64 guid;
++ ObjectGuid guid;</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- std::set&lt;uint64&gt; guids;
++ GuidSet guids;
+ 
+- std::list&lt;uint64&gt; guids;
++ GuidList guids;</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- guid = 0;
++ guid.Clear();
+ 
+// Initialization (0) is no longer necessary</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- someFunctionAcceptingGuidArgument(0);
++ someFunctionAcceptingGuidArgument(ObjectGuid::Empty);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- TC_LOG_XXX(&quot;somewhere&quot;, &quot;... &quot; UI64FMTD &quot;...&quot;, playerGuid); // ... 100 ...
++ TC_LOG_XXX(&quot;somewhere&quot;, &quot;... %s ...&quot;, playerGuid.ToString().c_str()); // ... GUID Full: 0x0000000000000064 Type: Player Low: 100 ...</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- data-&gt;append(ptr-&gt;GetPackGUID());
++ *data &lt;&lt; ptr-&gt;GetPackGuid();</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- uint64 guid = MAKE_NEW_GUID(low, entry, HIGHGUID_TYPE);
++ ObjectGuid guid(HIGHGUID_TYPE, entry, low);
+ 
+- uint64 guid = MAKE_NEW_GUID(low, 0, HIGHGUID_TYPE);
++ ObjectGuid guid(HIGHGUID_TYPE, low);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- GUID_LOPART(guid);
++ guid.GetCounter();
+ 
+- GUID_ENPART(guid);
++ guid.GetEntry();
+ 
+- GUID_HIPART(guid);
++ guid.GetHigh();</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- instance-&gt;SetData64(field, guid);
++ instance-&gt;SetGuidData(field, guid);
+ 
+// Set/GetData64 still exists and should not be used with guids</pre>
+</div></div><p> </p><h2 id="APIChanges-13September2014">13 September 2014</h2><h3 id="APIChanges-BlueCORE/ScriptsCore/Chat:cleanupMonsterTextmethods"><span class="status-macro aui-lozenge aui-lozenge-complete">CORE/SCRIPTS</span> <a href="https://github.com/TrinityCore/TrinityCore/commit/59baaeec48fdd92d8b4067152772e5806be9ff53" class="external-link" rel="nofollow">Core/Chat: cleanup MonsterText methods</a></h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- creature-&gt;MonsterSay(text, LANG_XXX, NULL);
++ creature-&gt;Say(text, LANG_XXX);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- creature-&gt;MonsterTextEmote(text, 0);
++ creature-&gt;TextEmote(text);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- creature-&gt;MonsterWhisper(text, receiver);
++ creature-&gt;Whisper(text, LANG_XXX, receiver);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- creature-&gt;MonsterYell(text, LANG_XXX, NULL);
++ creature-&gt;Yell(text, LANG_XXX);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- DoPlaySound(obj, SOUND_XXX);
++ obj-&gt;PlayDirectSound(SOUND_XXX);</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Eclipse; brush: diff; gutter: false" style="font-size:12px;">- go-&gt;MonsterWhisper(text, player);
++ WorldPacket packet;
++ ChatHandler::BuildChatPacket(packet, CHAT_MSG_MONSTER_WHISPER, LANG_UNIVERSAL, go, player, text);
++ player-&gt;SendDirectMessage(&amp;packet);</pre>
+</div></div><h3 id="APIChanges-DatabaseCore/Scripts:Nukedb_script_stringtableandmakeSCRIPT_COMMAND_TALKwithbroadcast_textinstead"><span class="status-macro aui-lozenge">DATABASE</span><span style="color: rgb(0,0,0);"> </span><a href="https://github.com/TrinityCore/TrinityCore/commit/27479cf571cf65c9e1657e9c465974449173dc3f" style="font-size: 16.0px;line-height: 1.5625;" class="external-link" rel="nofollow">Core/Scripts: Nuke db_script_string table and make SCRIPT_COMMAND_TALK with broadcast_text instead</a><span style="color: rgb(0,0,0);"> </span></h3><p>Table <code>`waypoint_scripts`</code>: TALK (<code>`command`</code>=0) now requires an id (<code>`dataint`</code>) from the table <code>`broadcast_text`</code>.</p><p> </p><hr /><p> </p>    <div class="aui-message hint shadowed information-macro has-no-icon">
+                        <div class="message-content">
+                            <p>* TC does not actually have a well defined API. In this page we gather changes to classes/methods and other artifacts commonly used in scripts.</p>
+                    </div>
+    </div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:58</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

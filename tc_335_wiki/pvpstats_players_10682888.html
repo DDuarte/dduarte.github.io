@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : pvpstats_players</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : pvpstats_players
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> shindarth</span> on Aug 29, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `<a class="createlink" href="http://collab.kpsn.org/pages/createpage.action?spaceKey=tc&amp;title=pvpstats_battlegrounds&amp;linkCreation=true&amp;fromPageId=331580" rel="nofollow">pvpstats_players</a>` table</strong></p><p>This table holds datas about BattleGrounds scores. To enable storing this kind of informations, set <strong> <span class="typ">Battleground</span> <span class="pun">.</span> <span class="typ">StoreStatistics</span> <span class="pun">.</span> <span class="typ">Enable</span> <span class="pln"> </span> <span class="pun">=</span> <span class="pln"> </span> <span class="lit">1</span> </strong> in <strong>worldserver.config</strong> file.</p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">battleground_id</a></p></td><td class="confluenceTd"><p>bigint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">character_guid</a></p></td><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">score_killing_blows</a></p></td><td class="confluenceTd">mediumint</td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">score_deaths</a></p></td><td class="confluenceTd">mediumint</td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">score_honorable_kills</a></p></td><td class="confluenceTd"><p>mediumint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">score_bonus_honor</a></p></td><td class="confluenceTd"><p>mediumint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">score_damage_done</a></p></td><td class="confluenceTd">mediumint</td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">score_healing_done</a></p></td><td class="confluenceTd"><p>mediumint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">attr_1</a></p></td><td class="confluenceTd"><p>mediumint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">attr_2</a></p></td><td class="confluenceTd"><p>mediumint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">attr_3</a></p></td><td class="confluenceTd"><p>mediumint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">attr_4</a></p></td><td class="confluenceTd">mediumint</td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_players_10682888.html">attr_5</a></p></td><td class="confluenceTd"><p>mediumint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="pvpstats_players-battleground_id">battleground_id</h3><p>Link to pvpstats_battlegrounds.id</p><h3 id="pvpstats_players-character_guid">character_guid</h3><p>Link to characters.guid</p><h3 id="pvpstats_players-score_*">score_*</h3><p>All scores which are in common between all BattleGrounds</p><h3 id="pvpstats_players-attr_*">attr_*</h3><p>All scores which are not in common between all BattleGrounds. This fields changes their mean according to pvpstats_battlegrounds.type</p><p> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

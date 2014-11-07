@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : creature_respawn</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : creature_respawn
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 04, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `creature_respawn` table</strong></p><p>This table holds the respawn time when creatures should be respawned in the world. In case of a server crash, this table holds the respawn data so that the creatures don't respawn immediately on server restart. How often the respawn time is saved for creatures can be controlled in TrinityCore.conf at SaveRespawnTimeImmediately.</p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="creature_respawn_331254.html">guid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Global Unique Identifier</p></td></tr><tr><td class="confluenceTd"><p><a href="creature_respawn_331254.html">respawntime</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_respawn_331254.html">instance</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Instance Identifier</p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="creature_respawn-guid">guid</h3><p>The GUID of the creature. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=creature_tc2&amp;linkCreation=true&amp;fromPageId=331254">creature.guid</a></p><h3 id="creature_respawn-respawntime">respawntime</h3><p>The time when the creature should be respawned in Unix time.</p><h3 id="creature_respawn-instance">instance</h3><p>If the creature was killed in an instance, this field holds the instance ID where this creature should be respawned. Each instance is different depending on the group so this field is vital in keeping track of which creatures should be respawned for which players at what time.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

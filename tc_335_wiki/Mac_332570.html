@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Mac</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Core_10682447.html">Install Core</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Mac
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> gacko28</span> on Oct 17, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This guide describes how to get TrinityCore running on Mac OS X.</p><p>Mac OS X ships with several libraries including OpenSSL and a special version of Readline - both required by TrinityCore. But: They are useless. OpenSSL is too old and Readline is... well... special. So we have to build the right ones. This is fairly easy and by doing this on your own (using programs like MacPorts or Homebrew is the alternative) you may learn more about libraries, your Mac and its handling on a non-graphic way. But no matter what you're doing in this guide there is one rule you should remind and never ever break:</p><p>DO NOT INSTALL ANYTHING YOU BUILD IN THIS GUIDE TO A SYSTEM-RELEVANT PATH! Rather use a path in your home directory.</p><h1 id="Mac-Settinguptheenvironment">Setting up the environment</h1><p>We're going to put all the TrinityCore stuff to your home directory in the next step, even the installed binaries. <span style="line-height: 1.4285715;">We need to tell TrinityCore where its libraries are installed to. Further I guess you simply want to type &quot;cmake&quot; or &quot;mysql&quot; instead of &quot;/Users/&lt;Username&gt;/Trinity/bin/cmake&quot; or &quot;/usr/local/mysql/bin/mysql&quot;. So we gonna set up a profile file which extends the default PATH and DYLD_LIBRARY_PATH variable and create a folder for the TrinityCore stuff:</span></p><pre>mkdir ~/Trinity<br />nano ~/.profile</pre><p>Add the following lines:</p><pre>export TRINITY=/Users/&lt;Username&gt;/Trinity<br />export PATH=$PATH:$TRINITY/bin:/usr/local/mysql/bin<br />export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$TRINITY/lib:/usr/local/mysql/lib</pre><p>Press Ctrl+O followed by Ctrl+X to save and close the file. Done. Quit the termial application and restart it.</p><p>There is also an autocompletion script for git which can be downloaded and included here.</p><pre>curl -o ~/.gitcompletion &quot;<span class="nolink">https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash</span>&quot;<br />nano ~/.profile</pre><p>Add the following line:</p><pre>source ~/.gitcompletion</pre><p>Press Ctrl+O followed by Ctrl+X to save and close the file. Done. Quit the termial application and restart it.</p><h1 id="Mac-Buildingthelibraries">Building the libraries</h1><p><span style="line-height: 1.4285715;">Open a terminal and change to your download folder. Safari automatically extracts .gz archives and leaves the tar ball.</span></p><h2 id="Mac-OpenSSL"><span style="line-height: 1.4285715;">OpenSSL</span></h2><pre>tar xvf openssl-1.0.1j.tar<br />cd openssl-1.0.1j<br />./Configure darwin64-x86_64-cc shared --prefix=$TRINITY<br />make -j 2<br />make install<br />cd ..</pre><h2 id="Mac-Readline">Readline</h2><pre>tar xvf readline-6.3.tar<br />cd readline-6.3<br />./configure --prefix=$TRINITY<br />make -j 2<br />make install<br />cd ..</pre><h2 id="Mac-CMake">CMake</h2><pre>tar xvf cmake-3.0.2.tar<br />cd cmake-3.0.2<br />./bootstrap --prefix=$TRINITY<br />make -j 2<br />make install<br />cd .. </pre><h2 id="Mac-Boost">Boost</h2><pre>tar xvf boost_1_56_0.tar<br />cd boost_1_56_0<br />./bootstrap.sh --with-libraries=system,thread,program_options --prefix=$TRINITY<br />./b2 -j2<br />./b2 install<br />cd .. </pre><h2 id="Mac-InstallingTrinityCore">Installing TrinityCore</h2><p>You successfully installed all the dependencies. Now it's time to install the server.</p><h2 id="Mac-Obtainingthesourceandpreparingthebuild">Obtaining the source and preparing the build</h2><pre>cd $TRINITY<br />git clone <a href="https://github.com/TrinityCore/TrinityCore.git" class="external-link" rel="nofollow">https://github.com/TrinityCore/TrinityCore.git</a> repo<br />mkdir build<br />cd build</pre><p>Generate the Xcode project files using CMake:</p><pre>cmake ../repo -GXcode \<br />-DMYSQL_ADD_INCLUDE_PATH=/usr/local/mysql/include \<br />-DMYSQL_LIBRARY=/usr/local/mysql/lib/libmysqlclient_r.dylib \<br />-DREADLINE_INCLUDE_DIR=$TRINITY/include \<br />-DREADLINE_LIBRARY=$TRINITY/lib/libreadline.dylib \<br />-DBOOST_INCLUDEDIR=$TRINITY/include \<br />-DBOOST_LIBRARYDIR=$TRINITY/lib \<br />-DOPENSSL_SSL_LIBRARIES=$TRINITY/lib/libssl.dylib \<br />-DOPENSSL_CRYPTO_LIBRARIES=$TRINITY/lib/libcrypto.dylib \<br />-DOPENSSL_INCLUDE_DIR=$TRINITY/include \<br />-DPREFIX=$TRINITY \<br />-DWITH_WARNINGS=1</pre><h2 id="Mac-Buildingthebinaries">Building the binaries</h2><p>This step may take a while and needs to be done every time the source code changes. Afterwards you'll find the binaries in &quot;/Users/&lt;Username&gt;/Trinity/bin&quot;</p><pre>xcodebuild -target install -config Debug</pre><h2 id="Mac-Keepingthecodeuptodate">Keeping the code up to date</h2><pre>cd $TRINITY/repo<br />git reset --hard HEAD<br />git pull</pre><p>Repeat the steps described in &quot;Building the binaries&quot;.</p><h1 id="Mac-Settinguptheserver"><span style="line-height: 1.25;">Setting up the server</span></h1><p>... this part needs to be re-written. Coming soon!</p><p>Quote of Vincent-Michael:</p><blockquote><p>Mac sucks! Use Windows or Linux!</p></blockquote>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-9568271"></a>
+                                    <font class="smallfont"><p>It may work but uses many non-standard tools (self built GCC), modifications and old libraries (SDK 10.6).</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by gacko28 at Mar 01, 2014 19:07
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-9568272"></a>
+                                    <font class="smallfont"><p>It works. And it's an easy way to start Trinity Core on Mac. Not the best but a way however <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by ludyana.paragon@gmail.com at Mar 01, 2014 19:22
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-9568326"></a>
+                                    <font class="smallfont"><p>you can also use with sdk 10.8</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by jeremymeile at Mar 25, 2014 20:29
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-9568345"></a>
+                                    <font class="smallfont"><p>Hm, my last tries even worked with 10.9 <img class="emoticon emoticon-wink" src="images/icons/emoticons/wink.png" data-emoticon-name="wink" alt="(wink)"/> Guess it has something to do with C++11. But I don't know. This is why I dropped the deployment target line in the CMake script.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by gacko28 at Apr 01, 2014 20:35
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-9568397"></a>
+                                    <font class="smallfont"><p>works for me</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by shindarth at Apr 20, 2014 18:13
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-9568403"></a>
+                                    <font class="smallfont"><p>ShinDarth, I really like when somebody cares about Mac and TrinityCore. But: I removed all usages of sudo and system paths because it's possible (and better for &quot;newbies&quot;) to run TrinityCore in their home path. Further creating a .profile is used by every shell, not only bash. Extending the path variable is far better than sym-linking cmake to a system path.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by gacko28 at Apr 20, 2014 18:29
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-10683009"></a>
+                                    <font class="smallfont"><p>Gacko. I am totally a newbies and i want set up the TrinityCore on my mac , But why the set up the server session is empty? It's confused </p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by visperc at Sep 25, 2014 15:53
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-10683028"></a>
+                                    <font class="smallfont"><p>Hey Jimmy,</p><p>unfortunately I did not write it yet. There will be a generic setup guide in future if I remember correctly. Anyway: You can try the Linux guide as most things are the same for Mac <img class="emoticon emoticon-wink" src="images/icons/emoticons/wink.png" data-emoticon-name="wink" alt="(wink)"/></p><p>Good Luck!</p><p>Gacko</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by gacko28 at Sep 29, 2014 09:53
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

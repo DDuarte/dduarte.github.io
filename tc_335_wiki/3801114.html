@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : MinGW GCC toolchain (Win)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Core_10682447.html">Install Core</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : MinGW GCC toolchain (Win)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> qaston</span>, last modified by <span class='editor'> tkrokli</span> on Jul 21, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397626456 {padding: 0px;}
+div.rbtoc1415397626456 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397626456 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397626456'>
+<ul class='toc-indentation'>
+<li><a href='#MinGWGCCtoolchain(Win)-Introduction'>Introduction</a></li>
+<li><a href='#MinGWGCCtoolchain(Win)-Preparation'>Preparation</a>
+<ul class='toc-indentation'>
+<li><a href='#MinGWGCCtoolchain(Win)-LibrariesforMinGW'>Libraries for MinGW</a></li>
+</ul>
+</li>
+<li><a href='#MinGWGCCtoolchain(Win)-Build'>Build</a></li>
+<li><a href='#MinGWGCCtoolchain(Win)-Runningthecore'>Running the core</a></li>
+</ul>
+</div></p><h1 id="MinGWGCCtoolchain(Win)-Introduction">Introduction</h1><p>This guide is directed towards advanced Windows users who, for some reason, want to use GCC instead of Visual Studio to build TC. Regular users should build TC using the <a href="http://collab.kpsn.org/display/tc/Win" rel="nofollow">basic guide</a>, as using GCC has no benefit for them over the VS solution. Therefore this guide won't provide step-by-step instructions most of the time. This guide only covers only compiling the source code. For other steps about setting up your TrinityCore installation, please refer to the <a href="http://collab.kpsn.org/display/tc/Win" rel="nofollow">How to: Windows guide</a>.</p><h1 id="MinGWGCCtoolchain(Win)-Preparation">Preparation</h1><p>To successfully build TC with mingw GCC toolchain you need (in addition to requirements from the basic guide):</p><ul><li>MinGW - there are several MinGW distributions around the Net, this guide uses <a href="http://www.mingw.org/" class="external-link" rel="nofollow">http://www.mingw.org/</a> , which outputs only 32 bit code. Please install your favourite distro according to the documentation provided with it. For mingw.org the documentation is here: <a href="http://www.mingw.org/wiki/Getting_Started" class="external-link" rel="nofollow">http://www.mingw.org/wiki/Getting_Started</a> .</li><li>MSYS - a convenient bash shell for windows, please follow the <a href="http://www.mingw.org/wiki/MSYS" class="external-link" rel="nofollow">install guide</a> for details.<br /><br /></li></ul><h2 id="MinGWGCCtoolchain(Win)-LibrariesforMinGW">Libraries for MinGW</h2><p>The libmysql.lib file provided with your MySQL installation cannot be used by the MinGW GCC toolchain, because GCC expects libraries with the '.a' format. The simplest way to fix the problem is to convert the .lib file provided with your install. You can do that by doing the following in MSYS:</p><div class="panel" style="border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;"><b>Inside MSYS shell please do:</b></div><div class="panelContent">
+<p>cd /to/your/mysql/install/directory</p><p>cd lib/opt</p><pre><span style="color: rgb(55,55,55);">reimp.exe -d libmysql.lib</span><br /><span style="color: rgb(55,55,55);">dlltool.exe -k -d libmysql.def -l libmysql.a</span></pre>
+</div></div>    <div class="aui-message warning shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p>If your mingw installation does not provide <span style="line-height: 1.4285715;">reimp or dlltool, you need to download them, for example from <a href="http://sourceforge.net/projects/mingw/files/MinGW/Extension/mingw-utils/" class="external-link" rel="nofollow">here</a>.</span></p>
+                    </div>
+    </div>
+    <div class="aui-message problem shadowed information-macro">
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>If you are getting errors with the reimp command, you may need to rebuild the <a class="external-link" href="http://sourceforge.net/projects/mingw/files/MinGW/Extension/mingw-utils/mingw-utils-0.4-1/" title="Click to enter mingw-utils-0.4-1" rel="nofollow">mingw-utils-0.4-1</a> package from source as the binary distribution contains a bug.</p>
+                    </div>
+    </div>
+<h1 id="MinGWGCCtoolchain(Win)-Build">Build</h1><p>Once you have done the previous steps, you can proceed to build the code:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>cd /to/directory/you/want/to/build/in #building in the trinitycore source dir is not advised</p><p>#the following should be in a single command (1 line)</p><p>cmake -G&quot;MSYS Makefiles&quot; -DUSE_COREPCH=0<span style="line-height: 1.4285715;"> -DUSE_SCRIPTPCH=0 #build with PCH enabled is not supported</span></p><p><span style="line-height: 1.4285715;"> -DUSE_MYSQL_SOURCES=0 -DMYSQL_INCLUDE_DIR=[/path/to/mysql/distribution/]/include -DMYSQL_LIBRARY=<span>[/path/to/mysql/distribution/]</span>/lib/opt/libmysql.a # path to include dir of your mysql distro and to libmysql.a you just created</span></p><p><span style="line-height: 1.4285715;">-DCMAKE_INSTALL_PREFIX=/where/you/want/to/put/installed/tc</span></p><p><span style="line-height: 1.4285715;">/path/to/trinitycore/dir</span></p><p><span style="line-height: 1.4285715;">#end of cmake command</span></p><p><span style="line-height: 1.4285715;">make # this will take a (long) while</span></p><p><span style="line-height: 1.4285715;">make install # this will install the software in your preferred directory. Afterwards, you can run 'make uninstall' to remove and make clean to purge build directory.</span></p>
+</div></div><h1 id="MinGWGCCtoolchain(Win)-Runningthecore">Running the core</h1><p>Executables were built with dependencies on mingw, so you need to make sure to add mingw/bin dir to your PATH variable. Also, remember to copy the libmysql.dll file to the install directory, or add it to the PATH as well.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

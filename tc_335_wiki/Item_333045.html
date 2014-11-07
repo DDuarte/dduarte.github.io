@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Item</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Files_10682464.html">Files</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DBC_331816.html">DBC</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Item
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:DBC</code></p><p><strong>Item.dbc</strong></p><p>This DBC contains all item entries for real usable items and texture only ones used for creatures equipment.<br /> Any item in <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=item_template_tc2&amp;linkCreation=true&amp;fromPageId=333045">item_template</a> table with an entry not in this DBC will be displayed by client with a red ? symbol.</p><p>Corresponding <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=item_template_tc2&amp;linkCreation=true&amp;fromPageId=333045">item_template</a> records must match these values except Subclass (which contains erroneous values).</p><p><strong>Version is : 3.1.3</strong></p><h2 id="Item-Structure"><span class="mw-headline">Structure</span></h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Column</th><th class="confluenceTh">Field</th><th class="confluenceTh">Type</th><th class="confluenceTh">Notes</th></tr><tr><td class="confluenceTd">0</td><td class="confluenceTd">itemID</td><td class="confluenceTd">Integer</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd"><a href="ItemClass_333050.html">ItemClass</a></td><td class="confluenceTd">iRefID</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd"><a href="ItemSubClass_333061.html">ItemSubClass</a></td><td class="confluenceTd">iRefID</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">3</td><td class="confluenceTd">sound_override_subclassid</td><td class="confluenceTd">Integer</td><td class="confluenceTd">-1 - 20, mostly -1, same as ItemCache.wdb column5</td></tr><tr><td class="confluenceTd">4</td><td class="confluenceTd">MaterialID</td><td class="confluenceTd">iRefID</td><td class="confluenceTd">-1 - 8</td></tr><tr><td class="confluenceTd">5</td><td class="confluenceTd">ItemDisplayInfo</td><td class="confluenceTd">iRefID</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">6</td><td class="confluenceTd">InventorySlotID</td><td class="confluenceTd">Integer</td><td class="confluenceTd">These inventory slot ID's are used to determine how an item may be equipped, see below</td></tr><tr><td class="confluenceTd">7</td><td class="confluenceTd">SheathID</td><td class="confluenceTd">Integer</td><td class="confluenceTd">0 -4, mostly 0</td></tr></tbody></table></div><h2 id="Item-InventorySlotID"><span class="mw-headline">InventorySlotID</span></h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">ID</th><th class="confluenceTh">Slot type</th></tr><tr><td class="confluenceTd">0</td><td class="confluenceTd">None</td></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">Head</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">Neck</td></tr><tr><td class="confluenceTd">3</td><td class="confluenceTd">Shoulders</td></tr><tr><td class="confluenceTd">4</td><td class="confluenceTd">Shirt</td></tr><tr><td class="confluenceTd">5</td><td class="confluenceTd">Vest</td></tr><tr><td class="confluenceTd">6</td><td class="confluenceTd">Waist</td></tr><tr><td class="confluenceTd">7</td><td class="confluenceTd">Legs</td></tr><tr><td class="confluenceTd">8</td><td class="confluenceTd">Feet</td></tr><tr><td class="confluenceTd">9</td><td class="confluenceTd">Wrist</td></tr><tr><td class="confluenceTd">10</td><td class="confluenceTd">Hands</td></tr><tr><td class="confluenceTd">11</td><td class="confluenceTd">Ring</td></tr><tr><td class="confluenceTd">12</td><td class="confluenceTd">Trinket</td></tr><tr><td class="confluenceTd">13</td><td class="confluenceTd">One hand</td></tr><tr><td class="confluenceTd">14</td><td class="confluenceTd">Shield</td></tr><tr><td class="confluenceTd">15</td><td class="confluenceTd">Bow</td></tr><tr><td class="confluenceTd">16</td><td class="confluenceTd">Back</td></tr><tr><td class="confluenceTd">17</td><td class="confluenceTd">Two hand</td></tr><tr><td class="confluenceTd">18</td><td class="confluenceTd">Bag</td></tr><tr><td class="confluenceTd">19</td><td class="confluenceTd">Tabbard</td></tr><tr><td class="confluenceTd">20</td><td class="confluenceTd">Robe</td></tr><tr><td class="confluenceTd">21</td><td class="confluenceTd">Main hand</td></tr><tr><td class="confluenceTd">22</td><td class="confluenceTd">Off hand</td></tr><tr><td class="confluenceTd">23</td><td class="confluenceTd">Held</td></tr><tr><td class="confluenceTd">24</td><td class="confluenceTd">Ammo</td></tr><tr><td class="confluenceTd">25</td><td class="confluenceTd">Thrown</td></tr><tr><td class="confluenceTd">26</td><td class="confluenceTd">Ranged</td></tr><tr><td class="confluenceTd">27</td><td class="confluenceTd">Ranged</td></tr><tr><td class="confluenceTd">28</td><td class="confluenceTd">Relic</td></tr></tbody></table></div><h2 id="Item-Content"><strong style="line-height: 1.5;">Content</strong></h2><p>The content is too big and useless for the purpose of this wiki.</p><h2 id="Item-Trinityusage"><strong>Trinity usage</strong></h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">struct ItemEntry
+{
+   uint32   ID;                        // 0
+   uint32   Class;                     // 1
+   uint32   SubClass;                  // 2 some items have strange subclasses
+   int32    Unk0;                      // 3
+   int32    Material;                  // 4
+   uint32   DisplayId;                 // 5
+   uint32   InventoryType;             // 6
+   uint32   Sheath;                    // 7
+};</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

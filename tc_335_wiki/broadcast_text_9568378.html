@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : broadcast_text</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : broadcast_text
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kinzcool</span> on Apr 17, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>The `broadcast_text` table</strong></p><p class="commit-title"> </p><p>This table (ref <a href="https://github.com/TrinityCore/TrinityCore/commit/60e87db" style="line-height: 1.4285715;" class="external-link" rel="nofollow">https://github.com/TrinityCore/TrinityCore/commit/60e87db</a>) will have <strong style="line-height: 1.4285715;">everything</strong> you need for your scripts' texts, such as: <a href="gossip_menu_option_332091.html">gossips</a>, <a href="creature_text_331449.html">creature texts</a> and <a href="npc_text_333456.html">npc_text</a>s.</p><p>Its purpose is (will be) used as a globalized table containing the texts as mentionned above, and things like their sounds, their emotes and the languages in which the texts should be said.</p><p> </p><p>All the values are from sniffs (ADBVerified) so, don't add things in it - Kinzcool.</p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Field</th><th class="confluenceTh">Type</th><th class="confluenceTh">Attributes</th><th class="confluenceTh">Key</th><th class="confluenceTh">Null</th><th class="confluenceTh">Default</th><th class="confluenceTh">Extra</th><th class="confluenceTh">Comment</th></tr><tr><td class="confluenceTd">ID</td><td class="confluenceTd">mediumint(8)</td><td class="confluenceTd">unsigned</td><td class="confluenceTd">PRI</td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">Language</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd">unsigned</td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">MaleText</td><td class="confluenceTd">text</td><td class="confluenceTd">signed</td><td class="confluenceTd"> </td><td class="confluenceTd">YES</td><td class="confluenceTd">NULL</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">FemaleText</td><td class="confluenceTd">text</td><td class="confluenceTd">signed</td><td class="confluenceTd"> </td><td class="confluenceTd">YES</td><td class="confluenceTd">NULL</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">EmoteID0</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">EmoteID1</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd">unsigned</td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">EmoteID2</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">EmoteDelay0</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">EmoteDelay1</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">EmoteDelay2</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">SoundId</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">Unk1</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">Unk2</td><td class="confluenceTd"><span>mediumint(8)</span></td><td class="confluenceTd"><span>unsigned</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">WDBVerified</td><td class="confluenceTd">smallint(5)</td><td class="confluenceTd"><span>signed</span></td><td class="confluenceTd"> </td><td class="confluenceTd">NO</td><td class="confluenceTd">1</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr></tbody></table></div><h3 id="broadcast_text-Descriptionofthefields">Description of the fields</h3><p> </p><h3 id="broadcast_text-ID">ID</h3><p>Self description.</p><h3 id="broadcast_text-Language">Language</h3><div>The language in what the text will be broadcasted.</div><div>IDs from Languages.dbc</div><h3 id="broadcast_text-MaleText">MaleText</h3><p>The text that the male creature will broadcast.</p><h3 id="broadcast_text-FemaleText">FemaleText</h3><p>The text that the female creature will broadcast.</p><h3 id="broadcast_text-EmoteID[0-2]">EmoteID[0-2]</h3><p>The emotes played when the texts are broadcasted.</p><p>IDs from Emotes.dbc</p><h3 id="broadcast_text-EmoteDelay[0-2]"><span>EmoteDelay[0-2]</span></h3><p>The delays of the broadcasted emotes.</p><h3 id="broadcast_text-SoundId">SoundId</h3><p>The sounds played when the texts are broadcasted.</p><p>IDs from SoundEntries.dbc</p><h3 id="broadcast_text-Unk1">Unk1</h3><p>An emote.</p><h3 id="broadcast_text-Unk2">Unk2</h3><p> </p><h4 id="broadcast_text-WDBVerified"><span class="mw-headline">WDBVerified</span></h4><p>This field is used by the TrinityDB Team to determine whether a template has been verified from WDB files (ADB files for this one).</p><p>If value is 0 then it has not been parsed yet.</p><p>If value is above 0 then it has been parsed with WDB files from that specific client build.</p><p>If value is -1 then it is just a place holder until proper data are found on WDBs.</p><p>If value is <a class="external-link" href="http://archive.trinitycore.info/DB:Auth:realmlist#gamebuild" rel="nofollow" title="DB:Auth:realmlist">-Client Build</a> then it was parsed with WDB files from that specific <a class="external-link" href="http://archive.trinitycore.info/DB:Auth:realmlist#gamebuild" rel="nofollow" title="DB:Auth:realmlist">client build</a> and manually edited later for some special necessity.</p><p> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

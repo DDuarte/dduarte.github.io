@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : item_instance</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : item_instance
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>The `item_instance` table</strong></p>
+</div></div><p>This table holds individual item instance information for all items currently equipped in some kind of character bag or bank, in auctionhouses, in guild banks or in mails.</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Structure</strong></p>
+</div></div><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">guid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">itemEntry</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">owner_guid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">creatorGuid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">giftCreatorGuid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">count</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">duration</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">charges</a></p></td><td class="confluenceTd"><p>tinytext</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">flags</a></p></td><td class="confluenceTd"><p>mediunint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">enchantments</a></p></td><td class="confluenceTd"><p>text</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">randomPropertyId</a></p></td><td class="confluenceTd"><p>smallint(5)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">durability</a></p></td><td class="confluenceTd"><p>smallint(5)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">playedTime</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="item_instance_333068.html">text</a></p></td><td class="confluenceTd"><p>text</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Description of the fields</strong></p>
+</div></div><h3 id="item_instance-guid">guid</h3><p>The GUID of the item. This number is unique for each item instance.</p><h3 id="item_instance-itemEnry">itemEnry</h3><p><a href="item_template_333102.html#item_template-entry">Item</a> entry.</p><h3 id="item_instance-owner_guid">owner_guid</h3><p>The GUID of the character who has ownership of this item. See <a href="330915.html#characters(table)-guid">characters.guid</a></p><h3 id="item_instance-creatorGuid">creatorGuid</h3><p><a href="330915.html#characters(table)-guid">GUID</a> of character who created the item.</p><h3 id="item_instance-giftCreatorGuid">giftCreatorGuid</h3><p><a href="330915.html#characters(table)-guid">GUID</a> of character who created the <a href="character_gifts_330781.html#character_gifts-item_guid">item</a>.</p><h3 id="item_instance-count">count</h3><p>Current number of item copies in the stack.</p><h3 id="item_instance-duration">duration</h3><p><code>field-no-description|6</code></p><h3 id="item_instance-charges">charges</h3><p><code>The number of charges for each of the five possible <a href="http://collab.kpsn.org/display/tc/Item+template+tc2#Itemtemplatetc2-spellcharges" rel="nofollow">spellcharges</a> on an item,  specified via five space separated integers.</code></p><h3 id="item_instance-flags">flags</h3><p><code>field-no-description|8</code></p><h3 id="item_instance-enchantments">enchantments</h3><p>Enchantments from <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=SpellItemEnchantment.dbc+tc2&amp;linkCreation=true&amp;fromPageId=333068">SpellItemEnchantment.dbc</a></p><h3 id="item_instance-randomPropertyId">randomPropertyId</h3><p><code>field-no-description|10</code></p><h3 id="item_instance-durability">durability</h3><p>Current item durability.</p><h3 id="item_instance-playedTime">playedTime</h3><p>Time in seconds</p><h3 id="item_instance-text">text</h3><p>The text contained in that specific item.</p><p>data-anchor=</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Autoupdater, Launcher, and Alerts HOWTO</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="ZArchive_1704427.html">ZArchive</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Autoupdater, Launcher, and Alerts HOWTO
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> kingpin</span> on Jan 08, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Autoupdater,Launcher,andAlertsHOWTO-DescriptionandCredit">Description and Credit</h1>
+
+<p>This is a way to make patching modern WoW clients easy. It will allow a server operator to control the game client version, as well as control when it downloads updates. Other added bonuses include being able to have your own launcher page, as well as control the alerts section on the front page. This is done by redirecting the official URLs to your server IP address via the hosts file on the client side. You do not have to 'register' any of these domains... as it would be impossible to do so.</p>
+
+<p><strong>US Domains:</strong></p>
+
+<p>us.version.worldofwarcraft.com<br />
+launcher.worldofwarcraft.com</p>
+
+<p><strong>EU Domains:</strong></p>
+
+<p>eu.version.worldofwarcraft.com<br />
+launcher.wow-europe.com<br />
+status.wow-europe.com</p>
+
+<p>This project was originally taken on by Trinity member Elegos, this write up would not be possible without his help. If you find this guide useful, make sure to visit the original thread <a href="http://www.trinitycore.org/forum/f6/new-tutorial-launcher-page-launcher-update-breaking-news-t4963.html" class="external-link" rel="nofollow">here</a>, and press the thanks button!</p>
+
+<h1 id="Autoupdater,Launcher,andAlertsHOWTO-InstallationandConfiguration">Installation and Configuration</h1>
+
+<h2 id="Autoupdater,Launcher,andAlertsHOWTO-Prerequisites">Prerequisites</h2>
+
+<ul>
+	<li>Apache (must know how to install and configure, no help will be given for this)</li>
+	<li>Knowledge of VirtualHosts</li>
+	<li>XML knowledge (if you want it to look nice!)</li>
+	<li>Static external or internal server IP address</li>
+</ul>
+
+
+<h2 id="Autoupdater,Launcher,andAlertsHOWTO-ConfiguringApache">Configuring Apache</h2>
+
+<p>First we'll need to configure a location to store our files. As an example, we're going to use /www/wowserver. We will need to create two directories: </p>
+
+
+
+<p>/www/wowserver/update</p>
+
+<p>/www/wowserver/2.0</p>
+
+
+
+<p>Now that we have our base layout made, we're going to need to configure the apache virtualhost to listen for incoming connections via the official domains listed above. Here is an example virtualhost entry, including turning on name based virtual hosts.</p>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<ol>
+	<li>Use name-based virtual hosting.<br />
+ NameVirtualHost *:80<br />
+ &lt;VirtualHost *:80&gt;<br />
+         ServerName 192.168.1.1 #<strong>YOUR SERVER IP WILL GO HERE!!!! DON'T USE THIS ONE</strong><br />
+         ServerAlias launcher.worldofwarcraft.com us.version.worldofwarcraft.com<br />
+         ServerAdmin webmaster@yourdomain.net<br />
+         DocumentRoot /www/wowserver/<br />
+ &lt;/VirtualHost&gt;</li>
+</ol>
+</div></div>
+
+<p>If you want to add EU URL support, simply add them to the ServerAlias line.</p>
+
+<h2 id="Autoupdater,Launcher,andAlertsHOWTO-Files,andwhattheyareusedfor">Files, and what they are used for</h2>
+
+<p>Now that we have our virtualhosts configured, we can start creating the files necessary for the patching magic to happen. If you point your browser to <a href="http://us.version.worldofwarcraft.com/update/PatchSequenceFile.txt" class="external-link" rel="nofollow">http://us.version.worldofwarcraft.com/update/PatchSequenceFile.txt</a> you will see the main file used for patching. Here is what I have been able to figure out about the different sections:</p>
+
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=special&amp;linkCreation=true&amp;fromPageId=330643">special</a> <strong>Not sure what this is for</strong><br />
+ expansion-speech-{LANG}=WoW-2.0.0.6080-expansion-speech-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=GAME&amp;linkCreation=true&amp;fromPageId=330643">GAME</a>  <strong>I believe this is for updating older clients, such as 2.4.3 to current, then it passes it to the <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=WoW&amp;linkCreation=true&amp;fromPageId=330643">WoW</a> section</strong><br />
+ CurrentBuild=9920<br />
+ 6080=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 6546=WoW-installer-2.x.x.x-to-3.0.1.8874-{PLATFORM}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 6692=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 6729=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 6739=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 6803=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 6898=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 7272=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 7318=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 7359=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 7561=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 7741=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 7799=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 8089=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 8125=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 8278=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 8606=WoW-installer-2.x.x.x-to-3.0.1.8874-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 8874=WoW-3.0.1.8874-3.0.2.9056-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9056=WoW-3.0.2.9056-3.0.3.9183-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9183=WoW-3.0.3.9183-3.0.8.9464-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9192=WoW-3.0.3.9192-3.0.8.9464-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9464=WoW-3.0.8.9464-3.0.9.9551-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9551=WoW-3.0.9.9551-3.1.0.9767-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9653=WoW-3.0.9.9653-3.1.0.9767-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9805=WoW-3.1.0.9805-3.1.2.9920-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=WoWT&amp;linkCreation=true&amp;fromPageId=330643">WoWT</a> <strong>Needed for the test realm, you can safely remove this section</strong><br />
+ CurrentBuild=9901<br />
+ 8874=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9149=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9167=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9174=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9355=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9386=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9438=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9464=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9614=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9626=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9637=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9658=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9684=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9704=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9722=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9733=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9742=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9757=WoW-0.x.x.x-0.1.2.9855-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9855=WoW-0.1.2.9855-0.1.2.9868-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9868=WoW-0.1.2.9868-0.1.2.9889-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9889=WoW-0.1.2.9889-0.1.2.9901-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=WoW&amp;linkCreation=true&amp;fromPageId=330643">WoW</a> <strong>Current version of WoW client, will control any 3.x patching</strong><br />
+ CurrentBuild=9947<br />
+ 8874=WoW-3.0.1.8874-3.0.2.9056-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9056=WoW-3.0.2.9056-3.0.3.9183-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9183=WoW-3.0.3.9183-3.0.8.9464-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9464=WoW-3.0.8.9464-3.0.8.9506-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9506=WoW-3.0.8.9506-3.0.9.9551-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9551=WoW-3.0.9.9551-3.1.0.9767-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9767=WoW-3.1.0.9767-3.1.1.9806-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9806=WoW-3.1.1.9806-3.1.1.9835-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9835=WoW-3.1.1.9835-3.1.2.9901-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9901=WoW-3.1.2.9901-3.1.3.9947-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=GAME-STREAMING&amp;linkCreation=true&amp;fromPageId=330643">GAME-STREAMING</a> <strong>Not sure, but I keep the current build the same as the <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=game&amp;linkCreation=true&amp;fromPageId=330643">game</a> section, haven't tested if it can be removed</strong><br />
+ CurrentBuild=9920<br />
+ 9192=WoW-3.0.3.9192-3.0.8.9464-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9464=WoW-3.0.8.9464-3.0.9.9551-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9551=WoW-3.0.9.9551-3.1.0.9767-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9551=WoW-3.0.9.9551-3.1.0.9767-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9653=WoW-3.0.9.9653-3.1.0.9767-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}<br />
+ 9805=WoW-3.1.0.9805-3.1.2.9920-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=LAUNCHER&amp;linkCreation=true&amp;fromPageId=330643">LAUNCHER</a> <strong>This is the version of the launcher</strong><br />
+ CurrentBuild=491<br />
+ 213=Tools-1.6.0.213-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 338=Tools-2.0.0.491-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 347=Tools-2.0.0.491-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 374=Tools-1.7.0.476-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 380=Tools-2.0.0.482-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 387=Tools-2.0.0.491-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 420=Tools-2.0.0.482-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 444=Tools-2.0.0.482-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 446=Tools-2.0.0.491-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE<br />
+ 481=Tools-2.0.0.491-{CPU}<span style="text-decoration: line-through;">{OS}</span>{LANG}-UPDATE</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=BACKGROUND&amp;linkCreation=true&amp;fromPageId=330643">BACKGROUND</a></p>
+</div></div>
+
+<p>To set which version your clients patch to, you always look at the last set of four numbers in the version in question, so setting CurrentBuild=9551 will update your clients to 3.0.9 9805=WoW-3.0.8.9506-3.0.9.&lt;u&gt;&lt;b&gt;9551&lt;/b&gt;&lt;/u&gt;<span style="text-decoration: line-through;">{CPU}</span>{OS}-{LANG}</p>
+
+
+<h1 id="Autoupdater,Launcher,andAlertsHOWTO-Scripts">Scripts</h1>
+
+<h2 id="Autoupdater,Launcher,andAlertsHOWTO-Hostsfilechangerforwindows">Hosts file changer for windows</h2>
+
+<p>This script can be used on the client side to add the hosts file changes automatically. If it's run a second time, it will remove the changes made to the hosts file. This will allow someone who wants to play on official to easily change back and forth.</p>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<br />
+ :: 									   ::<br />
+ ::                   Braingoo trinity host file switcher                  ::<br />
+ :: 									   ::<br />
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> @echo off </p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> ::::::::::::::::::::::::::::::::::<br />
+ ::				 ::<br />
+ ::	Main Script		 :: <br />
+ ::				 ::<br />
+ :::::::::::::::::::::::::::::::::: </p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> call :verify_hosts_file<br />
+ call :verify_hosts_backup<br />
+ GOTO :EOF</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> ::::::::::::::::::::::::::::::::::<br />
+ ::				 ::<br />
+ ::	Sanity Checks		 ::<br />
+ ::				 ::<br />
+ ::::::::::::::::::::::::::::::::::</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> :verify_hosts_file<br />
+ echo Checking for hosts file...<br />
+ IF EXIST &quot;C:\WINDOWS\system32\drivers\etc\hosts&quot; (echo hosts file found! &amp; goto :EOF)<br />
+ echo No hosts file found!!! Generating default windows hosts file.<br />
+ echo # Copyright (c) 1993-1999 Microsoft Corp. &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # This is a sample HOSTS file used by Microsoft TCP/IP for Windows. &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # This file contains the mappings of IP addresses to host names. Each &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # entry should be kept on an individual line. The IP address should &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # be placed in the first column followed by the corresponding host name. &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # The IP address and the host name should be separated by at least one &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # space. &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # Additionally, comments (such as these) may be inserted on individual &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # lines or following the machine name denoted by a '#' symbol. &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # For example: &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo # &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo #      102.54.94.97     rhino.acme.com          # source server &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo #       38.25.63.10     x.acme.com              # x client host &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo. &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo 127.0.0.1       localhost &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo Generated default hosts file. Moving on...<br />
+ goto :EOF </p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> :verify_hosts_backup<br />
+ echo Checking for hosts.bak...<br />
+ IF EXIST &quot;c:\windows\system32\drivers\etc\hosts.bak&quot; (echo hosts file backup found... &amp; goto :revert_hosts)<br />
+ echo no backup found, adding in hosts file changes!<br />
+ goto :change_hosts </p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> ::::::::::::::::::::::::::::::::::<br />
+ ::				 ::<br />
+ ::	Hosts change subs	 ::<br />
+ ::				 ::<br />
+ ::::::::::::::::::::::::::::::::::</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> :change_hosts<br />
+ echo Backing up origional hosts file!<br />
+ copy &quot;c:\windows\system32\drivers\etc\hosts&quot; &quot;c:\windows\system32\drivers\etc\hosts.bak&quot;<br />
+ echo 208.94.241.197 us.version.worldofwarcraft.com &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo 208.94.241.197 launcher.worldofwarcraft.com &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo 208.94.241.197 us.logon.worldofwarcraft.com &gt;&gt; c:\windows\system32\drivers\etc\hosts<br />
+ echo added in braingoo hosts redirects, ready to play! To play official WoW, just run this script again!<br />
+ pause<br />
+ goto :EOF</p>
+</div></div>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p> :revert_hosts<br />
+ echo Removing old hosts file...<br />
+ del &quot;c:\windows\system32\drivers\etc\hosts&quot;<br />
+ echo copying backup to c:\windows\system32\drivers\etc\hosts<br />
+ move &quot;c:\windows\system32\drivers\etc\hosts.bak&quot; &quot;c:\windows\system32\drivers\etc\hosts&quot;<br />
+ echo restore complete, ready to play on official WoW servers again!<br />
+ pause<br />
+ goto :EOF</p>
+</div></div>
+
+<h2 id="Autoupdater,Launcher,andAlertsHOWTO-LinuxPatchTorrentGrabber">Linux Patch Torrent Grabber</h2>
+
+<p>Coming soon!</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

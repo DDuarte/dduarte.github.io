@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : creature_text</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : creature_text
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> nayd</span> on Sep 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="creature_text-Table:creature_text">Table: creature_text</h1><p>This table holds all the texts used within scripts. This table handles the actual text, display type (say/yell/emote) and corresponding sounds or emote (if any).</p><h2 id="creature_text-Structure">Structure</h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">entry</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>creature_template entry</p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">groupid</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">id</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">text</a></p></td><td class="confluenceTd"><p>longtext</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">type</a></p></td><td class="confluenceTd"><p>text</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">language</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">probability</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">emote</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">duration</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">sound</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td colspan="1" class="confluenceTd"><a href="creature_text_331449.html">BroadcastTextId</a></td><td colspan="1" class="confluenceTd"><span>mediumint(6)</span></td><td colspan="1" class="confluenceTd">signed</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">0</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td colspan="1" class="confluenceTd"><a href="creature_text_331449.html">TextRange</a></td><td colspan="1" class="confluenceTd">tinyint(3)</td><td colspan="1" class="confluenceTd">unsigned</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">NO</td><td colspan="1" class="confluenceTd">0</td><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="creature_text_331449.html">comment</a></p></td><td class="confluenceTd"><p>varchar(255)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><h2 id="creature_text-Descriptionofthefields">Description of the fields</h2><h3 id="creature_text-entry">entry</h3><p>This is the <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=creature_template_tc2&amp;linkCreation=true&amp;fromPageId=331449">creature_template.entry</a> to which the script is linked to.</p><h3 id="creature_text-groupid">groupid</h3><p>If there is more than one of the same entry (more than one text the creature says), this is the unique identifier that must be incremented for each new matching entry (ex. 0, 1, 2, 3...). If there is only one entry, this value should be 0.</p><h3 id="creature_text-id">id</h3><p>Entry for grouped texts - a say will be randomly selected from one of these based on the group it belongs to.</p><h3 id="creature_text-text">text</h3><p>The text the creature will say.</p><h3 id="creature_text-type">type</h3><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Value</p></th><th class="confluenceTh"><p>Old value</p></th><th class="confluenceTh"><p>Localization</p></th></tr><tr><td class="confluenceTd"><p>12</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p>Say</p></td></tr><tr><td class="confluenceTd"><p>14</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>Yell</p></td></tr><tr><td class="confluenceTd"><p>16</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>Emote</p></td></tr><tr><td class="confluenceTd"><p>41</p></td><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>Boss Emote</p></td></tr><tr><td class="confluenceTd"><p>15</p></td><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>Whisper</p></td></tr><tr><td class="confluenceTd"><p>42</p></td><td class="confluenceTd"><p>5</p></td><td class="confluenceTd"><p>Boss Whisper</p></td></tr></tbody></table></div><h3 id="creature_text-language">language</h3><p>The value found in <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Languages.dbc_tc2&amp;linkCreation=true&amp;fromPageId=331449">Languages.dbc</a> but if it's 0 than all understand.</p><h3 id="creature_text-probability">probability</h3><p>A value from 1-100 that represents the percentage chance that this text will be executed.</p><h3 id="creature_text-emote">emote</h3><p>The emote that the creature plays when the text is executed. Value to use in this field can be obtained from the <a href="Emote_331795.html">emote</a>.dbc</p><h3 id="creature_text-duration">duration</h3><p>Time in ms to see text.<br /> 0 is default and calculated by core.</p><h3 id="creature_text-sound">sound</h3><p>The sound entry this creature will play at the same time the text is executed. Sounds are found in SoundEntries.dbc.</p><h3 id="creature_text-BroadcastTextId">BroadcastTextId</h3><p>Id of the equivalent text found in <a href="broadcast_text_9568378.html">broadcast_text</a></p><h3 id="creature_text-TextRange">TextRange</h3><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Value</th><th class="confluenceTh">Range</th></tr><tr><td class="confluenceTd">0</td><td class="confluenceTd">Normal/Default</td></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">Area</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">Zone</td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Map</td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">World</td></tr></tbody></table></div><h3 id="creature_text-comment"><span style="color: rgb(0,0,0);">comment</span></h3><p>This field allows you to label a text entry.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

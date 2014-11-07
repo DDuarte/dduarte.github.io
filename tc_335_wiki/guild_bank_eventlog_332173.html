@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : guild_bank_eventlog</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : guild_bank_eventlog
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> shindarth</span> on Oct 26, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `guild_bank_eventlog` table</strong></p><p><code>table-no-description</code></p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">guildid</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Guild Identificator</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">LogGuid</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Log record identificator - auxiliary column</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">TabID</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Guild bank TabId</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">EventType</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Event type</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">PlayerGuid</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">ItemOrMoney</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">ItemStackCount</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">DestTabId</a></p></td><td class="confluenceTd"><p>tinyint(1)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Destination Tab Id</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_bank_eventlog_332173.html">TimeStamp</a></p></td><td class="confluenceTd"><p>bigint(20)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Event UNIX time</p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="guild_bank_eventlog-guildid">guildid</h3><p><code><code>Guild Identificator</code></code></p><h3 id="guild_bank_eventlog-LogGuid">LogGuid</h3><p><code>Log record identificator - auxiliary column</code></p><h3 id="guild_bank_eventlog-TabId">TabId</h3><p><code>Guild bank TabId</code></p><h3 id="guild_bank_eventlog-EventType">EventType</h3><p>1 = GUILD_BANK_LOG_DEPOSIT_ITEM</p><p>2 = GUILD_BANK_LOG_WITHDRAW_ITEM</p><p>3 = GUILD_BANK_LOG_MOVE_ITEM</p><p>4 = GUILD_BANK_LOG_DEPOSIT_MONEY</p><p>5 = GUILD_BANK_LOG_WITHDRAW_MONEY</p><p>6 = GUILD_BANK_LOG_REPAIR_MONEY</p><p>7 = GUILD_BANK_LOG_MOVE_ITEM2</p><p>8 = GUILD_BANK_LOG_UNK1</p><p>9 = GUILD_BANK_LOG_BUY_SLOT</p><h3 id="guild_bank_eventlog-PlayerGuid">PlayerGuid</h3><p><code>GUID of the Player<br /></code></p><h3 id="guild_bank_eventlog-ItemOrMoney">ItemOrMoney</h3><p><code>field-no-description|6</code></p><h3 id="guild_bank_eventlog-ItemStackCount">ItemStackCount</h3><p><code>field-no-description|7</code></p><h3 id="guild_bank_eventlog-DestTabId">DestTabId</h3><p><code>Destination Tab Id</code></p><h3 id="guild_bank_eventlog-TimeStamp">TimeStamp</h3><p><code>Event UNIX time</code></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

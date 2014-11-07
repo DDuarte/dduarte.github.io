@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Setting up the Server</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Setting up the Server
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> ascathor</span>, last modified by <span class='editor'> stryker</span> on Oct 26, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397629343 {padding: 0px;}
+div.rbtoc1415397629343 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397629343 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397629343'>
+<ul class='toc-indentation'>
+<li><a href='#SettinguptheServer-Extractors'>Extractors</a>
+<ul class='toc-indentation'>
+<li><a href='#SettinguptheServer-ExtractingDBC,Maps,VMaps&amp;MMaps'>Extracting DBC, Maps, VMaps &amp; MMaps</a></li>
+</ul>
+</li>
+<li><a href='#SettinguptheServer-Settinguptheconfigurationfiles'>Setting up the configuration files</a>
+<ul class='toc-indentation'>
+<li><a href='#SettinguptheServer-worldserver.conf'>worldserver.conf</a></li>
+<li><a href='#SettinguptheServer-authserver.conf'>authserver.conf</a></li>
+<li><a href='#SettinguptheServer-RealmlistTable'>Realmlist Table</a></li>
+</ul>
+</li>
+<li><a href='#SettinguptheServer-RunningandConnectingtoYourServer'>Running and Connecting to Your Server</a></li>
+<li><a href='#SettinguptheServer-FinalSteps'>Final Steps</a></li>
+</ul>
+</div><u><em><strong><br /></strong></em></u></p><p><u><em><strong>Before proceeding, please make sure that you have your database setup properly - <a href="Setting-up-your-Database_1704473.html">HERE</a></strong></em></u></p><p>Now that you have the source compiled you need to extract some necessary files.</p><h1 id="SettinguptheServer-Extractors"><span style="color: rgb(0,0,0);">Extractors</span></h1><p>Trinity requires <strong>dbc</strong> and <strong>map</strong> files. It is optional but highly recommended to also extract <strong>Vmaps</strong>, which enable Line-of-Sight rules (casting through walls, etc) and Sanctuary areas (like Dalaran). Another option, which is still experimental and in progress, are Mmaps, which enable correct NPC pathings (along walkways instead of through walls).</p><p><strong>WARNING: Use ONLY Trinity's extractors. Others are NOT supported.</strong></p><p>If you use extractors from other projects it is almost certain that your TrinityCore will not recognize the extracted data! There is only one way in which you can be certain to obtain the correct extractors. If you add the option TOOLS in CMake before compiling, you will get them in your D:\Build\bin\Release\ folder after compilation is complete.</p><h2 id="SettinguptheServer-ExtractingDBC,Maps,VMaps&amp;MMaps">Extracting DBC, Maps, VMaps &amp; MMaps</h2><p><span style="color: rgb(255,0,0);"><strong>WARNING - as of 10/26/2014 - extractions of the following files DO NOT work yet. Please be patient as we work out the kinks.</strong></span></p><p>1. Browse into your <strong>D:\Build\bin\Release </strong>folder and copy these files into your root World of Warcraft folder (where the Wow.exe is located):</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+mapextractor.exe<br />mmaps_generator.exe<br />vmap4extractor.exe<br />vmap4assembler.exe<br />makevmaps_simple.bat
+</div></div><p>If you do not have makevmaps_simple.bat, create an empty one inside your root World of Warcraft folder. Once created, open it in Notepad and copy/paste the following inside it:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>makevmaps_simple.bat</b></div><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: true" style="font-size:12px;">vmap4extractor.exe
+md vmaps
+vmap4assembler.exe Buildings vmaps 
+pause
+</pre>
+</div></div><p>Note - If you are extracting the data files from another machine, please make sure that you have the appropriate VC++ Redistributable Packages installed</p><p>2. Run <strong>mapextractor.exe</strong> and wait until it is finished.</p><p>3. Move the <strong>dbc</strong> and <strong>maps</strong> folders to the <strong>D:\Build\bin\Release </strong>folder.</p><p>4. Run <strong>makevmaps_simple.bat</strong>.</p><p style="margin-left: 30.0px;"><em>Note: Extracting the vmaps will take a while depending on your machine (30 min. - 2 hours). Do not attempt to stop this process. It is finished when it prints &quot;Press any key...&quot;. </em>It will create two new folders: <strong>buildings</strong> and <strong>vmaps</strong>. The <strong>buildings</strong> folder is completely useless post-running and can be safely deleted.</p><p>5. Move the vmaps folder to the same directory as <strong>dbc</strong>, <strong>maps</strong> and the TrinityCore binaries.</p><p><strong><u>The following steps are optional but recommended</u>:</strong></p><p>1. Move <strong>mmaps_generator.exe </strong>to the same directory as dbc, maps, and the TrinityCore binaries.</p><p>2. Create a folder called &quot;mmaps&quot; and run <strong>mmaps_generator.exe.</strong></p><p style="margin-left: 30.0px;"><em>Note: Extracting MMAPS will take a while depending on your machine (1 - 24 hours). Do not attempt to stop this process. </em><br /><br /></p><p><em><strong><em>Note: The mmaps are experimental right now. Any bugs should be reported to the <a href="https://github.com/TrinityCore/TrinityCore/issues" class="external-link" rel="nofollow">Issue Tracker</a>.</em></strong></em></p><h1 id="SettinguptheServer-Settinguptheconfigurationfiles">Setting up the configuration files</h1><p>Browse into your <strong>Release</strong> folder  (Can differ depending on OS)</p><p>Delete the <u><strong>.dist</strong></u> extensions from<em> </em><strong>worldserver.conf<u>.dist</u></strong> and <strong>authserver.conf<u>.dist</u></strong>. </p><p>You should now have <strong>worldserver.conf</strong> and <strong>authserver.conf</strong> within your <strong>Release</strong> folder (Windows).</p><ul><li>Linux has it within /trinitycore/etc/</li><li>Mac has them within /opt/trinitycore/etc/</li></ul><h2 id="SettinguptheServer-worldserver.conf">worldserver.conf</h2><p>Scroll down to the LoginDatabaseInfo, WorldDatabaseInfo, and CharacterDatabaseInfo config options and enter MySQL Server login information for the server to be able to connect to your database.</p><p>On a newly compiled config, you should have the following values:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<pre>LoginDatabaseInfo = &quot;127.0.0.1;3306;trinity;trinity;auth&quot;     
+WorldDatabaseInfo = &quot;127.0.0.1;3306;trinity;trinity;world&quot;     
+CharacterDatabaseInfo = &quot;127.0.0.1;3306;trinity;trinity;characters&quot;</pre>
+</div></div><p>It follows this structure:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<pre>Variablename = &quot;MySQLIP;Port;Loginname;Password;database&quot;  </pre>
+</div></div><p> </p><p>The following settings must be verified:</p><ul><li>The hostname (127.0.0.1) can stay the same if Trinity is being installed on the same computer that you run WoW on.<br />Otherwise, follow the instruction in <a href="Setting-up-the-Server_7110719.html">Realmlist Table</a> if this is not the case. </li><li>The port (3306) is the standard configured value. Depending on your settings, you must change it accordingly.</li><li style="list-style-type: none;"><span>The username and password can be variable. </span><span>You can choose to either:</span><ul><li><span>Run on your <em>root </em>password you used when you installed MySQL Server Community Edition(e.g. 'root':'password'), which is<strong> strongly not recommend</strong> if the server is somehow public.</span></li><li><span>create an unique login within a User Manager within your prefered database management tool (commonly identified by an icon that looks like a person or people) and give it necessary permissions (SELECT, INSERT, UPDATE, DELETE permissions are sufficient, and is much safer).</span></li></ul></li><li><span>All other default options should be sufficient, but it is recommended that you take some time after your server is finished to read through the configs and see all the ways to customize your server.</span><br /><span><br /></span></li></ul><p><strong>IMPORTANT: If you choose not to run vmaps or mmaps, you must make the following changes:</strong></p><ul><li>vmap.enableLOS = 1 – set this to 0</li><li>vmap.enableHeight = 1 – set this to 0</li><li>vmap.petLOS = 1 – set this to 0</li><li>vmap.enableIndoorCheck = 1 – set this to 0</li><li>mmap.enablePathFinding = 0 (default - keep this 0)<ul><li><em>Note: If you change your mind and decide to extract and use vmaps or mmaps later, make sure to change these values back to &quot;1&quot; to take advantage of them.</em></li><li><em>Pro Tip: For most worldserver.conf setting changes, you can simply type <strong>.reload config</strong> in-game to see changes instantly without restarting the server.</em></li></ul></li></ul><h2 id="SettinguptheServer-authserver.conf">authserver.conf</h2><p>Scroll down to the LoginDatabaseInfo and enter MySQL Server login information.</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<pre>LoginDatabaseInfo = &quot;127.0.0.1;3306;trinity;trinity;auth&quot;</pre>
+</div></div><p>It follows this structure:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<pre>Variablename = &quot;MySQLIP;Port;Loginname;Password;database&quot;</pre>
+</div></div><p>Just like the worldserver.conf, you have to enter these necessary values and customize your preferences.</p><h2 id="SettinguptheServer-RealmlistTable">Realmlist Table</h2><p>You need to make sure that your <strong>authserver</strong> application directs incoming connections to your realm.</p><ul><li>Run your chosen database management tool (ex. SQLYog or HeidiSQL, but also web-applications like Phpmyadmin for servers with php extension)*</li><li>Open the <strong>auth</strong> database and find the <strong>realmlist</strong>table. You need to edit the address field according to your needs:<ul><li>LAN IP (192.168.x.x) - If you are installing TrinityCore on a different computer from where you run WoW, but all the computers involved are on the same network (router) use that computer's Local Area Network IP.</li><li>127.0.0.1 - Also known as &quot;localhost&quot;. Leave this setting alone here and in your configs if you've installed TrinityCore on the same computer you run WoW on, and only you are connecting to it.</li><li><p><span>External IP – If you want other people to connect to your server, use your external IP. Visit </span><a class="external-link" href="http://www.whatismyip.com/" rel="nofollow">http://www.whatismyip.com/</a><span> to find your external IP address.</span></p>    <div class="aui-message problem shadowed information-macro">
+                    <p class="title">Public Servers</p>
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>The TrinityCore Team and Owners DO NOT in any case sponsor nor support illegal public servers. If you use these projects to run an illegal public server and not for testing and learning it is your own personal choice.</p>
+                    </div>
+    </div>
+</li></ul></li></ul><h1 id="SettinguptheServer-RunningandConnectingtoYourServer">Running and Connecting to Your Server</h1><p><span>After completing all the steps listed above you can now start your server.</span></p><ul><li>Run the <strong>authserver</strong> and <strong>worldserver </strong>to run your server. Both must stay running for your server to accept connections to it.<ul><li><em>Tip: The authserver allows you to enter your username/password to connect to the Realm Selection screen, and the worldserver allows you to connect to the realm itself. Once you are in-game, the authserver can be safely closed if you wish.</em></li></ul></li><li>Open the <strong>realmlist.wtf</strong> file inside your <strong>World of Warcraft\Data </strong>folder. The IP in the realmlist.wtf file should be exactly the same as the IP address you entered in the realmlist table above.<ul><li>Change the first line to: <strong>set realmlist &lt;IP address used in realmlist table&gt;</strong></li><li>Example: <strong><em>set realmlist 127.0.0.1</em></strong></li></ul></li><li>(Optional) If you wish to use the WoW Launcher.exe to run your client then you must change your <strong>set patchlist</strong> to the same ip/dns name as your realmlist.</li></ul><h1 id="SettinguptheServer-FinalSteps">Final Steps</h1><p>You can type commands inside the worldserver program, similar to a command prompt.</p><ul><li>Type: <strong>account create &lt;user&gt; &lt;pass&gt;</strong><ul><li>Example:<strong> <em>account create test test</em></strong></li></ul></li><li>Type: <strong>account set gmlevel &lt;user&gt; 3 -1</strong><ul><li>Example: <strong><em>account set gmlevel test 3 -1</em></strong><ul><li><strong><em><span style="color: rgb(0,51,102);">DO <strong><em><span style="color: rgb(0,51,102);"><u>!</u></span></em></strong><u>NEVER</u>! create an account directly into your database unless you are ABSOLUTELY SURE that you know what and how to do!</span><br /></em></strong></li></ul></li></ul></li><li>The &quot;3&quot; is the GM account level (higher numbers = more access), and the &quot;-1&quot; is the realm ID that stands for &quot;all realms&quot;.<ul><li><em>Tip: Open the <strong>world</strong> database in your database management tool and find the <strong>command</strong> table. This table shows a full list of GM commands, their descriptions, and the security (GM level) needed to use them. You will not find a more accurate list of current GM commands anywhere else (assuming you keep your database up-to-date). The security level for a given command identifies that THAT GM level can use the command, along with all GM levels above it. For example, if a command has a security of 2, all accounts with a GM level of 2, 3, and 4 will be able to use it.</em></li></ul></li><li>Minimize your authserver and worldserver and run <strong>WoW</strong> (never run WoW using the Launcher unless you edited the realmlist.wtf's patchlist option above).</li><li>Log in using the user/pass you just created (test/test).</li><li>The <strong>Trinity</strong> realm should be selectable. Log in, create a character, and you're all done!</li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

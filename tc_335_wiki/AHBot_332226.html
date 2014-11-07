@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : AHBot</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Advanced_332236.html">Advanced</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Custom_10682455.html">Custom</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : AHBot
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="AHBot-TheAuctionhouseBot">The Auctionhouse Bot</h1><h1 id="AHBot-Note:Thisguideisdeprecated,AHbotwasremovedfromthecore."><strong>Note: This guide is deprecated, AHbot was removed from the core.</strong></h1><p>One of the many features of Trinity is the AuctionHouse Bot. It requires you to create a character, setup the TrinityCore.conf file appropriately and set the `characters`.`auctionhousebot` table.</p><p>If you are still a first timer on Trinity, it is best you use this feature after you feel comfortable you have a good Trinity know-how. <strong>WRONG SETTINGS WILL CAUSE CRASHES</strong>.</p><h2 id="AHBot-Whatisit?">What is it?</h2><p>It is a server-controlled bot useful to keep auctionhouses on low populated realms constantly full of items for characters to buy. It can also act as buyer, so that characters will always have someone buying the items they put on auction.</p><h2 id="AHBot-Client-sidePreparation">Client-side Preparation</h2><p>The first step is to create an account and character for the Auctionhouse Bot. We will assume you created an account called <strong>ahbot</strong>. Login with that account and create a character, which we will assume you called <strong>Ahbot</strong>.</p><p>The race, class...it does not matter what it is, as long as you create the character and log it into the world. Once you are at the starting area, you can logout and never use the character again.</p><h2 id="AHBot-ConfigurationSettings">Configuration Settings</h2><p>The first thing you need is to know the <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=account_tc2&amp;linkCreation=true&amp;fromPageId=332226">account's ID</a> and <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=characters_tc2&amp;linkCreation=true&amp;fromPageId=332226">character's GUID</a> of the Auctionhouse Bot.</p><p>You can find out via SQL query:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">SELECT * FROM `realmd`.`account` WHERE `username`=&#39;ahbot&#39;;
+SELECT * FROM `characters`.`characters` WHERE `name`=&#39;Ahbot&#39;;
+</pre>
+</div></div><p>Or by logging the ahbot character and using the ingame command:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">.pinfo ahbot
+</pre>
+</div></div><p>The output of this command will give you the account's ID and character's GUID.</p><p>We will <span style="text-decoration: underline;">pretend</span> that the account's ID is <strong>1234</strong> and that the character's GUID is <strong>5678</strong> in this example.</p><p>Now open your TrinityCore.conf file and edit the lines as stated below:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">AuctionHouseBot.DEBUG = 0
+AuctionHouseBot.DEBUG_FILTERS = 0
+AuctionHouseBot.EnableSeller = 0 -- SET this to 1
+AuctionHouseBot.EnableBuyer = 0 -- SET this to 1
+AuctionHouseBot.UseBuyPriceForSeller = 0
+AuctionHouseBot.UseBuyPriceForBuyer = 0
+AuctionHouseBot.Account = 0 -- SET this to 1234
+AuctionHouseBot.GUID = 0 -- SET this to 5678
+AuctionHouseBot.ItemsPerCycle = 200
+</pre>
+</div></div><p>WARNING: If you enable the Auctionhouse Bot but forget to set the account's ID and character's GUID, or type them wrong, <strong>your Server will always crash at startup</strong></p><h2 id="AHBot-SQLSettings">SQL Settings</h2><p>You can customize how the Auctionhouse Bot will behave on each separate auction by changing the settings in the <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=auctionhousebot_tc2&amp;linkCreation=true&amp;fromPageId=332226">auctionhousebot</a> table in the characters DB.</p><h1 id="AHBot-Conclusion">Conclusion</h1><p>As you will notice by looking the the TrinityCore.conf file and the DB table, the Auctionhouse Bot allows an incredible amount of configuration options to make it as flexible as possible.</p><p>This guide instructs you how to activate the Auctionhouse Bot and have it working with default options.<br /> For further details on how to optimize the Auctionhouse Bot to better meet your needs, look at the <a href="http://code.google.com/p/trinitycore/source/browse/README.AHBOT" class="external-link" rel="nofollow">README.AHBOT</a> file you will find in your Source main directory.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

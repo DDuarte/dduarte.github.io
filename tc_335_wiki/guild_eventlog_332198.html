@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : guild_eventlog</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : guild_eventlog
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> shindarth</span> on Oct 26, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `guild_eventlog` table</strong></p><p><code>table-no-description</code></p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="guild_eventlog_332198.html">guildid</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Guild Identificator</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_eventlog_332198.html">LogGuid</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Log record identificator - auxiliary column</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_eventlog_332198.html">EventType</a></p></td><td class="confluenceTd"><p>tinyint(1)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Event type</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_eventlog_332198.html">PlayerGuid1</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Player 1</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_eventlog_332198.html">PlayerGuid2</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Player 2</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_eventlog_332198.html">NewRank</a></p></td><td class="confluenceTd"><p>tinyint(2)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>New rank(in case promotion/demotion)</p></td></tr><tr><td class="confluenceTd"><p><a href="guild_eventlog_332198.html">TimeStamp</a></p></td><td class="confluenceTd"><p>bigint(20)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Event UNIX time</p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="guild_eventlog-guildid">guildid</h3><p><code>Guild Identificator</code></p><h3 id="guild_eventlog-LogGuid">LogGuid</h3><p><code>Log record identificator - auxiliary column</code></p><h3 id="guild_eventlog-EventType">EventType</h3><p>1 = GUILD_EVENT_LOG_INVITE_PLAYER</p><p>2 = GUILD_EVENT_LOG_JOIN_GUILD</p><p>3 = GUILD_EVENT_LOG_PROMOTE_PLAYER</p><p>4 = GUILD_EVENT_LOG_DEMOTE_PLAYER</p><p>5 = GUILD_EVENT_LOG_UNINVITE_PLAYER</p><p>6 = GUILD_EVENT_LOG_LEAVE_GUILD</p><h3 id="guild_eventlog-PlayerGuid1">PlayerGuid1</h3><p><code><code>GUID of Player1</code></code></p><h3 id="guild_eventlog-PlayerGuid2">PlayerGuid2</h3><p><code><code>GUID of Player2</code></code></p><h3 id="guild_eventlog-NewRank">NewRank</h3><p><code>New rank (in case of promotion/demotion)</code></p><h3 id="guild_eventlog-TimeStamp">TimeStamp</h3><p><code>Event UNIX time</code></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

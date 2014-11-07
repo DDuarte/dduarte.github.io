@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : TDB 4.3.4 + DB Updates</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Databases_10682471.html">Install Databases</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : TDB 4.3.4 + DB Updates
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> nayd</span>, last modified by <span class='editor'> aokromes</span> on Oct 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p> </p><h3 id="TDB4.3.4+DBUpdates-false"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397629132 {padding: 0px;}
+div.rbtoc1415397629132 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397629132 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397629132'>
+<ul class='toc-indentation'>
+<li><a href='#TDB4.3.4+DBUpdates-1.PopulatingWorlddatabase'>1. Populating World database</a></li>
+<li><a href='#TDB4.3.4+DBUpdates-2.Updating'>2. Updating</a></li>
+<li><a href='#TDB4.3.4+DBUpdates-3.PopulatingCharacterandAuthdatabase'>3. Populating Character and Auth database</a></li>
+<li><a href='#TDB4.3.4+DBUpdates-4.ConfiguringTheServer'>4. Configuring The Server</a></li>
+</ul>
+</div></h3><p> </p><h3 id="TDB4.3.4+DBUpdates-1.PopulatingWorlddatabase"><span style="color: rgb(0,0,0);">1. Populating World database</span></h3>    <div class="aui-message problem shadowed information-macro">
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>All SQL updates needed for the <strong>world</strong> database are to be found in the DB repository.</p><p>Do <u>not</u> import the SQL files from the core repository, <code>TrinityCore/sql/updates/world</code>.</p>
+                    </div>
+    </div>
+<p> </p><p> </p><p> Fresh start</p><ol><li><p>Clone DB repository</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">git clone https://github.com/TrinityCore/TrinityCore_4.3.4_DB_Alpha.git</pre>
+</div></div></li><li>Download most recent <strong>world</strong> database from <a href="http://www.trinitycore.org/f/files/file/9-tdb-full-434/" class="external-link" rel="nofollow">http://www.trinitycore.org/f/files/file/9-tdb-full-434/</a>.</li><li>Unpack the file and import it to your MySQL server.</li><li>Run <strong>merge_windows.bat</strong> if you are on Windows or <strong>merge_linux.sh</strong><code> </code>if you are on Linux (these files are found in the /tools/ directory of the DB repository).<ul><li>This will import the needed SQL update files, found in <code>updates </code>directory.</li></ul></li></ol><h3 id="TDB4.3.4+DBUpdates-2.Updating">2. Updating</h3><ol><li><p>Update DB repository.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">git pull --rebase origin</pre>
+</div></div></li><li>Import the SQL update files from <code>updates </code>directory that are new since last update.<ul><li>That means you should take note of the last SQL you imported each batch of updates</li></ul></li><li>If a new full DB has been released, you got two options:</li></ol><ul><li>Drop world database and import full new DB</li></ul><p>          If you are updating from older versions:</p><ul><li>Import the new SQL files in <code style="line-height: 1.4285715;">updates</code> and the needed files under <code style="line-height: 1.4285715;">old/updates_xx.</code><br /><code style="line-height: 1.4285715;">NOTE: don't import all files under old if you are updating from older TDBs, only the ones over your latest update.<br />For example, if you have clean TDB 4.3.4-4 and you are looking to update to TDB 4.3.4-5 + updates you will need to apply all the files on updates_04, all the files on updates and none on old/updates_01 to old/updates_03.<br />If you have one random commit between 4.3.4-4 and 4.3.4-5 you need to know witch is and apply any updates from that commit to head.</code></li></ul>    <div class="aui-message problem shadowed information-macro">
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>All SQL updates needed for the <strong>world</strong> database are to be found in the DB repository.</p><p>Do <u>not</u> import the SQL files from the core repository, <code>TrinityCore/sql/updates/world</code>.</p>
+                    </div>
+    </div>
+    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p>Because the TDB 4.3.4 is not always updated, usually you cannot use latest core revision:</p><p>If the last sync commit in the TDB 4.3.4 repository is &quot;Sync with TrinityCore/12345example&quot; in the core repository you have to execute</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: plain; gutter: false" style="font-size:12px;">git checkout 12345example</pre>
+</div></div>
+                    </div>
+    </div>
+<p> </p><h3 id="TDB4.3.4+DBUpdates-3.PopulatingCharacterandAuthdatabase">3. Populating Character and Auth database</h3><p>The process is the same used for TC master branch: all the required SQL files are in TrinityCore repository:</p><ul><li>/sql/base/characters_database.sql</li><li>/sql/base/auth_database.sql</li></ul><p>Like on master branch you never must apply sql updates for characters and auth databases when creating a new server.</p><p>If you still have problems, read <a href="http://www.trinitycore.org/f/topic/328-unknown-column-missing-table-duplicate-column-error-sql-problems-sqldriverlogfile-answer-on-1st-post-of-1st-page/" class="external-link" rel="nofollow">http://www.trinitycore.org/f/topic/328-unknown-column-missing-table-duplicate-column-error-sql-problems-sqldriverlogfile-answer-on-1st-post-of-1st-page/</a></p><h3 id="TDB4.3.4+DBUpdates-4.ConfiguringTheServer"><span style="color: rgb(0,0,0);"><br />4. Configuring The Server</span></h3><p>This page shows you how to configure the server: <a href="Setting-up-the-Server_7110719.html">Configuring The Server</a></p>    <div class="aui-message success shadowed information-macro">
+                    <p class="title">Protip™</p>
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p> Keep your custom database changes organized in a file that can be re-imported after each <strong>world</strong> DB wipe/update</p>
+                    </div>
+    </div>
+</div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p> </p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

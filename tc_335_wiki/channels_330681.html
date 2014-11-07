@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : channels</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : channels
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><h1 id="channels-Table:channels">Table: channels</h1><p>Information and settings for ingame, player-based chat channels (not affecting the default system channels)</p><h2 id="channels-Structure">Structure</h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="channels_330681.html">name</a></p></td><td class="confluenceTd"><p>varchar(128)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="channels_330681.html">team</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="channels_330681.html">announce</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="channels_330681.html">ownership</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="channels_330681.html">password</a></p></td><td class="confluenceTd"><p>varchar(32)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="channels_330681.html">bannedList</a></p></td><td class="confluenceTd"><p>text</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="channels_330681.html">lastUsed</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><h2 id="channels-Descriptionofthefields">Description of the fields</h2><h3 id="channels-name">name</h3><p><strong>Channel name</strong></p><p>Name of the channel</p><h3 id="channels-team">team</h3><p><strong>&lt;team id&gt; Allow access to channel from specified player faction ID</strong></p><p>For multirace channels, two (or more) separate entries must exist with the EXACT same settings for all fields apart from this (it needs a different &lt;team id&gt;)</p><p>Horde -&gt; 67</p><p>Alliance -&gt; 469</p><h3 id="channels-announce">announce</h3><p><strong>Channel announce (0/1)</strong></p><p>0 = Channel join/part actions will not be sent</p><p>1 = Channel join/part actions will be sent</p><h3 id="channels-ownership">ownership</h3><p><strong>Channel ownership (0/1)</strong></p><p>0 = No one will ever be an owner.</p><p>1 = Ownership is the first person in the channel.</p><h3 id="channels-password">password</h3><p><strong>Channel password</strong></p><p>Empty, or a standard string-based password (no spaces allowed)</p><h3 id="channels-bannedList">bannedList</h3><p><strong>Channel banlist</strong><br /><br /> List of banned player names, separated by spaces</p><h3 id="channels-lastUsed">lastUsed</h3><p>Used for automated cleaning of unused channels from database. Time is in unixtime.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:58</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

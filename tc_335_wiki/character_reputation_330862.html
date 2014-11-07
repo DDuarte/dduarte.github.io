@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : character_reputation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : character_reputation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 04, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `character_reputation` table</strong></p><p>This table holds the reputation information for each character.</p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="character_reputation_330862.html">guid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Global Unique Identifier</p></td></tr><tr><td class="confluenceTd"><p><a href="character_reputation_330862.html">faction</a></p></td><td class="confluenceTd"><p>smallint(5)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="character_reputation_330862.html">standing</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="character_reputation_330862.html">flags</a></p></td><td class="confluenceTd"><p>smallint(5)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="character_reputation-guid">guid</h3><p>The GUID of the character. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=characters_tc2&amp;linkCreation=true&amp;fromPageId=330862">characters.guid</a></p><h3 id="character_reputation-faction">faction</h3><p>The faction ID that the character has the given reputation in. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Faction.dbc+tc2&amp;linkCreation=true&amp;fromPageId=330862">Faction.dbc</a></p><h3 id="character_reputation-standing">standing</h3><p>The current reputation value that the character has.</p><h3 id="character_reputation-flags">flags</h3><p>This field is a bitmask containing flags that apply to the faction and how it's displayed to the character. Just like any flag field, you can combine flags by adding them together. If this field is 0, then it is not shown in the reputation list in-game.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Flag</p></th><th class="confluenceTh"><p>Name</p></th><th class="confluenceTh"><p>Comments</p></th></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>FACTION_FLAG_VISIBLE</p></td><td class="confluenceTd"><p>Displayed in the reputation tab</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>FACTION_FLAG_AT_WAR</p></td><td class="confluenceTd"><p>Active when the player sets the at war checkbox</p></td></tr><tr><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>FACTION_FLAG_HIDDEN</p></td><td class="confluenceTd"><p>Hidden faction from reputation pane in client</p></td></tr><tr><td class="confluenceTd"><p>8</p></td><td class="confluenceTd"><p>FACTION_FLAG_INVISIBLE_FORCED</p></td><td class="confluenceTd"><p>Always overwrites FACTION_FLAG_VISIBLE and hide faction in rep.list</p></td></tr><tr><td class="confluenceTd"><p>16</p></td><td class="confluenceTd"><p>FACTION_FLAG_PEACE_FORCED</p></td><td class="confluenceTd"><p>Always overwrites FACTION_FLAG_AT_WAR</p></td></tr><tr><td class="confluenceTd"><p>32</p></td><td class="confluenceTd"><p>FACTION_FLAG_INACTIVE</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>64</p></td><td class="confluenceTd"><p>FACTION_FLAG_RIVAL</p></td><td class="confluenceTd"><p>Flag for the two competing outland factions</p></td></tr><tr><td class="confluenceTd"><p>128</p></td><td class="confluenceTd"><p>FACTION_FLAG_SPECIAL</p></td><td class="confluenceTd"><p>Horde and alliance home cities and their northrend allies have this flag</p></td></tr></tbody></table></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

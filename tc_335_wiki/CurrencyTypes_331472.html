@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : CurrencyTypes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Files_10682464.html">Files</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DBC_331816.html">DBC</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : CurrencyTypes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:DBC</code></p><p><strong>CurrencyTypes.dbc</strong></p><p>This DBC contains all currency types a player can know and store.</p><p><strong>Version is : 3.2.2a</strong></p><p>This file lists currencies that are now listed out of the inventory but on a tab in the character frame.</p><p><a name="Structure" rel="nofollow"></a></p><h2 id="CurrencyTypes-Structure"><span class="mw-headline">Structure</span></h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Column</th><th class="confluenceTh">Field</th><th class="confluenceTh">Type</th><th class="confluenceTh">Notes</th></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">ID</td><td class="confluenceTd">Integer</td><td class="confluenceTd">They include some kind of groups too. See below. Real id in column 4.</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd"><a href="Item_333045.html">Item</a></td><td class="confluenceTd">iRefID</td><td class="confluenceTd">The itemd displayed.</td></tr><tr><td class="confluenceTd">3</td><td class="confluenceTd">Category</td><td class="confluenceTd">iRefID</td><td class="confluenceTd">Yes, there are non-existant categories in here.</td></tr><tr><td class="confluenceTd">4</td><td class="confluenceTd">bitIndex</td><td class="confluenceTd">Integer</td><td class="confluenceTd">These are getting shifted and used as bitmasks for &quot;currencyTokensBackpack&quot; resulting in a maximum of 32 * 2 types.</td></tr></tbody></table></div><p><a name="ID" rel="nofollow"></a></p><h2 id="CurrencyTypes-ID"><span class="mw-headline">ID</span></h2><p>The id is always seperatable into three digits. The least significant is some kind of real id for that category. The other two define the category. They always increase in steps of 20.</p><p><a name="Example" rel="nofollow"></a></p><h3 id="CurrencyTypes-Example"><span class="mw-headline">Example</span></h3><p>12* are Marks of Honor.</p><ul><li>121 (14) - <a class="external-link" href="http://www.wowhead.com/?item=20560" rel="nofollow">Alterac Valley Mark of Honor</a></li><li>122 (15) - <a class="external-link" href="http://www.wowhead.com/?item=20559" rel="nofollow">Arathi Basin Mark of Honor</a></li><li>123 (16) - <a class="external-link" href="http://www.wowhead.com/?item=29024" rel="nofollow">Eye of the Storm Mark of Honor</a></li><li>124 (17) - <a class="external-link" href="http://www.wowhead.com/?item=42425" rel="nofollow">Strand of the Ancients Mark of Honor</a></li><li>125 (18) - <a class="external-link" href="http://www.wowhead.com/?item=20558" rel="nofollow">Warsong Gulch Mark of Honor</a></li><li>126 (19) - <a class="external-link" href="http://www.wowhead.com/?item=43589" rel="nofollow">Wintergrasp Mark of Honor</a></li></ul><p>10* are WotLK marks and basic PvP currencies.</p><ul><li>101 (10) - <a class="external-link" href="http://www.wowhead.com/?item=40752" rel="nofollow">Emblem of Heroism</a></li><li>102 (11) - <a class="external-link" href="http://www.wowhead.com/?item=40753" rel="nofollow">Emblem of Valor</a></li><li>103 (12) - <a class="external-link" href="http://www.wowhead.com/?item=43307" rel="nofollow">Arena Points</a></li><li>104 (13) - <a class="external-link" href="http://www.wowhead.com/?item=43308" rel="nofollow">Honor Points</a></li></ul><h2 id="CurrencyTypes-Content"><strong style="line-height: 1.5;">Content</strong></h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>ID</p></th><th class="confluenceTh"><p><strong>ItemId</strong></p></th><th class="confluenceTh"><p>Category</p></th><th class="confluenceTh"><p><strong>BitIndex</strong></p></th></tr><tr><th class="highlight-yellow confluenceTh" data-highlight-colour="yellow"><p>1</p></th><td class="confluenceTd"><p>37711</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>1</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>37742</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>2</p></td></tr><tr><td class="confluenceTd"><p>42</p></td><td class="confluenceTd"><p>29434</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>7</p></td></tr><tr><td class="confluenceTd"><p>61</p></td><td class="confluenceTd"><p>41596</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>8</p></td></tr><tr><td class="confluenceTd"><p>81</p></td><td class="confluenceTd"><p>43016</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>9</p></td></tr><tr><td class="confluenceTd"><p>241</p></td><td class="confluenceTd"><p>44990</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>25</p></td></tr><tr><td class="confluenceTd"><p>103</p></td><td class="confluenceTd"><p>43307</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>12</p></td></tr><tr><td class="confluenceTd"><p>104</p></td><td class="confluenceTd"><p>43308</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>13</p></td></tr><tr><td class="confluenceTd"><p>121</p></td><td class="confluenceTd"><p>20560</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>14</p></td></tr><tr><td class="confluenceTd"><p>122</p></td><td class="confluenceTd"><p>20559</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>15</p></td></tr><tr><td class="confluenceTd"><p>123</p></td><td class="confluenceTd"><p>29024</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>16</p></td></tr><tr><td class="confluenceTd"><p>124</p></td><td class="confluenceTd"><p>42425</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>17</p></td></tr><tr><td class="confluenceTd"><p>125</p></td><td class="confluenceTd"><p>20558</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>18</p></td></tr><tr><td class="confluenceTd"><p>126</p></td><td class="confluenceTd"><p>43589</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>19</p></td></tr><tr><td class="confluenceTd"><p>161</p></td><td class="confluenceTd"><p>43228</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>21</p></td></tr><tr><td class="confluenceTd"><p>181</p></td><td class="confluenceTd"><p>44209</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>22</p></td></tr><tr><td class="confluenceTd"><p>201</p></td><td class="confluenceTd"><p>37836</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>23</p></td></tr><tr><td class="confluenceTd"><p>321</p></td><td class="confluenceTd"><p>47395</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>28</p></td></tr><tr><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>38644</p></td><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>3</p></td></tr><tr><td class="confluenceTd"><p>101</p></td><td class="confluenceTd"><p>40752</p></td><td class="confluenceTd"><p>22</p></td><td class="confluenceTd"><p>10</p></td></tr><tr><td class="confluenceTd"><p>102</p></td><td class="confluenceTd"><p>40753</p></td><td class="confluenceTd"><p>22</p></td><td class="confluenceTd"><p>11</p></td></tr><tr><td class="confluenceTd"><p>221</p></td><td class="confluenceTd"><p>45624</p></td><td class="confluenceTd"><p>22</p></td><td class="confluenceTd"><p>24</p></td></tr><tr><td class="confluenceTd"><p>301</p></td><td class="confluenceTd"><p>47241</p></td><td class="confluenceTd"><p>22</p></td><td class="confluenceTd"><p>27</p></td></tr><tr><td class="confluenceTd"><p>22</p></td><td class="confluenceTd"><p>41749</p></td><td class="confluenceTd"><p>24</p></td><td class="confluenceTd"><p>5</p></td></tr><tr><td class="confluenceTd"><p>141</p></td><td class="confluenceTd"><p>43949</p></td><td class="confluenceTd"><p>2089878896</p></td><td class="confluenceTd"><p>20</p></td></tr></tbody></table></div><h2 id="CurrencyTypes-UsageinTrinity"><strong>Usage in Trinity</strong></h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">struct CurrencyTypesEntry
+{
+    //uint32  ID;           // 0   not used
+    uint32    ItemId;       // 1   used as real index
+    //uint32  Category;     // 2   may be category
+    uint32    BitIndex;     // 3   bit index in PLAYER_FIELD_KNOWN_CURRENCIES (1 &lt;&lt; (index-1))
+};</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

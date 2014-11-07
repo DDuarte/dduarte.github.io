@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : TrinityCore Requirements</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : TrinityCore Requirements
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> aokromes</span>, last modified by <span class='editor'> nayd</span> on Nov 04, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><div class='toc-macro'>[ <a href='#TrinityCoreRequirements-Debianbasedlinux'>Debian based linux</a> ] [ <a href='#TrinityCoreRequirements-RedHat-basedlinux'>RedHat-based linux</a> ] [ <a href='#TrinityCoreRequirements-Windows'>Windows</a> ] [ <a href='#TrinityCoreRequirements-MacOSX'>MacOSX</a> ]</div></p><p> </p>Platform: Linux, Windows ≥ 7 SP1 or Mac</p><p>The following are the various software needed to compile the core successfully. Most are cross-platform.</p><p style="text-align: left;"><span>Processor with SSE2 support</span><br /><span>Boost ≥ 1.49 (≥ 1.54 </span><strong>iff</strong><span> build with Clang)</span><br /><span>MySQL ≥ 5.1.0</span><br /><span>OpenSSL ≥ 1.0.0</span><br /><span>CMake ≥ 2.8.12 (Windows) | </span><span>≥ 2.8.9 (Linux)</span><br /><span>ZeroMQ </span><span>≥ 3.2.4 (Windows) | ≥ 2.2.6 (Linux) (4.3.4 and 6.x branches only)</span><br /><span>GCC ≥ 4.7.2 or Clang </span><span>≥ 3.3</span><span> (Linux)</span><br /><span>MS Visual Studio (Express) ≥ 12 (2013) Desktop (Windows)</span><p> </p><p style="text-align: left;">Below you will find general install guidelines for each supported platform. Please note that for command-based OSes, the syntax may vary depending on the versions.</p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="TrinityCoreRequirements-Debianbasedlinux">Debian based linux</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: bash; gutter: false" style="font-size:12px;">sudo apt-get install build-essential autoconf libtool gcc g++ make cmake git-core
+sudo apt-get install wget p7zip-full libncurses5-dev
+sudo apt-get install openssl libssl-dev mysql-server mysql-client libmysqlclient15-dev
+sudo apt-get install libmysql++-dev libreadline6-dev zlib1g-dev libbz2-dev
+sudo apt-get install libboost-dev libboost-thread-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev
+
+# for 4.3.4 and 6.x branches ONLY
+sudo apt-get install libzmq-dev </pre>
+</div></div>    <div class="aui-message success shadowed information-macro">
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p>Continue with <a href="Linux_332360.html">Linux installation guide</a></p>
+                    </div>
+    </div>
+<p> </p><h3 id="TrinityCoreRequirements-RedHat-basedlinux">RedHat-based linux</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: bash; gutter: false" style="font-size:12px;">yum groupinstall &quot;Development Tools&quot;
+yum groupinstall &quot;Additional Development&quot;
+yum install gcc-g++ git-core wget links zip unzip unrar cmake
+yum install mysql-server mysql-client mysql-devel
+yum install openssl</pre>
+</div></div><p> </p><p>If you are compiling for 4.3.4 or 6.x you will also need to make and install zeromq from source:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: bash; gutter: false" style="font-size:12px;">wget http://download.zeromq.org/zeromq-4.0.5.tar.gz
+tar xzvf zeromq-4.0.5.tar.gz
+cd zeromq-4.0.5
+./configure
+make
+make install</pre>
+</div></div><p> </p><p> </p>    <div class="aui-message success shadowed information-macro">
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p>Continue with <a href="Linux_332360.html">Linux installation guide</a></p>
+                    </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="TrinityCoreRequirements-Windows">Windows</h3><ol><li><a href="http://code.google.com/p/gitextensions/" class="external-link" rel="nofollow">GitExtensions</a><ol><li>Includes Git, MySYSGit, and KDiff - be sure to install all three</li><li>View <a href="http://www.trinitycore.org/f/index.php?/topic/345-howto-properly-install-git-on-windows/" class="external-link" rel="nofollow">this thread</a> for important details on how to install Git for best results. Default install options for KDiff and MySYSGit are acceptable.<ol><li>During Git installation - Adjusting your PATH environment. Pick &quot;<strong>Run Git from the Windows Command Prompt</strong>&quot;.<br /><br /></li></ol></li></ol></li><li>Install the compiler<a href="http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs#DownloadFamilies_2" class="external-link" rel="nofollow"> Visual C++ 2013 Express</a><br /><br /></li><li><a href="http://dev.mysql.com/downloads/mysql/5.5.html" class="external-link" rel="nofollow">MySQL Server Community Edition</a> (Use the most recent 5.5.x version)<ol><li>Download the Windows MSI Installer. </li><li>Scroll down to the bottom and click on &quot;No thanks, just take me to the downloads!&quot;</li><li>When the install is almost done, make sure &quot;Launch the MySQL Instance Configuration Wizard&quot; is checked, then click &quot;Finish&quot;.</li><li>When the MySQL Instance Configuration Wizard launches, most default options are fine, but remember the username and password you use (root // whatever). You will need them to log into your chosen database management tool (below) in order to import SQL files later.</li><li><p>To test if MySQL is set up correctly, hit CTRL+ALT+DEL on your keyboard, enter the Task Manager, and select the &quot;Services&quot; tab. In the list of services you should see &quot;MySQL&quot; with a status of &quot;Running&quot;.</p></li></ol></li><li><p>Choose one of these database management tools:</p><ol><li><p>mysql cli (Fastest (recomended since we use some very big files))</p></li><li><p><a href="https://code.google.com/p/sqlyog/wiki/Downloads" class="external-link" rel="nofollow">SQLYog Community Edition</a></p></li><li><p><a href="http://www.heidisql.com/download.php" class="external-link" rel="nofollow">HeidiSQL</a> (Best for beginners)</p></li><li><p><a href="http://dev.mysql.com/downloads/workbench/" class="external-link" rel="nofollow">MySQL Workbench</a> (already installed if you chose to install full MySQL package)</p></li></ol></li><li><p>Try connecting your MySQL instance that you installed above. Depending on the program, you may be looking for &quot;Connect to Host&quot; or &quot;New Connection&quot; or &quot;Session Manager&quot;.</p></li><li><p>Create a new connection/session. The Hostname/IP address of &quot;127.0.0.1&quot; or &quot;localhost&quot; is fine if you installed MySQL on the same computer that you installed HeidiSQL or SQLYog. Simply fill in your root // whatever password and you should now be able to connect to your database.<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=333325FD-AE52-4E35-B531-508D977D32A6&amp;amp;displaylang=en" style="line-height: 1.4285715;" class="external-link" rel="nofollow">NET Framework 3.5</a> or above (you should already have it via your Windows updates)<br /><br /></p></li><li><a href="http://www.boost.org/" class="external-link" rel="nofollow">Boost</a><br /><ol><li><a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0-build2/boost_1_55_0-msvc-12.0-64.exe/download" class="external-link" rel="nofollow">D</a>ownload the prebuilt Windows Binary matching your platform<ol><li>Recommended for 64bit: <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0-build2/boost_1_55_0-msvc-12.0-64.exe/download" class="external-link" rel="nofollow">http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0-build2/boost_1_55_0-msvc-12.0-64.exe/download</a></li><li>Recommended for 32bit: <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0-build2/boost_1_55_0-msvc-12.0-32.exe/download" class="external-link" rel="nofollow">http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0-build2/boost_1_55_0-msvc-12.0-32.exe/download</a></li></ol></li><li>Install the package to the default location.</li><li>Add an environment variable to &quot;system&quot; variables named &quot;BOOST_ROOT&quot; pointing to your Boost installation directory, e.g &quot;<span style="color: rgb(0,0,0);">C:\local\boost_1_55_0</span>&quot;.<br /><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/10682398/11010050.png" data-image-src="attachments/10682398/11010050.png"></li><li>Restart Cmake if it was already running</li><li>Note: If CMake errors about Boost, install both Boost 32 and 64 bits version to the same directory (e.g &quot;<span style="color: rgb(0,0,0);">C:\local\boost_1_55_0&quot;).</span><br /><span style="color: rgb(0,0,0);"><br /></span></li></ol></li><li><a href="http://www.cmake.org/cmake/resources/software.html" class="external-link" rel="nofollow">CMake</a><ol><li>Download and install the win32-x86.exe file</li><li>CMake 3.0.0: if it does not recognize the Visual C++ compiler location, use CMake 2.8.x. </li><li>“Visual Studio 12” is Microsoft Visual Studio 2013, or Visual C++ 12.0, or MSC 18.0 (confusing, right?) If I need to build for 64-bit, then I choose “Visual Studio 12 Win64”;<br /><br /></li></ol></li><li><a href="https://github.com/TrinityCore/TrinityCore/releases/download/TDB335.55/mysql_lib.zip" class="external-link" rel="nofollow">MySQL development files</a><ol><li>These files are shipped with MySQL Server but to make it easier we packed the libs and include files for both 32 bits and 64 bits.</li><li>Extract the files to a known location, e.g, <code>C:/mysql_libs</code><br /><code><br /></code></li></ol></li><li><a href="http://www.slproweb.com/products/Win32OpenSSL.html" class="external-link" rel="nofollow">OpenSSL</a>- Download the 32bit version. Or you can get both if you plan to compile both 32 and 64bit, they can coexist side by side.<ol><li>Find the 32bit version by finding the <em>latest </em><strong>Win32 OpenSSL</strong> that is <strong>NOT</strong> the &quot;light&quot; version.<ol><li>Example: <strong>Win32 OpenSSL v1.0.1i</strong></li></ol></li><li>Find the 64bit version by finding the <em>latest </em><strong>Win64 OpenSSL</strong> that is <strong>NOT</strong> the &quot;light&quot; version.<ol><li>Example: <strong>Win64 OpenSSL v1.0.1i</strong></li></ol></li><li><em>Note #1: If you get a &quot;Missing Microsoft Visual C++ 2008 Redistributables&quot; error message while installing OpenSSL, download the <strong><a href="http://www.microsoft.com/en-us/download/details.aspx?id=29" class="external-link" rel="nofollow">Microsoft Visual C++ 2008 Redistributable Package (x86)</a></strong> (1.7MB Installer) and install it.<br />If you need 64bit support, download and install the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=15336" class="external-link" rel="nofollow"><strong>Microsoft Visual C++ 2008 Redistributable Package (x64)</strong></a>. Both these are linked from <a href="http://slproweb.com/products/Win32OpenSSL.html" class="external-link" rel="nofollow">http://slproweb.com/products/Win32OpenSSL.html</a> as well.<br /></em></li><li><em>Note #2: While installing OpenSSL, choose <strong>The OpenSSL binaries (/bin) directory</strong> (NOT &quot;The Windows system directory&quot;) when given the choice on where to copy the OpenSSL DLLs. These DLLs will need to be located easily for <a href="Windows_332776.html#Windows-CompilingtheSource">Compiling the Source</a>.</em><br /><em><br /></em></li></ol></li><li><em><a href="http://zeromq.org/" class="external-link" rel="nofollow">ZeroMQ</a></em><ol><li><em>x64 - <a href="http://miru.hk/archive/ZeroMQ-4.0.4~miru1.0-x64.exe" class="external-link" rel="nofollow">http://miru.hk/archive/ZeroMQ-4.0.4~miru1.0-x64.exe</a></em></li><li><em>or x86 - <a href="http://miru.hk/archive/ZeroMQ-4.0.4~miru1.0-x86.exe" class="external-link" rel="nofollow">http://miru.hk/archive/ZeroMQ-4.0.4~miru1.0-x86.exe</a></em></li></ol></li></ol><p><strong>(Optional)</strong></p><ol><li>If you use different PCs to compile/run Trinity, install one of the following packages on your Server-PC to avoid missing dependencies (depending on your Visual Studio Version and your Server-PC Operating System)<br /><ol><li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=40784" class="external-link" rel="nofollow">Microsoft Visual C++ 2013 Redistributable Package</a></li><li>NOTE: Whatever you do you CAN'T run TrinityCore on Windows XP or Windows 2003.</li></ol></li><li><a href="http://code.google.com/p/tortoisegit/" class="external-link" rel="nofollow">TortoiseGit</a><ol><li>This instruction supports Git Extensions only, but TortoiseGit is another viable option if you're comfortable with the process.</li></ol></li></ol><p> </p>    <div class="aui-message success shadowed information-macro">
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p>Continue with <a href="Windows_332776.html">Windows installation guide</a></p>
+                    </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="TrinityCoreRequirements-MacOSX">MacOSX</h3><p>Xcode: Available in the App Store. After install run &quot;xcodeselect --install&quot; from terminal to install the required command line tools.<br />MySQL Community Server: <a href="http://dev.mysql.com/downloads/mysql" class="external-link" rel="nofollow">http://dev.mysql.com/downloads/mysql</a> -&gt; &quot;Mac OS X 10.9 (x86, 64-bit), DMG Archive&quot;<br />GNU Readline: <a href="ftp://ftp.cwru.edu/pub/bash/readline-6.3.tar.gz" class="external-link" rel="nofollow">ftp://ftp.cwru.edu/pub/bash/readline-6.3.tar.gz</a><br />OpenSSL: <a href="http://www.openssl.org/source/openssl-1.0.1j.tar.gz" class="external-link" rel="nofollow">http://www.openssl.org/source/openssl-1.0.1j.tar.gz</a><br />CMake: <a href="http://www.cmake.org/files/v3.0/cmake-3.0.2.tar.gz" class="external-link" rel="nofollow">http://www.cmake.org/files/v3.0/cmake-3.0.2.tar.gz</a><br />Boost: <a href="http://sourceforge.net/projects/boost/files/boost/1.56.0/boost_1_56_0.tar.gz" class="external-link" rel="nofollow">http://sourceforge.net/projects/boost/files/boost/1.56.0/boost_1_56_0.tar.gz</a></p>    <div class="aui-message success shadowed information-macro">
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p>Continue with <a href="Mac_332570.html">Mac installation guide</a></p>
+                    </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682398/11010050.png">boost_envs.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682398/11763713.png">image2014-10-25 0:47:55.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

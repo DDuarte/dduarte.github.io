@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Windows</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Core_10682447.html">Install Core</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Windows
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> nayd</span> on Nov 04, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397627691 {padding: 0px;}
+div.rbtoc1415397627691 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397627691 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397627691'>
+<ul class='toc-indentation'>
+<li><a href='#Windows-Pulling,CompilingandKeepingtheSourceUp-to-Date'>Pulling, Compiling and Keeping the Source Up-to-Date</a>
+<ul class='toc-indentation'>
+<li><a href='#Windows-Introduction'>Introduction</a></li>
+<li><a href='#Windows-RequiredSoftware'>Required Software</a></li>
+<li><a href='#Windows-Pulling&amp;CompilingtheSource'>Pulling &amp; Compiling the Source</a>
+<ul class='toc-indentation'>
+<li><a href='#Windows-PullingtheSource'>Pulling the Source</a></li>
+<li><a href='#Windows-ConfiguringandgeneratingVisualC++solutionswithCMake'>Configuring and generating Visual C++ solutions with CMake</a></li>
+<li><a href='#Windows-CompilingtheSource'>Compiling the Source</a></li>
+</ul>
+</li>
+<li><a href='#Windows-KeepingtheSourceUp-to-Date'>Keeping the Source Up-to-Date</a></li>
+<li><a href='#Windows-Next-Configuringyourdatabases'>Next - Configuring your databases</a></li>
+</ul>
+</li>
+</ul>
+</div></p><h1 id="Windows-Pulling,CompilingandKeepingtheSourceUp-to-Date">Pulling, Compiling and Keeping the Source Up-to-Date</h1><h2 id="Windows-Introduction">Introduction</h2><p>Before you get scared by this long guide, we assure you the procedure is quite simple. Most of the following steps are to be performed only the first time you install Trinity and only the Trinity updating procedures will need to be run from time to time.</p><h2 id="Windows-RequiredSoftware">Required Software</h2><p>See <a href="TrinityCore-Requirements_10682398.html">TrinityCore Requirements</a></p><h2 id="Windows-Pulling&amp;CompilingtheSource">Pulling &amp; Compiling the Source</h2><h3 id="Windows-PullingtheSource">Pulling the Source</h3><ol><li>Create a directory in which Core files will be pulled (for example: <strong>C:\Trinity</strong>).</li><li>Right-click on the directory and click on <strong>Git Extensions -&gt; Clone</strong>.</li><li>Fill in the data as follows:</li></ol><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>Repository to clone: <strong>https://github.com/TrinityCore/TrinityCore</strong><br />Destination: <strong style="line-height: 1.4285715;">C:\Trinity</strong> <br />Subdirectory to create: <strong style="line-height: 1.4285715;">&lt;none&gt;<br /></strong>Branch: <strong>3.3.5</strong><br />Personal Repository: <strong style="line-height: 1.4285715;">Yes</strong></p>
+</div></div><p>Note: Depending on which branch you want to compile, change the name of the branch accordingly. i.e. 3.3.5/4.3.4/6.x</p><p>Click <strong>Clone</strong>. Within a few minutes all of the TrinityCore source files will be pulled into the directory <strong>C:\Trinity</strong>.</p><h3 id="Windows-ConfiguringandgeneratingVisualC++solutionswithCMake">Configuring and generating Visual C++ solutions with CMake</h3><p>Before you begin, create an empty directory called <strong>Build</strong>. In this example, we will use <strong>D:\Build</strong>.</p><p>Note: If CMake do not recognize C/C++ compiler, choose Specific Native Compiler, and choose path to target <strong>vcvarsall.bat</strong>, e.g. C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong><img class="confluence-embedded-image image-center" src="attachments/332776/1867780.png" data-image-src="attachments/332776/1867780.png"></strong></p><ol><li style="text-align: left;"><p>Click <strong>Browse Source...</strong> -&gt; Select <br />the source directory (C:/Trinity)</p></li></ol></td><td class="confluenceTd"><p><img class="confluence-embedded-image image-center" src="attachments/332776/1867781.png" data-image-src="attachments/332776/1867781.png"></p><p style="text-align: left;">2. <span style="line-height: 1.4285715;">Click </span><strong style="line-height: 1.4285715;">Browse Build...</strong><span style="line-height: 1.4285715;"> -&gt; Select <br /></span>the build directory (D:/Build)</p></td><td class="confluenceTd"><p><img class="confluence-embedded-image image-center" src="attachments/332776/1867782.png" data-image-src="attachments/332776/1867782.png"></p><p style="text-align: left;">3. Click <strong>Configure</strong></p></td></tr><tr><td class="confluenceTd"><p><img class="confluence-embedded-image" src="attachments/332776/1867788.png" data-image-src="attachments/332776/1867788.png"></p><p style="text-align: left;"><span style="line-height: 1.4285715;">4. Make sure </span><strong style="line-height: 1.4285715;">Use default native <br /></strong><strong style="line-height: 1.4285715;">compilers</strong><span style="line-height: 1.4285715;"> is checked</span></p></td><td class="confluenceTd"><p><img class="confluence-embedded-image image-left" src="attachments/332776/1867783.png" data-image-src="attachments/332776/1867783.png"></p><p>5. In the drop-down menu, choose the <br />version of the compiler you downloaded <br />in the <a href="TrinityCore-Requirements_10682398.html">Software Required</a> section .</p></td><td class="confluenceTd"><p><img class="confluence-embedded-image" src="attachments/332776/1867784.png" data-image-src="attachments/332776/1867784.png"></p><p>6. Click <strong>Finish</strong>.</p></td></tr><tr><td class="confluenceTd"><p><img class="confluence-embedded-image" src="attachments/332776/1867785.png" data-image-src="attachments/332776/1867785.png"></p><p><span style="line-height: 1.4285715;">7. </span>Make sure <strong>Tools</strong> is checked. This will <br />compile the map extractors needed later <br />in the setup. </p></td><td class="confluenceTd"><p><img class="confluence-embedded-image" src="attachments/332776/1867786.png" data-image-src="attachments/332776/1867786.png"></p><p>8. Click <strong>Configure</strong> again.</p></td><td class="confluenceTd"><p><img class="confluence-embedded-image" src="attachments/332776/1867787.png" data-image-src="attachments/332776/1867787.png"></p><p>9. Click <strong>Generate</strong>. This will install the <br />selected build files into your D:/Build folder.</p></td></tr></tbody></table></div><p><strong>Note:</strong> If MySQL is not found by CMake it is required to set MYSQL_INCLUDE_DIR = C:/mysql_libs<strong>/include</strong> and MYSQL_LIBRARY= C:/<strong>lib_XX/libmysql.lib</strong>.<br />XX depends if you are compiling in 32 or 64 bits mode. (See the 9th point of the Windows requirement list in <a href="TrinityCore-Requirements_10682398.html">TrinityCore Requirements</a>.)</p><p><strong>Note 2:</strong> If you get linker errors (e.g &quot;error LNK2019: unresolved external symbol mysql_server_init&quot;), make sure MYSQL_LIBRARY is set to the version that matches your compile mode (x64 vs 32 bits).</p><p>(If you do not see the MYSQL fields in CMake, tick the Advanced box).</p><h3 id="Windows-CompilingtheSource"><span style="color: rgb(0,0,0);">Compiling the Source</span></h3><ol><li>Browse into your <strong>D:\Build</strong> folder and open <strong>TrinityCore.sln</strong> with Visual C++ Express.</li><li>On the menu at the top, click <strong>Build</strong> and select <strong>Configuration Manager</strong>.</li><li>Set<strong> Active Solution Configuration</strong> to <strong>Release</strong></li><li>In the list menus below &quot;Help&quot;, set<strong> Active Solution Platform</strong> to <strong>Win32 </strong>(if you set 64-bit compilation during the CMake configuration, select Win64)<br />click Close (settings get saved instantly).</li><li><span style="line-height: 1.4285715;">Right-click </span><strong style="line-height: 1.4285715;">ALL_BUILD</strong><span style="line-height: 1.4285715;"> in the Solution Explorer on the left sidebar and select </span><strong style="line-height: 1.4285715;">Clean</strong><span style="line-height: 1.4285715;">.<br />(on some VS2013 versions, click the <strong>Build</strong> menu and select <span> </span><strong>Clean</strong><span> </span> <strong>Solution</strong>.)<br /></span></li><li>Right-click <strong style="line-height: 1.4285715;">ALL_BUILD</strong> and select <strong style="line-height: 1.4285715;">Build</strong>.<ol><li>Compilation length differs from machine to machine, you should expect it to take 5-30 minutes.</li><li>If you are asked to &quot;Reload build files&quot; during the compile, do so.</li><li>When the build is complete, you will find a message similar to the one below (the numbers may be different).</li></ol></li></ol><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<strong>========== Build: 22 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========</strong>
+</div></div><p> </p><p>You will find your freshly compiled binaries in the <strong>C:\Build\bin\release</strong> folder. These are all used to run your server at the end of this instruction.</p><p>You will need the following files in order for the core to function properly. These will all be located in your <strong>C:\Build\bin\release</strong> folder:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>libeay32.dll<br />libmySQL.dll <br />ssleay32.dll <br />worldserver.conf.dist <br />worldserver.exe <br />authserver.conf.dist <br />authserver.exe</p>
+</div></div><p>There are a few DLLs that needs to be manually added to this folder, and you need to copy them over from the following installation/bin directories:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>libmySQL.dll </strong>- C:\Program Files\MySQL\MySQL Server 5.x\lib<br /><strong>libeay32.dll,</strong> <strong>ssleay32.dll </strong>- C:\OpenSSL-Win32\bin</p><p><strong>libzmq-v120-mt-4_0_4.dll </strong>- C:\Program Files\ZeroMQ 4.0.4\bin</p>
+</div></div><h2 id="Windows-KeepingtheSourceUp-to-Date"><span style="color: rgb(0,0,0);">Keeping the Source Up-to-Date</span></h2><p>TrinityCore Developers are always at work fixing and adding new features to the core. You can always check them <a href="https://github.com/TrinityCore/TrinityCore/" class="external-link" rel="nofollow">here</a>, or by viewing them from within Git Extensions.</p><ol><li>Open your TrinityCore repository in GitExtensions.<ol><li>Click on the blue arrow</li><li>In the new window, click Pull.</li></ol></li><li>This will sync your local repo to the latest commits from the branch you have setup as default.</li><li>Now you will need to re-run CMake Configure &amp; Generate to update your SLN files.</li><li>Compile</li><li>??</li><li>Profit!!</li></ol><p> </p><h2 id="Windows-Next-Configuringyourdatabases"><span style="color: rgb(0,0,0);">Next - </span><a href="Setting-up-your-Database_1704473.html">Configuring your databases</a></h2><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867779.png">Step1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867780.png">Step2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867781.png">Step3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867782.png">Step4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867783.png">Step6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867784.png">Step7.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867785.png">Step8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867786.png">Step9.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867787.png">Step10.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/1867788.png">Step5.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/9764865.png">image2014-2-24 20:2:16.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/9764866.png">image2014-2-24 20:5:2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/9764867.png">image2014-2-25 16:19:52.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/332776/9764869.png">image2014-3-19 23:9:54.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-2818213"></a>
+                                    <font class="smallfont"><p><a href="http://collab.kpsn.org/display/tc/How-to_Win?focusedCommentId=2818213#How-to_Win-INSTALLINGTHEDATABASES" rel="nofollow">Database Installation</a> seems to be broken. I'm not able to edit anything to correct it. <a class="confluence-userlink user-mention" data-username="kingpin" href="http://collab.kpsn.org/display/~kingpin" data-linked-resource-id="327685" data-linked-resource-type="userinfo" data-base-url="http://collab.kpsn.org">King Pin</a>?</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by guybrush at Apr 11, 2013 08:37
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-2818227"></a>
+                                    <font class="smallfont"><p>Updated with temporary guide.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by guybrush at Apr 15, 2013 16:51
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-3112975"></a>
+                                    <font class="smallfont"><p>Andddddd it's fixed. Thanks KP</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by guybrush at Apr 19, 2013 19:03
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-10682421"></a>
+                                    <font class="smallfont"><p>Do method work apply for Windows 8.1 or do i need to download the latest version to compile the server?</p><p> </p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by amalrajkumar at Jul 18, 2014 15:20
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-10682423"></a>
+                                    <font class="smallfont"><p>Not sure what you said but basically it's the same procedure on Windows 8.1.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by nayd at Jul 18, 2014 15:53
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239464"></a>
+                                    <font class="smallfont"><p>Do i need to install Microsoft Visual Studio Express 2013  for Windows Desktop to compile  trinitycore fpr windows 8.1 or is it possible to use older version of visual studio express? </p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by amalrajkumar at Oct 17, 2014 16:27
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239465"></a>
+                                    <font class="smallfont"><p>Yes, 2013 is required.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by nayd at Oct 17, 2014 22:28
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239466"></a>
+                                    <font class="smallfont"><p>So its not possible for me to compile using visual studio 2012 or previous versions</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by amalrajkumar at Oct 18, 2014 01:33
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239485"></a>
+                                    <font class="smallfont"><p>I am having trouble &quot;Pulling the source&quot; when I follow the directions above I get the following error from <strong>Git Extensions  : </strong></p><p>&quot;C:\Program Files\Git\bin\git.exe&quot; clone -v --recurse-submodules --progress --branch master &quot;https://github.com/TrinityCore/TrinityCore.git&quot; &quot;C:/Trinity&quot;</p><p>Cloning into 'C:/Trinity'...</p><p>fatal: Remote branch master not found in upstream origin</p><p>Unexpected end of command stream</p><p>Done</p><p> </p><p> </p><p>Can anyone help, I am trying to do a 3.3.5 build.</p><p> </p><p>Thanks</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by drkoontz at Oct 23, 2014 18:56
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239486"></a>
+                                    <font class="smallfont"><p>Instead of &quot;<span>--branch master&quot; you need to do &quot;<span>--branch 3.3.5&quot;.</span></span></p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by nayd at Oct 23, 2014 18:58
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239487"></a>
+                                    <font class="smallfont"><p>Thank you for the fast response........ this seems to be working now <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by drkoontz at Oct 23, 2014 19:06
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239520"></a>
+                                    <font class="smallfont"><p>10/25 - Updated to reflect branch changes (3.3.5/4.3.4/6.x)</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by stryker at Oct 24, 2014 18:21
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239594"></a>
+                                    <font class="smallfont"><p>Getting 106 Errors concerning MySQL during the BUILD process.</p><p>Haven't had any errors during previous steps.</p><p>The errors are mostly LNK2019 for both worldserver and authserver.</p><p><em>Error 48 error LNK2019: unresolved external symbol _mysql_server_init@12 referenced in function &quot;public: static void __cdecl MySQL::Library_Init(void)&quot; (?Library_Init@MySQL@@SAXXZ) D:\Build\src\server\worldserver\Main.obj worldserver</em></p><p> </p><p>Also a MSB3073:</p><p><em>Error 106 error MSB3073: The command &quot;setlocal</em><br /><em>&quot;C:\Program Files (x86)\CMake\bin\cmake.exe&quot; -DBUILD_TYPE=Release -P cmake_install.cmake</em><br /><em>if %errorlevel% neq 0 goto :cmEnd</em><br /><em>:cmEnd</em><br /><em>endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone</em><br /><em>:cmErrorLevel</em><br /><em>exit /b %1</em><br /><em>:cmDone</em><br /><em>if %errorlevel% neq 0 goto :VCEnd</em><br /><em>:VCEnd&quot; exited with code 1. C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets 132 5 INSTALL</em></p><p>Not sure how to resolve these, so would appreciate some inputs <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by slopeh at Nov 04, 2014 19:50
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239595"></a>
+                                    <font class="smallfont"><p>Quoting from this exact page:</p><blockquote><p><strong>Note 2:</strong> If you get linker errors (e.g &quot;error LNK2019: unresolved external symbol mysql_server_init&quot;), make sure MYSQL_LIBRARY is set to the version that matches your compile mode (x64 vs 32 bits).</p></blockquote></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by nayd at Nov 04, 2014 19:54
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239596"></a>
+                                    <font class="smallfont"><p>wow. Thanks for the quick reply.</p><p>I'm not exactly sure where I do that. I have x86-versions installed of everything.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by slopeh at Nov 04, 2014 20:01
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239598"></a>
+                                    <font class="smallfont"><p>In the cmake GUI, tick Advanced and then change MYSQL_LIBRARY to the correct value.</p><p>This page and <a href="TrinityCore-Requirements_10682398.html">TrinityCore Requirements</a> has all the info you need.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by nayd at Nov 04, 2014 21:21
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239599"></a>
+                                    <font class="smallfont"><p>Seems cmake linked up an old MS MySQL x64 version. Now the LNK-errors are fixed, still have the MSB3073 error.<br /><br /><em>Error 1 error MSB3073: The command &quot;setlocal</em></p><p><em>&quot;C:\Program Files (x86)\CMake\bin\cmake.exe&quot; -DBUILD_TYPE=Release -P cmake_install.cmake</em><br /><em>if %errorlevel% neq 0 goto :cmEnd</em><br /><em>:cmEnd</em><br /><em>endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone</em><br /><em>:cmErrorLevel</em><br /><em>exit /b %1</em><br /><em>:cmDone</em><br /><em>if %errorlevel% neq 0 goto :VCEnd</em><br /><em>:VCEnd&quot; exited with code 1. C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets 132 5 INSTALL</em></p><p> Thanks alot for the help <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p><p>Edit: Saw this was for the &quot;INSTALL&quot; project in Visual Studio.. At the configuration manager, the INSTALL project is by default unchecked. Does that mean I should exclude it from the build?</p><p>Saw on the screen shots here, that there were no skipped projects, hence I included that one as well.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by slopeh at Nov 04, 2014 22:12
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-11239607"></a>
+                                    <font class="smallfont"><p>No, you do not have to enable it.</p><p>(That is why I want to remove screenshots from the wiki and switch to console based guide, people get too focused on them. <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/>)</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by nayd at Nov 04, 2014 22:39
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

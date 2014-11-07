@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : spell_area</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : spell_area
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> thelt</span> on Sep 04, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code><code><a href="World_331623.html">Back-to:World</a></code></code></p><p><strong>The `spell_area` table</strong></p><p>This table is used to apply a specific spell aura to the player within an area in the game. When any player enters this area or somehow interacts with a quest, this aura will be handled accordingly.</p><p>Some examples:</p><ul><li>An area could pacify all players (spell 39331)</li><li>Another area could full heal every 1 second (spell 48591)</li><li>Teleport player out of an area (spell 53141)</li><li>Factions-specific buffs, e.g. in Icecrown Citadel:<ul><li>&quot;Hellscream's Warsong&quot; (spell 73822) for horde </li><li>&quot;Strength of Wrynn&quot; (spell 73828) for alliance</li></ul></li><li><span style="font-size: 10.0pt;line-height: 13.0pt;">Even region-based buffs, such as area 440 - Tanaris.</span></li></ul><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">spell</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">area</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">quest_start</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">quest_end</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">aura_spell</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">racemask</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">gender</a></p></td><td class="confluenceTd"><p>tinyint(1)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">autocast</a></p></td><td class="confluenceTd"><p>tinyint(1)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">quest_start_status</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>64</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_area_334040.html">quest_end_status</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>11</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="spell_area-spell">spell</h3><p>The spell ID of the spell to be casted on the player. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Spell.dbc+tc2&amp;linkCreation=true&amp;fromPageId=334040">Spell.dbc</a>.</p><h3 id="spell_area-area">area</h3><p>The area ID. Type &quot;.gps&quot; in-game and find the &quot;Area:&quot; number to use for this cell. Also see <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=AreaTable.dbc&amp;linkCreation=true&amp;fromPageId=334040">AreaTable.dbc</a>.</p><h3 id="spell_area-quest_start">quest_start</h3><p>The entry of the quest which the player must have in the state defined by <strong>quest_start_status</strong>. See <a href="quest_template_333709.html#quest_template-id">quest_template.id</a>.</p><h3 id="spell_area-quest_end">quest_end</h3><p>The entry of the quest which the player must not have in the state defined by <strong>quest_end_status</strong>. See <a href="quest_template_333709.html#quest_template-id">quest_template.id</a>. Setting both <strong>quest_start</strong> and <strong>quest_end</strong> to the same value is useless.</p><h3 id="spell_area-aura_spell">aura_spell</h3><p>If set, this value (plus or minus aura spell ID from <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Spell.dbc_tc2&amp;linkCreation=true&amp;fromPageId=334040">Spell.dbc</a>) imposes additional condition.</p><p>The value has the following effect:</p><ul><li><strong>&lt;</strong> <strong>0</strong>  (negative values) If the player has aura <strong>-aura_spell</strong> then the <a href="spell_area_334040.html">spell</a> will not be activated.</li><li>  <strong>0</strong>   this column is ignored.</li><li><strong>&gt;</strong> <strong>0</strong>  (positive values) If the player has no aura <strong>aura_spell</strong> then the <a href="spell_area_334040.html">spell</a> will not be activated.</li></ul><h3 id="spell_area-racemask">racemask</h3><p>This ID is automatically called from <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=ChrRaces.dbc+tc2&amp;linkCreation=true&amp;fromPageId=334040">ChrRaces.dbc</a>. The bitmask is entered here.</p><p>0, 1791 = All Races</p><p>690 (2 + 16 + 32 + 128 + 512) = Horde Only</p><p>1101 (1 + 4 + 8 + 64 + 1024) = Alliance Only</p><h3 id="spell_area-gender">gender</h3><p>The gender type this entry applies to. 0 = Male, 1 = Female, 2 = Any.</p><h3 id="spell_area-autocast">autocast</h3><p>If the spell should be automatically applied when the character enters the area. Also prevents the user from removing it. 0 = is not autocasted, 1 = is autocasted</p><h3 id="spell_area-quest_start_status,quest_end_status">quest_start_status, quest_end_status</h3><p>Within <strong>quest_start_status</strong>, you can define the mask of quest status required for <strong>quest_start</strong>.</p><p>Within <strong>quest_end_status</strong>,  you can define the mask of quest status required for <strong>quest_end</strong>. </p><p>Example:</p><p>Area 257 is a cavern on Teldrassil. What we want is simple : When the player take the 28725 quest, he have the aura in the cavern. When he finish the 28727 quest, the aura disappear.</p><p>You should have the spell 92237 when entering the cavern IF :</p><p>    The start quest 28725 is incomplete, complete or rewarded (2 | 8 | 64 = 74)</p><p>    The end quest 28727 is not taked (none), incomplete or complete BUT not rewarded (1 | 2 | 8 = 11)</p><p>Here is the SQL for this example : </p><p>INSERT INTO spell_area (spell, area, quest_start, quest_end, autocast, quest_start_status, quest_end_status) VALUES (92237, 257, 28725, 28727, 1, 74, 11);</p><p> </p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Quest Status</p></th><th class="confluenceTh"><p>Flag</p></th><th colspan="1" class="confluenceTh">Explanation</th></tr><tr><td class="confluenceTd"><p>QUEST_STATUS_NONE = 0</p></td><td class="confluenceTd"><p>1</p></td><td colspan="1" class="confluenceTd">Player does not have or had quest at all. He could accept it, but he did not (yet).</td></tr><tr><td class="confluenceTd"><p>QUEST_STATUS_COMPLETE = 1</p></td><td class="confluenceTd"><p>2</p></td><td colspan="1" class="confluenceTd">Player fulfilled objectives, but did not hand it in yet.</td></tr><tr><td class="confluenceTd"><p>QUEST_STATUS_UNAVAILABLE = 2</p></td><td class="confluenceTd"><p>4 (NOT USED)</p></td><td colspan="1" class="confluenceTd">(Not used)</td></tr><tr><td class="confluenceTd"><p>QUEST_STATUS_INCOMPLETE = 3</p></td><td class="confluenceTd"><p>8</p></td><td colspan="1" class="confluenceTd">Player did not fulfill objectives yet</td></tr><tr><td class="confluenceTd"><p>QUEST_STATUS_AVAILABLE = 4</p></td><td class="confluenceTd"><p>16 (NOT USED)</p></td><td colspan="1" class="confluenceTd">(Not used)</td></tr><tr><td class="confluenceTd"><p>QUEST_STATUS_FAILED = 5</p></td><td class="confluenceTd"><p>32</p></td><td colspan="1" class="confluenceTd">Player failed to fulfill objectives for any reason, e.g. time limit</td></tr><tr><td class="confluenceTd"><p>QUEST_STATUS_REWARDED = 6</p></td><td class="confluenceTd"><p>64</p></td><td colspan="1" class="confluenceTd">Player handed quest in and this is sort of a post-quest interaction</td></tr></tbody></table></div>    <div class="aui-message hint shadowed information-macro">
+                    <p class="title">Example for a SQL</p>
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            <p> For a `quest_end_status` that should contain QUEST_STATUS_NONE (1), QUEST_STATUS_COMPLETE (2) and QUEST_STATUS_INCOMPLETE (8):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: sql; gutter: false" style="font-size:12px;"> UPDATE `spell_area` SET `quest_end_status`= (1|2|8) WHERE `spell`=XXXXX AND `area`=YYYY; -- equivalent to `quest_end_status`= 11</pre>
+</div></div>
+                    </div>
+    </div>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-1704246"></a>
+                                    <font class="smallfont"><p>The quest_start_status and quest_end_status description is confusing, and the column names are misleading.</p><p>Anyone has an idea about how can we make it clearer?</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by subv at Jan 11, 2013 21:36
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-1704631"></a>
+                                    <font class="smallfont"><p>Did some edits - feel free to comment</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by ascathor at Feb 07, 2013 17:22
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-1704633"></a>
+                                    <font class="smallfont"><p>Sounds better, thank you <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/></p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by subv at Feb 07, 2013 20:34
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-3801109"></a>
+                                    <font class="smallfont"><p>Thanks for the great work! However, for this only page I had to read sources (SpellArea::IsFitToRequirements) to understand the mechanic. So I interfere with, hopefully, better explanation. But this description <strong>is wrong still</strong>: both quest_start and quest_end enter the SpellArea::IsFitToRequirements on equal terms, and description of them should be absolutely identical, without mentioned &quot;inversion&quot;. It is up to the code author, either change this article or the == condition for questEnd in  SpellArea::IsFitToRequirement.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by olion17 at May 07, 2013 23:15
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-10682928"></a>
+                                    <font class="smallfont"><p>No one modified the core code since 2013 so i edited the quest_***_status to give a better example.</p><p> </p><p>Feel free to edit</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by thelt at Sep 05, 2014 18:25
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : petition_sign</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : petition_sign
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `petition_sign` table</strong></p><p>This table holds information on all the signatures of a petition for either a guild or an arena team.</p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="petition_sign_333528.html">ownerguid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="petition_sign_333528.html">petitionguid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="petition_sign_333528.html">playerguid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="petition_sign_333528.html">player_account</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="petition_sign_333528.html">type</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="petition_sign-ownerguid">ownerguid</h3><p>The GUID of the owner that is trying to make the guild/arena team. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=characters_tc2&amp;linkCreation=true&amp;fromPageId=333528">characters.guid</a></p><h3 id="petition_sign-petitionguid">petitionguid</h3><p>The GUID of the charter item. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=item_template_tc2&amp;linkCreation=true&amp;fromPageId=333528">item_template.guid</a></p><h3 id="petition_sign-playerguid">playerguid</h3><p>The GUID of the player that has signed the charter. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=characters_tc2&amp;linkCreation=true&amp;fromPageId=333528">characters.guid</a></p><h3 id="petition_sign-player_account">player_account</h3><p>The account ID of the player that has signed the charter. No two players can sign the same charter from the same account.</p><h3 id="petition_sign-type">type</h3><p>The type of the petition.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>ID</p></th><th class="confluenceTh"><p>Type</p></th></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>2vs2 Arena charter</p></td></tr><tr><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>3vs3 Arena charter</p></td></tr><tr><td class="confluenceTd"><p>5</p></td><td class="confluenceTd"><p>5vs5 Arena charter</p></td></tr><tr><td class="confluenceTd"><p>9</p></td><td class="confluenceTd"><p>Guild charter</p></td></tr></tbody></table></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

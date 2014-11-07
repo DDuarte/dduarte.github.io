@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : C++ Development Standards</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : C++ Development Standards
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> nayd</span> on Sep 14, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397532601 {padding: 0px;}
+div.rbtoc1415397532601 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397532601 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397532601'>
+<ul class='toc-indentation'>
+<li><a href='#C++DevelopmentStandards-1.Intro'>1. Intro</a>
+<ul class='toc-indentation'>
+<li><a href='#C++DevelopmentStandards-Whydoweneedcodingstandards?'>Why do we need coding standards?</a></li>
+<li><a href='#C++DevelopmentStandards-Whyisitimportantforoccasionaldevelopers/contributors?'>Why is it important for occasional developers/contributors?</a></li>
+</ul>
+</li>
+<li><a href='#C++DevelopmentStandards-2.CodingStandards'>2. Coding Standards</a>
+<ul class='toc-indentation'>
+<li><a href='#C++DevelopmentStandards-Tabsize/Indents'>Tab size / Indents</a></li>
+<li><a href='#C++DevelopmentStandards-Comments'>Comments</a></li>
+<li><a href='#C++DevelopmentStandards-Whitespace'>Whitespace</a></li>
+<li><a href='#C++DevelopmentStandards-Brackets'>Brackets</a></li>
+<li><a href='#C++DevelopmentStandards-Loopsyntax'>Loop syntax</a></li>
+<li><a href='#C++DevelopmentStandards-Magicnumbersvs.Constants'>Magic numbers vs. Constants</a></li>
+<li><a href='#C++DevelopmentStandards-Enumerationvs.define'>Enumeration vs. define</a></li>
+<li><a href='#C++DevelopmentStandards-Standardconstantnameprefixes'>Standard constant name prefixes</a></li>
+<li><a href='#C++DevelopmentStandards-Namingofvariablesandfunctions'>Naming of variables and functions</a></li>
+<li><a href='#C++DevelopmentStandards-WorldObjects'>WorldObjects</a></li>
+<li><a href='#C++DevelopmentStandards-Definingconstvariables'>Defining const variables</a></li>
+<li><a href='#C++DevelopmentStandards-Staticvariables'>Static variables</a></li>
+</ul>
+</li>
+<li><a href='#C++DevelopmentStandards-Filenaming&amp;hierarchy'>File naming &amp; hierarchy</a></li>
+<li><a href='#C++DevelopmentStandards-Furtherreading'>Further reading</a></li>
+</ul>
+</div></p><p> </p><h3 id="C++DevelopmentStandards-1.Intro"><strong class="bbc">1. Intro</strong></h3><h4 id="C++DevelopmentStandards-Whydoweneedcodingstandards?"><strong class="bbc">Why do we need coding standards?</strong></h4><p><span style="color: rgb(40,40,40);">It makes easier to maintain and read all the scripts related code and gives us more control over the code.</span></p><p><span style="color: rgb(40,40,40);">In some cases it will be a safe guard against errors.</span></p><h4 id="C++DevelopmentStandards-Whyisitimportantforoccasionaldevelopers/contributors?"><strong class="bbc">Why is it important for occasional developers/contributors?</strong></h4><p><span style="color: rgb(40,40,40);">We only accept code that is written according to our developing standards.</span></p><p><span style="color: rgb(40,40,40);">A properly written patch goes faster to core than unordered ones and makes the maintainers lifes easier.</span></p><h3 id="C++DevelopmentStandards-2.CodingStandards"><strong class="bbc">2. Coding Standards</strong></h3><h4 id="C++DevelopmentStandards-Tabsize/Indents"><strong class="bbc">Tab size / Indents</strong></h4><p><span style="color: rgb(40,40,40);">Code never contain tabs, instead we use spaces.</span><br /><span style="color: rgb(40,40,40);">By tab size, we mean 4x spaces. Not 5, not 3.</span><br /><span style="color: rgb(40,40,40);">Most sane development-tools have options to replace tabs with 4 spaces.</span><br /><br /><span style="color: rgb(40,40,40);">Visual Studio:</span><br /><span style="color: rgb(40,40,40);">Tools -&gt; Options: Text Editor -&gt; C++ -&gt; Tabs</span><br /><span style="color: rgb(40,40,40);">Notepad++:</span><br /><span style="color: rgb(40,40,40);">Settings -&gt; Preferences -&gt; Edit Components</span></p><h4 id="C++DevelopmentStandards-Comments"><strong class="bbc">Comments</strong></h4><p><span style="color: rgb(40,40,40);">Always comment code where it is not typical code repeated in many/all scripts and/or not self-explanatory what the code does.</span><br /><span style="color: rgb(40,40,40);">A comment should either be placed directly above the code :</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">//my comment if (something == MY_CONSTANT)</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">or at code line 61 if this fits more natural in the code :</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">if (something == MY_CONSTANT) { a = b; // My comment</pre>
+</div></div><h4 id="C++DevelopmentStandards-Whitespace"><strong class="bbc">Whitespace</strong></h4><p><span style="color: rgb(40,40,40);">Do not file source code containing white space in end of line. Generally a no-no.</span><br /><span style="color: rgb(40,40,40);">Do not fill parenthesis with whitespace. Place space in front, not after.</span><br /><br /><span style="color: rgb(255,0,0);">Wrong </span><span style="color: rgb(40,40,40);">:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">if( attack )
+if ( attack )</pre>
+</div></div><p><br /><span style="color: rgb(46,139,87);">Correct </span><span style="color: rgb(40,40,40);">:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">if (attack)</pre>
+</div></div><h4 id="C++DevelopmentStandards-Brackets"><strong class="bbc">Brackets</strong></h4><p><span style="color: rgb(40,40,40);">We use symmetric brackets. One line blocks does not need brackets</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">if (attack)
+{
+	me-&gt;DoA();
+	me-&gt;DoB();
+}
+else
+{
+	me-&gt;SelectA(); me-&gt;SelectB();
+}</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">or</span><br /><br /></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">if (attack)
+{
+	me-&gt;DoA();
+	me-&gt;DoB();
+} else
+	me-&gt;SelectA();</pre>
+</div></div><h4 id="C++DevelopmentStandards-Loopsyntax"><strong class="bbc">Loop syntax</strong></h4><p><span style="color: rgb(40,40,40);">Similar to if () blocks, one line statements do not need brackets</span></p><div class="code panel pdl" style="border-width: 1px;">
+ <div class="codeHeader panelHeader pdl hide-border-bottom">
+  <b class="code-title"></b>
+  <span class="collapse-source expand-control"><span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">Expand source</span></span>
+ </div>
+ <div class="codeContent panelContent pdl hide-toolbar"> 
+  <pre class="theme: Confluence; brush: cpp; collapse: true; gutter: false" style="font-size:12px;">for&nbsp;(uint32 i =&nbsp;0; i &lt; loopEnd;&nbsp;++i)
+{
+	DoSomething();
+	DoSomethingElse();
+}
+&nbsp;
+uint32 i =&nbsp;0;
+while&nbsp;(i &lt;&nbsp;10)
+{
+	DoSomething();
+	DoSomethingElse();
+	++i;
+}
+&nbsp;
+do
+{
+	DoSomething();
+	DoSomethingElse();
+	--i;
+}
+while&nbsp;(i &gt;&nbsp;0);</pre> 
+ </div>
+</div><h4 id="C++DevelopmentStandards-Magicnumbersvs.Constants"><strong class="bbc">Magic numbers vs. Constants</strong></h4><p><span style="color: rgb(40,40,40);">Constants makes code easier to read and does also provide a degree of fail safe.</span><br /><span style="color: rgb(255,0,0);">Wrong </span><span style="color: rgb(40,40,40);">:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">if (player-&gt;GetQuestStatus(10090) == 1)
+	me-&gt;RemoveFlag(58, 2);</pre>
+</div></div><p><br /><span style="color: rgb(46,139,87);">Correct </span><span style="color: rgb(40,40,40);">:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">if (player-&gt;GetQuestStatus(QUEST_BEAT_UP) == QUEST_STATUS_INCOMPLETE);
+	me-&gt;RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">Constants are either set as #define, or most preferred in a enum. If it does not exist, make one.</span></p><h4 id="C++DevelopmentStandards-Enumerationvs.define"><strong class="bbc">Enumeration vs. define</strong></h4><p><span style="color: rgb(40,40,40);">It is strongly advised to avoid using #defines for constants, use either a const variable or an enum, if multiple variables can be grouped together</span><br /><span style="color: rgb(40,40,40);">Enums must have a name. Separate constant on different enums depending on their type.</span><br /><span style="color: rgb(46,139,87);">Correct </span><span style="color: rgb(40,40,40);">:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">enum Spells
+{
+	SPELL_1 = 23444,
+	SPELL_2 = 23233,
+	H_SPELL_3 = 28345
+};</pre>
+</div></div><h4 id="C++DevelopmentStandards-Standardconstantnameprefixes"><strong class="bbc">Standard constant name prefixes</strong></h4><p><span style="color: rgb(40,40,40);">Constant names have standarized prefixes :</span></p><p class="citation">Quote</p><blockquote class="ipsBlockquote built" style="margin-left: 0.0px;"><p>SPELL_ : Spell id<br />NPC_ : Creature_template.entry<br />ITEM_ : Item_template.entry<br />GO_ : Gameobject_template.entry<br />QUEST_ : Quest_template.entry<br />SAY_ : Script_texts.entry (yell/normal say)<br />EMOTE_ : Same as above, just different prefix to clearly see its emote<br />EQUIP_ : Typically a item id(id from dbc, not _template)<br />MODEL_ : A creature model<br />H_XX : Heroic mode prefix (goes before the other prefix) XX is max man amount from mode. (OBSOLETE AS OF PATCH 3.2 WITH SpellDifficulty.dbc)<br />RAID_XX : Raid mode prefix (goes before the other prefix) XX is max man amount from mode. (OBSOLETE AS OF PATCH 3.2 WITH SpellDifficulty.dbc)<br />EVENT_ : Event/Encounter identifier for instances<br />DATA_ : Identifiers in instance used for GUIDs/data not being event/encounter<br />ACHIEV_ : Achievement id</p></blockquote><p><br /><span style="color: rgb(46,139,87);">Correct </span><span style="color: rgb(40,40,40);">:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">SPELL_ENRAGE H_XX_SPELL_ENRAGE EVENT_ILLIDAN DATA_ILLIDAN ACHIEV_OH_NOVOS</pre>
+</div></div><h4 id="C++DevelopmentStandards-Namingofvariablesandfunctions"><strong class="bbc">Naming of variables and functions</strong></h4><p><span style="color: rgb(40,40,40);">No matter what, DO NOT USE HUNGARIAN NOTATION IN VARIABLE NAMES</span><br /><br /><span style="color: rgb(40,40,40);">for public/protected members or global variables:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">uint64 SomeGuid;
+uint32 ShadowBoltTimer;
+uint8 ShadowBoltCount;
+bool IsEnraged;
+float HeightData;</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">for private members:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">uint64 _someGuid;
+uint32 _mapEntry;
+uint8 _count;
+bool _isDead;
+float _heightData;</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">Methods are always UpperCamelCase and their parameters in lowerCamelCase, just like local variables</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">void DoSomething(uint32 someNumber)
+{
+	uint32 someOtherNumber = 5;
+}</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">Remember to use 'f' after float values when declaring them to avoid compile warnings</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">float PosX = 234.3456f;</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">Defining an array of structs:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">Position const PosMobs[5] =
+{
+	{-724.12f, -176.64f, 430.03f, 2.543f},
+	{-766.70f, -225.03f, 430.50f, 1.710f},
+	{-729.54f, -186.26f, 430.12f, 1.902f},
+	{-756.01f, -219.23f, 430.50f, 2.369f},
+	{-798.01f, -227.24f, 429.84f ,1.446f},
+};</pre>
+</div></div><h4 id="C++DevelopmentStandards-WorldObjects"><strong class="bbc">WorldObjects</strong></h4><p><span style="color: rgb(40,40,40);">We are used to define WorldObjects in this way :</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">GameObject* go;
+Creature* creature;
+Item* item;
+Player* player;
+Unit* unit;</pre>
+</div></div><p><span style="color: rgb(255,0,0);">Keep in mind we never use multiple declarations with pointers</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">Something* obj1, *obj2;</pre>
+</div></div><p><span style="color: rgb(0,255,0);">The proper way to do this is</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">Something* obj1;
+Something* obj2;</pre>
+</div></div><p><span style="color: rgb(40,40,40);">References are defined in a similar way (&amp; sticked to the type)</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">Creature&amp; creature;</pre>
+</div></div><p><br /><span style="color: rgb(40,40,40);">Never define Creature* me; in a creature script!</span><br /><span style="color: rgb(40,40,40);">'me' is the pointer to the scripted creature</span></p><h4 id="C++DevelopmentStandards-Definingconstvariables"><strong class="bbc">Defining const variables</strong></h4><p><span style="color: rgb(40,40,40);">const keyword should always go after type name</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">Player const* player; // player object is constant
+Unit* const unit; // pointer to the unit is constant
+SpellEntry const* const spell; // both spell and pointer to spell are constant</pre>
+</div></div><h4 id="C++DevelopmentStandards-Staticvariables"><strong class="bbc">Static variables</strong></h4><p><span style="color: rgb(40,40,40);">static keyword always should be put as first</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: Confluence; brush: cpp; gutter: false" style="font-size:12px;">static uint32 someVar = 5;
+static float const otherVar = 1.0f;</pre>
+</div></div><p> </p><h3 id="C++DevelopmentStandards-Filenaming&amp;hierarchy"><span style="color: rgb(40,40,40);">File naming &amp; hierarchy</span></h3><p><span style="color: rgb(40,40,40);"><span class="status-macro aui-lozenge aui-lozenge-error">TODO</span><br /></span></p><h3 id="C++DevelopmentStandards-Furtherreading"><strong class="bbc">Further reading</strong></h3><p><a class="external-link" href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml" style="text-decoration: underline;" title="External link" rel="nofollow">Google C++ Style Guide</a><br /><br /></p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            (ignore code style advice that were already covered by this topic; it's still worth reading)
+                    </div>
+    </div>
+<p><br /><br /><em class="bbc">Thanks to ScriptDev2 for the original guide.</em><span style="color: rgb(40,40,40);"> </span></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:58</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : spell_bonus_data</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : spell_bonus_data
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 01, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code><code><a href="World_331623.html">Back-to:World</a></code></code></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>The `spell_bonus_data` table</strong></p>
+</div></div><p>Table used for storing custom damage/healing bonus coefficients.</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Structure</strong></p>
+</div></div><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="spell_bonus_data_334064.html">entry</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_bonus_data_334064.html">direct_bonus</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_bonus_data_334064.html">dot_bonus</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_bonus_data_334064.html">ap_bonus</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_bonus_data_334064.html">ap_dot_bonus</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_bonus_data_334064.html">comments</a></p></td><td class="confluenceTd"><p>varchar(255)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Description of the fields</strong></p>
+</div></div><h3 id="spell_bonus_data-entry">entry</h3><p>Spell ID. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Spell.dbc+tc2&amp;linkCreation=true&amp;fromPageId=334064">Spell.dbc</a>.</p><p>Only the first rank of the spell needs data if spell exists in <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Spell_ranks_tc2&amp;linkCreation=true&amp;fromPageId=334064">Spell_ranks</a> and coefficients are same for each rank.</p><h3 id="spell_bonus_data-direct_bonus">direct_bonus</h3><p>Direct spell power damage.</p><p>If &lt; 0</p><p>Calculate default spell power coefficient.</p><p>If = 0</p><p>Don't apply any spell power coefficient. (Don't scale damage with spellpower)</p><p>If &gt; 0</p><p>Use this as new spell power coefficient.</p><h3 id="spell_bonus_data-dot_bonus">dot_bonus</h3><p>Spell damage over time.</p><p>If &lt; 0<br /> Calculate default spell power coefficient.<br /> If = 0<br /> Don't apply any spell power coefficient. (Don't scale damage with spellpower)<br /> If &gt; 0<br /> Use this as new spell power coefficient.</p><h3 id="spell_bonus_data-ap_bonus">ap_bonus</h3><p>Direct Melee/Ranged damage.</p><p>If &lt; 0</p><p>Calculate default attack power coefficient.</p><p>If = 0</p><p>Don't apply any attack power coefficient. (Don't scale damage with attack power)</p><p>If &gt; 0</p><p>Use this as new attack power coefficient.</p><h3 id="spell_bonus_data-ap_dot_bonus">ap_dot_bonus</h3><p>Melee/Ranged damage over time.</p><p>If &lt; 0</p><p>Calculate default attack power coefficient.</p><p>If = 0</p><p>Don't apply any attack power coefficient. (Don't scale damage with attack power)</p><p>If &gt; 0</p><p>Use this as new attack power coefficient.</p><h3 id="spell_bonus_data-comments">comments</h3><p>Comment as why it has such values and name of the spell.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

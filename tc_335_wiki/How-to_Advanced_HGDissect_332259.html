@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : How-to_Advanced_HGDissect</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="ZArchive_1704427.html">ZArchive</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : How-to_Advanced_HGDissect
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> kingpin</span> on Jan 08, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:World:How-to:Advanced</code></p><p><strong>How to use Mercurial bisect</strong></p><p>This is mainly addressed at folks who do run server just for development, and those who are not afraid of spending some time to locate bugs. Mercurial VCS provides us with excellent tool for locating regressions in code, its called bisect - and works exactly the way it sounds, it gets into revisions and tests them. All you have to do is answer mercurial wether revision is good (doesnt have bug youre looking for) or bad (has the bug). Let's look at example session with hg bisect i prepared, its linux OS but works exactly the same on windows. We're searching for a bug across 234 revisions:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">[~/trinitycore] hg bisect -r
+</pre>
+</div></div><p>First, im reseting all previous bisect information, just to be safe.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">[~/trinitycore] hg tip
+changeset:   1465:6a307f5252b5
+branch:      trunk
+tag:         tip
+user:        Anubisss
+date:        Sun May 03 13:47:52 2009 +0200
+summary:     *Add a missing script.
+
+[~/trinitycore] hg bisect -b 1465
+</pre>
+</div></div><p>Now, first magic command. hg bisect -b &lt;rev&gt; marks bad revision - ie. revision with bug. You dont have to provide exact revision number, i usually use newest revision as reference.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">[~/trinitycore] hg bisect -g 1234
+Testing changeset 1349:dfaf9e90ef1c (231 changesets remaining, ~7 tests)
+213 files updated, 0 files merged, 14 files removed, 0 files unresolved
+</pre>
+</div></div><p>-g marks revision you remember didnt have bug in it. It doesnt have to be precise, you just need to be sure revision was bug-free. Immediately mercurial will tell us how much revision our test span, and how many tests it will require to find the problematic revision. In this case it is 230 revisions, and 7 tests. Now all we do is test, and using hg bisect -g or hg bisect -b mark wether or not revision has the bug. Example paste:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -b
+Testing changeset 1291:fb334cd0178e (115 changesets remaining, ~6 tests)
+112 files updated, 0 files merged, 10 files removed, 0 files unresolved
+
+raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -b
+Testing changeset 1262:4c034879ce77 (57 changesets remaining, ~5 tests)
+305 files updated, 0 files merged, 1 files removed, 0 files unresolved
+
+raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -g
+Testing changeset 1276:a8cce604021c (29 changesets remaining, ~4 tests)
+288 files updated, 0 files merged, 1 files removed, 0 files unresolved
+
+raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -b
+Testing changeset 1269:52bfc1120c83 (14 changesets remaining, ~3 tests)
+279 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -g
+Testing changeset 1272:6fc334b7ae87 (7 changesets remaining, ~2 tests)
+275 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -g
+Testing changeset 1274:3ae63686c2ee (4 changesets remaining, ~2 tests)
+2 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -g
+Testing changeset 1275:06ca2a2af74c (2 changesets remaining, ~1 tests)
+1 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+raczman nie, 3 maj 2009, 14:16:00 CEST
+[~/trinitycore] hg bisect -g
+The first bad revision is:
+changeset:   1276:a8cce604021c
+branch:      trunk
+user:        megamage
+date:        Thu Apr 02 20:27:10 2009 -0600
+summary:     *Fix some visibility bug.
+</pre>
+</div></div><p>Please note, that still you have to compile, and test the bug <img class="emoticon emoticon-wink" src="images/icons/emoticons/wink.png" data-emoticon-name="wink" alt="(wink)"/> Mercurial only provides us with fast way of testing big revision spans.<br /> At the end mercurial will tell us what changeset the bug was introduced in, which, as you can guess tremendously helps us fixing bugs <img class="emoticon emoticon-wink" src="images/icons/emoticons/wink.png" data-emoticon-name="wink" alt="(wink)"/> We can safely reset bisect information after finishing work with:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">[~/trinitycore] hg bisect -r
+</pre>
+</div></div><p>Again, reference:</p><p>hg bisect -g marks a good revision<br /> hg bisect -b marks a bad revision<br /> hg bisect -s skips revision, if you are sure you dont have to test that one, or can't otherwise determine if revision is good or not.</p><p>I think that's all, remember: only user input and testing helps us to locate bugs.<br /> This method is best for all those things that broke but were working several revs ago. If you have more questions about bisecting, leave it here <img class="emoticon emoticon-wink" src="images/icons/emoticons/wink.png" data-emoticon-name="wink" alt="(wink)"/></p><p>– original by Raczman from TrinityCore forum.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

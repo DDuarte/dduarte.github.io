@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : pvpstats_battlegrounds</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : pvpstats_battlegrounds
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> shindarth</span> on Aug 29, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `<a class="createlink" href="http://collab.kpsn.org/pages/createpage.action?spaceKey=tc&amp;title=pvpstats_battlegrounds&amp;linkCreation=true&amp;fromPageId=331580" rel="nofollow">pvpstats_battlegrounds</a>` table</strong></p><p>This table holds datas about BattleGrounds scores. To enable storing this kind of informations, set <strong> <span class="typ">Battleground</span> <span class="pun">.</span> <span class="typ">StoreStatistics</span> <span class="pun">.</span> <span class="typ">Enable</span> <span class="pln"> </span> <span class="pun">=</span> <span class="pln"> </span> <span class="lit">1</span> </strong> in <strong>worldserver.config</strong> file.</p><p><strong>Structure</strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_battlegrounds_10682881.html">id</a></p></td><td class="confluenceTd"><p>bigint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_battlegrounds_10682881.html">winner_faction</a></p></td><td class="confluenceTd"><p>tinyint</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_battlegrounds_10682881.html">bracket_id</a></p></td><td class="confluenceTd"><p>tinyint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_battlegrounds_10682881.html">type</a></p></td><td class="confluenceTd"><p>tinyint</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="pvpstats_battlegrounds_10682881.html">date</a></p></td><td class="confluenceTd"><p>datetime</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="pvpstats_battlegrounds-id">id</h3><p>An unique value which identifies a BattleGround.</p><h3 id="pvpstats_battlegrounds-winner_faction">winner_faction</h3><p>The faction which won the BattleGround:</p><p>0 = HORDE</p><p>1 = ALLIANCE</p><p>2 = NOONE</p><h3 id="pvpstats_battlegrounds-bracket_id">bracket_id</h3><p>Identifies the bracket level range:</p><p>1 = 10-19</p><p>2 = 20-29</p><p>3 = 30-39</p><p>4 = 40-49</p><p>5 = 50-59</p><p>6 = 60-69</p><p>7 = 70-79</p><p>8 = 80</p><h3 id="pvpstats_battlegrounds-type">type</h3><p>The BattleGround type:</p><p>1 = Alterac Valley</p><p>2 = Warsong Gulch</p><p>3 = Arathi Basin</p><p>7 = Eye of the Storm</p><p>9 = Strand of the Ancients</p><p>30 = Isle of Conquest</p><h3 id="pvpstats_battlegrounds-date">date</h3><p>Date and time of BattleGround ending.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

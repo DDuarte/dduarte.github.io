@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : gm_tickets</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : gm_tickets
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>The `gm_tickets` table</strong></p>
+</div></div><p>This table stores all tickets</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Structure</strong></p>
+</div></div><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">ticketId</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Auto increment</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">guid</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Global Unique Identifier of ticket creator</p></td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">name</a></p></td><td class="confluenceTd"><p>varchar(12)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Name of ticket creator</p></td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">message</a></p></td><td class="confluenceTd"><p>text</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">createtime</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">mapId</a></p></td><td class="confluenceTd"><p>smallint(5)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd">0</td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">posX</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">posY</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">posZ</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">lastModifiedTime</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">closedBy</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">assignedTo</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>GUID of admin to whom ticket is assigned</p></td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">comment</a></p></td><td class="confluenceTd"><p>text</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">response</a></p></td><td class="confluenceTd"><p>text</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">completed</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">escalated</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">viewed</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="gm_tickets_332066.html">haveTicket</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr></tbody></table></div><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>'Description of the fields'''</p>
+</div></div><h3 id="gm_tickets-ticketId">ticketId</h3><p>The ticket global unique identifier. This number must be unique and is the best way to identify separate tickets.</p><h3 id="gm_tickets-guid">guid</h3><p>Player's GUID. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=characters_tc2&amp;linkCreation=true&amp;fromPageId=332066">characters.guid</a></p><h3 id="gm_tickets-name">name</h3><p>The name of the character who created that ticket</p><h3 id="gm_tickets-message">message</h3><p>The content of the ticket</p><h3 id="gm_tickets-createTime">createTime</h3><p>The creation time of the ticket as linux timestamp</p><h3 id="gm_tickets-mapId">mapId</h3><p>Map where ticket has ben created. See <a href="Map.dbc-tc2_1704531.html">Map.dbc</a></p><h3 id="gm_tickets-posX">posX</h3><p>Position X Where ticket has ben created.</p><h3 id="gm_tickets-posY">posY</h3><p>Position Y Where ticket has ben created.</p><h3 id="gm_tickets-posZ">posZ</h3><p>Position Z Where ticket has ben created.</p><h3 id="gm_tickets-lastModifiedTime">lastModifiedTime</h3><p>The time when the ticket was closed or deleted by the issuer as linux timestamp</p><h3 id="gm_tickets-closedBy">closedBy</h3><p>0 : Open</p><p>-1 : Closed by Console</p><p>&gt;0 : player who abandoned ticket or GM who closed ticket</p><h3 id="gm_tickets-assignedTo">assignedTo</h3><p>Specify account number of GameMaster that have this ticket assigned.</p><h3 id="gm_tickets-comment">comment</h3><p>The comment to the ticket, only visible to game masters</p><h3 id="gm_tickets-response">response</h3><p>Requires GM response. 17 = true, 1 = false (17 is default)</p><h3 id="gm_tickets-completed">completed</h3><p><code>field-no-description|14</code></p><h3 id="gm_tickets-escalated">escalated</h3><p><code>field-no-description|15</code></p><h3 id="gm_tickets-viewed">viewed</h3><p>0 : no one has viewed the ticket.</p><p>&gt;0 : How many times the ticket has been viewed.</p><h3 id="gm_tickets-haveTicket">haveTicket</h3><p>Requests further GM interaction on a ticket to which a GM has already responded. Basically means &quot;has a new ticket&quot;</p><p>td class=</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Win 4.3.4</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Core_10682447.html">Install Core</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Win 4.3.4
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> akira6968</span>, last modified by <span class='editor'> nayd</span> on Oct 07, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397626710 {padding: 0px;}
+div.rbtoc1415397626710 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397626710 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397626710'>
+<ul class='toc-indentation'>
+<li><a href='#Win4.3.4-PullingTheSource'>Pulling The Source</a>
+<ul class='toc-indentation'>
+<li><a href='#Win4.3.4-GitCloning'>Git Cloning</a></li>
+<li><a href='#Win4.3.4-ConfiguringandGeneratingVisualC++solutionswithCMake'>Configuring and Generating Visual C++ solutions with CMake</a></li>
+<li><a href='#Win4.3.4-CompilingtheSource'>Compiling the Source</a></li>
+</ul>
+</li>
+<li><a href='#Win4.3.4-Extractors'>Extractors</a>
+<ul class='toc-indentation'>
+<li><a href='#Win4.3.4-ExtractingtheMaps,VMaps,andDBC'>Extracting the Maps, VMaps, and DBC</a></li>
+</ul>
+</li>
+<li><a href='#Win4.3.4-ContinuetoPopulatingtheDatabase'>Continue to Populating the Database TDB 4.3.4 + DB Updates</a></li>
+</ul>
+</div></p><p> </p><p>Here's a <a href="http://checklist.com/link/hL15cgrL6NaOPxpW" class="external-link" rel="nofollow">checklist</a> for the whole process to use to help you follow along the guide. It may take a while if it's your first time.</p><p> </p>    <div class="aui-message problem shadowed information-macro">
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>All SQL updates needed for the <strong>world</strong> database are to be found in the DB repository.</p><p>Do <u>not</u> import the SQL files from the core repository, <code>TrinityCore/sql/updates/world</code>.</p>
+                    </div>
+    </div>
+    <div class="aui-message problem shadowed information-macro">
+                    <p class="title">Do not use Navicat!!</p>
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p> Due to Navicat not being able to handle // style comments (standard SQL), including incidents of failed imports despite positive feedback from the program itself, we advise all users to stay VERY clear of this product - you have been warned.</p>
+                    </div>
+    </div>
+    <div class="aui-message problem shadowed information-macro">
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>All SQL updates needed for the <strong>world</strong> database are to be found in the DB repository.</p><p>Do <u>not</u> import the SQL files from the core repository, <code>TrinityCore/sql/updates/world</code>.</p>
+                    </div>
+    </div>
+<p><span style="color: rgb(0,0,0);"><br /></span></p><h1 id="Win4.3.4-PullingTheSource"><span style="color: rgb(0,0,0);">Pulling The Source</span></h1><h5 class="postbody" id="Win4.3.4-GitCloning"><u>Git Cloning</u></h5><p><u><br /></u></p><div class="postbody">Create a folder in which Core files will be pulled (for example: C:\Trinity or C:\Source or C:\Pancakes....in this example I'll use C:\TrinitySource).<br /> Right-click on the directory and click on Git Extensions -&gt; Clone.<br /><br /><a href="https://lh5.googleusercontent.com/-P-9StJThTPQ/UPhBRC80ABI/AAAAAAAACks/QPUhpY2ZXKA/s800/GitClone.jpg" class="external-link" rel="nofollow"><img class="confluence-embedded-image confluence-external-resource" width="300" src="https://lh5.googleusercontent.com/-P-9StJThTPQ/UPhBRC80ABI/AAAAAAAACks/QPUhpY2ZXKA/s800/GitClone.jpg" data-image-src="https://lh5.googleusercontent.com/-P-9StJThTPQ/UPhBRC80ABI/AAAAAAAACks/QPUhpY2ZXKA/s800/GitClone.jpg"></a><br /> <br />Fill in the data as follows:</div><p class="postbody">Repository to clone: <a href="https://github.com/TrinityCore/TrinityCore.git" class="external-link" rel="nofollow">https://github.com/TrinityCore/TrinityCore.git</a><br class="postbody" />Destination: C:\TrinitySource<br />Subdirectory to create: &lt;none&gt; (delete anything in this field)<br />Branch: 4.3.4 (The <em>Master</em> branch is currently the 3.3.5a Wrath of the Lich King server, so be sure to select 4.3.4 for Cata) (if you select the dropdown it will show you the available branch if you wait few seconds)<br />Personal Repository: Yes<br /><br />Click Clone. Within a few minutes all of the TrinityCore source files will be pulled into the folder.<br /><br /><a href="https://lh4.googleusercontent.com/-OZnXpkUN6wE/UPhBRBqzfNI/AAAAAAAACk0/9aGYIw5nq6k/s800/GitProgress.jpg" class="external-link" rel="nofollow"><img class="confluence-embedded-image confluence-external-resource" height="300" width="300" src="https://lh4.googleusercontent.com/-OZnXpkUN6wE/UPhBRBqzfNI/AAAAAAAACk0/9aGYIw5nq6k/s800/GitProgress.jpg" data-image-src="https://lh4.googleusercontent.com/-OZnXpkUN6wE/UPhBRBqzfNI/AAAAAAAACk0/9aGYIw5nq6k/s800/GitProgress.jpg"></a></p><p class="postbody"><span style="text-decoration: underline;"><br /></span></p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p>At this point in time, you have the most current server source. This may or may not work with the current database! To determine the version of the source you just pulled, run CMake (detailed below) and after clicking configure, read the bottom pane. There's a big huge long string of letters and numbers. Note the first 7 digits- this is the &quot;server version&quot;. Now go to <a href="https://github.com/TrinityCore/TrinityCore_4.3.4_DB_Alpha" class="external-link" rel="nofollow">https://github.com/TrinityCore/TrinityCore_4.3.4_DB_Alpha</a> and look at the top of that list, you should see something like &quot;Sync with TrinityCore/TrinityCore@14d80d2&quot;. Does the string after the &quot;@&quot; symbol match your server version? If yes, GREAT! If no, see <a href="http://collab.kpsn.org/pages/editpage.action?pageId=1704412#How-To_Win4.3.4-RevisionMatching" rel="nofollow">Revision Matching</a> below.</p>
+                    </div>
+    </div>
+<p><span style="color: rgb(61,61,61);"><br /></span></p><h5 id="Win4.3.4-ConfiguringandGeneratingVisualC++solutionswithCMake"><u><span style="color: rgb(61,61,61);">Configuring and Generating Visual C++ solutions with CMake</span></u></h5><p class="postbody">(Getting the source ready for compiling, in other words.)</p><div class="postbody"><p> </p>    <div class="aui-message hint shadowed information-macro">
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            <p>A program that is not yet an executable and completed program is called a 'solution'. Completing the program is called 'compiling' it, or 'building the solution'. There are many various softwares out there that can do this- we are using M$ VisualC++ 2008 in this case. What CMake does is basically prepare all the bits of the program into a way that MSVC++2008 will use to compile the program. Sort of a &quot;pre-build&quot; step.</p>
+                    </div>
+    </div>
+<p> </p><p>Before you begin, create an empty folder called Build. In this example, we will use C:\TrinityBuild. This will be where the server 'core' is built, but not where it is run from.</p></div><div class="postbody"><br /> -Open the CMake GUI (default install directory is C:\Program Files (x86)\CMake 2.8\bin).<br />-Un-check the box, then click OK<br /><br /><a href="https://lh6.googleusercontent.com/-WmvDt6qO3yU/UPhBRduAuhI/AAAAAAAACkw/-lqe6fcZErI/s800/GitSettings.jpg" class="external-link" rel="nofollow"><img class="confluence-embedded-image confluence-external-resource" height="300" width="300" src="https://lh6.googleusercontent.com/-WmvDt6qO3yU/UPhBRduAuhI/AAAAAAAACkw/-lqe6fcZErI/s800/GitSettings.jpg" data-image-src="https://lh6.googleusercontent.com/-WmvDt6qO3yU/UPhBRduAuhI/AAAAAAAACkw/-lqe6fcZErI/s800/GitSettings.jpg"></a><br /><br /> -The two top text areas are used to tell CMake where to look for the source tree, and then where to put the build files.<br /> Click Browse Source... -&gt; Select the source directory (C:/TrinitySource)<br /> Click Browse Build... -&gt; Select the build directory (C:/TrinityBuild)<br /><br /><a href="https://lh3.googleusercontent.com/-EqYKPRYkDy8/UPhCCFR6eRI/AAAAAAAAClo/_VMQBR0OzD8/s800/CMakeStep1.jpg" class="external-link" rel="nofollow"><img class="confluence-embedded-image confluence-external-resource" height="100" width="300" src="https://lh3.googleusercontent.com/-EqYKPRYkDy8/UPhCCFR6eRI/AAAAAAAAClo/_VMQBR0OzD8/s800/CMakeStep1.jpg" data-image-src="https://lh3.googleusercontent.com/-EqYKPRYkDy8/UPhCCFR6eRI/AAAAAAAAClo/_VMQBR0OzD8/s800/CMakeStep1.jpg"></a><br /><br />Click Configure<br /><br /> Make sure 'Use default native compilers' is checked.<br /> In the drop-down menu, choose the version of the compiler you downloaded in the Software Required section (which version of Visual C++ Express did you install? In this tutorial, it's &quot;Visual Studio 12 64bit - 2013&quot;).<br /><br /><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/1704412/11010052.png" data-image-src="attachments/1704412/11010052.png"></div><div class="postbody"><br /> Click Finish. CMake will begin chewing through the source code and analyzing the CMakeLists.txt spread all over the source tree.</div><div class="postbody"><p> </p>CMake shows you a list of options for selecting different components of the build.</div><div class="postbody"><br /><a href="https://lh3.googleusercontent.com/-gkpFdXk2_Ig/UPhCCfeJ2kI/AAAAAAAACls/Q-IrgWMzGFE/s800/CMakeStep3.jpg" class="external-link" rel="nofollow"><img class="confluence-embedded-image confluence-external-resource" height="300" width="600" src="https://lh3.googleusercontent.com/-gkpFdXk2_Ig/UPhCCfeJ2kI/AAAAAAAACls/Q-IrgWMzGFE/s800/CMakeStep3.jpg" data-image-src="https://lh3.googleusercontent.com/-gkpFdXk2_Ig/UPhCCfeJ2kI/AAAAAAAACls/Q-IrgWMzGFE/s800/CMakeStep3.jpg"></a><br /><br /> -<strong>Check &quot;Tools&quot;. This will compile the map extractors needed later in the setup. </strong><br /> -All other default selections are OK.</div><div class="postbody"><br /> When your selection is done, <em>click Configure again</em>.</div><div class="postbody">Click Generate. This will install the selected build files into your C:/TrinityBuild folder.<br /><p> </p>    <div class="aui-message hint shadowed information-macro">
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            <p>Here are some useful things to learn about the information in the large white text box at the bottom of the window (your configuration may be slightly different):</p><p>It detected that we're on a 32-bit platform</p><p>It detected that we have a proper version of MySQL</p><p>It detected that we have properly installed OpenSSL libraries/headers</p>
+                    </div>
+    </div>
+<p> </p></div><h5 class="postbody" id="Win4.3.4-CompilingtheSource"><span style="text-decoration: underline;">Compiling the Source</span></h5><div class="postbody"><br /><br />Browse into your C:\TrinityBuild folder and open TrinityCore.sln with Visual C++ Express. Just double-clicking it should work.<br />On the menu at the top, click <em>Build</em> and select <em>Configuration Manager</em>.<br />Set <em>Active Solution Configuration</em> to <strong>Release</strong><br />Set <em>Active Solution Platform</em> to <strong>Win32</strong> (if you set 64-bit compilation during the CMake configuration, select Win64)<br /><br /> (If using Visual C++ 2010, simply use the list menus below the &quot;Help&quot; menu and make the same changes explained above, though it should already be done by default).<br /> <br />Click Build -&gt; Clean Solution.<br /><br /> (Visual C++ 2010: Right-click *ALL_BUILD in the Solution Explorer on the left sidebar and select Clean.)<br /> *Unless you are just testing a compilation, it is always best to clean your build before compiling your new Trinity revision.<br /> <br />Click Build -&gt; Build Solution.<br /> <br />(Visual C++ 2010: Right-click *ALL_BUILD and select Build.)<br /><br /> Compilation length differs from machine to machine, you should expect it to take 5-30 minutes.<br /> (If you are asked to <em>Reload build files</em> during the compile, do so.)<br /><br /><strong><span style="color: rgb(0,0,0);">You will find a similar message once the compilation has finished successfully, remember it's not always the same:</span></strong><br /><strong><span style="color: rgb(0,0,0);">========== Build: 18 succeeded, 0 failed, 0 up-to-date, 1 skipped ==========</span></strong></div><p class="postbody">The important thing is that none failed.</p><p class="postbody">You will find your freshly compiled binaries in the <strong>C:\TrinityBuild\bin\release</strong> folder. These are all used to run your server at the end of this instruction.<br />Create a new folder in C:\ named TrinityCore (<strong>C:\TrinityCore\</strong>).<br /><strong>COPY</strong> entire contents of the Release folder (<strong>C:\TrinityBuild\bin\release\</strong>) into <strong>C:\TrinityCore\</strong><br /><br />You will need the following files in order for the core to function properly. Most are already located in your <strong>C:\TrinityBuild\bin\release</strong> folder:<br />libeay32.dll*<br />libmySQL.dll*<br />ssleay32.dll*<br />worldserver.conf.dist<br />worldserver.exe<br />authserver.conf.dist<br />authserver.exe<br /><br />*libeay32.dll, libmySQL.dll, and ssleay32.dll will need to be manually added to this folder, and you need to copy them over from the following installation/bin directories:<br /><br />-<em>libmySQL.dll: <strong>C:\Program Files\MySQL\MySQL Server x.x\lib\</strong></em><br />-<em>libeay32.dll and ssleay32.dll: <strong>C:\OpenSSL-Win32\bin\ </strong></em>32 bits or <em><strong>C:\OpenSSL-Win64\bin\ </strong></em>64 bits</p><p class="postbody">Now that you have the Source compiled and the Databases installed, you need to set up the server.<strong><br /></strong></p><h1 class="postbody" id="Win4.3.4-Extractors">Extractors<em><strong><br /></strong></em></h1><h5 class="postbody" id="Win4.3.4-ExtractingtheMaps,VMaps,andDBC"><u>Extracting the Maps, VMaps, and DBC</u><em><strong><br /></strong></em></h5><p class="postbody">Trinity requires dbc and map files. It is optional but highly recommended to also extract vmaps, which enable Line-of-Sight rules (casting through walls, etc) and Sanctuary areas (like Dalaran). Without them, mobs will see you and aggro right through walls <img class="confluence-embedded-image confluence-external-resource" src="http://akira6968.prophpbb.com/images/smilies/icon_e_smile.gif" data-image-src="http://akira6968.prophpbb.com/images/smilies/icon_e_smile.gif"></p>    <div class="aui-message problem shadowed information-macro">
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>Use ONLY Trinity's extractors. If you use extractors from other projects it is almost certain that your TrinityCore will not recognize the extracted data.</p>
+                    </div>
+    </div>
+<p class="postbody"><br />When you used CMake earlier, you should have checked the Tools checkbox. This will have put the tools in your C:\TrinityBuild\bin\Release\ folder.<br /><br /> Browse into your C:\TrinityBuild\bin\Release folder and copy these files into your root World of Warcraft folder: <br />mapextractor.exe, vmap4extractor.exe, vmap4assembler.exe, and makevmaps_simple.bat<br /><br /> If you do not have makevmaps_simple.bat, create it inside your root World of Warcraft folder:<br />Create a new text document in the World of Warcraft folder.<br />Open it with Notepad.<br />Copy and paste the following inside it:<br /><br /></p><div class="codewrapper"><div class="codecontent">vmap4extractor.exe<br />md vmaps<br />vmap4assembler.exe Buildings vmaps</div><div class="codecontent">pause</div></div><p class="postbody"> </p><p class="postbody">Now go to File --&gt; Save As...<br />File Name: makevmaps_simple.bat<br />Save as type: All Files (*.*)<br /><br />You can now delete the New Text Document.txt, and should have a Windows Batch File named makevmaps_simple.bat<br /> <br /> Run your WoW client once (the login screen is enough). You need to do this so that the mapextractor.exe knows where your WoW Client is and where to extract the files from.<br /> Run mapextractor.exe and wait until it is finished. It will create dbc and maps folders<br />Run makevmaps_simple.bat. It will create buildings and vmaps folders. When finished, the Buildings folder can be deleted, it is of no use.<br /> Move the dbc, maps, and vmaps folders to the server core folder C:\TrinityCore\.</p><p class="postbody"> </p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p>Extracting vmaps will take a while depending on your machine (30 min - 2 hours) (12 min on SSD drive). Do not attempt to stop this process. It is finished when it prints &quot;Press any key...&quot;.<em><strong><br /></strong></em></p>
+                    </div>
+    </div>
+<p> </p><h1 id="Win4.3.4-ContinuetoPopulatingtheDatabase">Continue to Populating the Database <a href="1704351.html">TDB 4.3.4 + DB Updates</a></h1><p> </p><div class="postbody"><div class="codewrapper"><span style="color: rgb(0,0,0);">Revision Matching</span></div></div><div class="postbody"><p> </p><p>If your server revision doesn't match, and the server won't work, here's how to pull the proper server:</p><p>SHIFT-right click your repo folder (Should be named TrinitySource)<br />Select &quot;Open Command Window Here&quot;</p><p><br /><strong class="bbc">(git log</strong> &lt;-you can see what revision you want, <strong class="bbc">q</strong> &lt;- to quit from commit lists)</p><p>Remember the revision number you found at <a href="https://github.com/TrinityCore/TrinityCore_4.3.4_DB_Alpha" class="external-link" rel="nofollow">https://github.com/TrinityCore/TrinityCore_4.3.4_DB_Alpha</a>? Enter it here (replace the example b288881f6 with what you found)-<br /><strong class="bbc">git checkout b28881f6 </strong>&lt;- with the first 6 or 8 characters is ok<br /><br />Congratulations, now your repo is in that revision</p><p>It only replaces changed files, so you won't see much happen...but when you run CMake again, you'll now see the matching revision number if it worked.<br /><br />Remember, if you want to back to master revision, do this:<br /><strong class="bbc">git checkout master</strong> &lt;-now you are in the master repo<br />if you want to go to another specific revision you must to do this first, then the steps above.</p><p> </p></div><div class="postbody"><p><a href="Setting-up-the-Server_7110719.html">Click here for ways how to proceed to get onto your server.</a></p><p> </p></div><p class="postbody"> </p><p class="postbody" style="text-align: right;"><em><span style="font-size: 10.0pt;line-height: 13.0pt;">This guide was based and adapted from </span><a href="Windows_332776.html">Windows</a></em></p><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867795.png">Git1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867796.jpg">C++2008.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867797.jpg">MySQL Server.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867798.jpg">SQL1.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867799.jpg">SQL2.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867800.jpg">SQL3.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867801.jpg">SQL4.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867802.jpg">HeidiSessionMgr.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867803.jpg">HeidiFirstRun.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/1867804.jpg">OpenSSL.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/11010051.jpg">HeidiSQLloadSQL.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1704412/11010052.png">cmake-gui-generator.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-5898272"></a>
+                                    <font class="smallfont"><p>This needs to be formatted a little bit and IMO HeidiSQL references (for the purpose of importing SQL) removed. It's in fact MUCH easier to do via command line.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by guybrush at Jul 24, 2013 16:51
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

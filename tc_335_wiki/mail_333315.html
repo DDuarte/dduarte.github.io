@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : mail</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Characters_331580.html">Characters</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : mail
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>Back-to:Characters</code></p><p><strong>The `mail` table</strong></p><p>This table contains main data about all mails in the game.</p><p><strong>Structure</strong></p><p> </p><p> </p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">id</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Identifier</p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">messageType</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">stationery</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>41</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">mailTemplateId</a></p></td><td class="confluenceTd"><p>mediumint(5)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">sender</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Character Global Unique Identifier</p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">receiver</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Character Global Unique Identifier</p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">subject</a></p></td><td class="confluenceTd"><p>longtext</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">body</a></p></td><td class="confluenceTd"><p>longtext</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">has_items</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">expire_time</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">deliver_time</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">money</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">cod</a></p></td><td class="confluenceTd"><p>int(10)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><a href="mail_333315.html">checked</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"> </td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"> </td><td class="confluenceTd"> </td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="mail-id">id</h3><p>This field contains unique ID of any messages.</p><p>Don't have autoincrement !!!</p><h3 id="mail-messageType">messageType</h3><ul><li>0 = Normal</li><li>1 doesn't exist</li><li>2 = Auction</li><li>3 = Creature</li><li>4 = Gameobject</li><li>5 = Item</li></ul><h3 id="mail-stationery">stationery</h3><p>This field can contain these values:</p><ul><li>1 = Test</li><li>41 = Normal mail layout,</li></ul><ul><li>61 = GM (Blizzard)</li><li>62 = Auction</li><li>64 = VAL (???)</li><li>65 = CHR (???)</li></ul><h3 id="mail-mailTemplateId">mailTemplateId</h3><p>Id from <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=MailTemplate.dbc+tc2&amp;linkCreation=true&amp;fromPageId=333315">MailTemplate.dbc</a></p><h3 id="mail-sender">sender</h3><p>In this field is entered sender <a href="330915.html#characters(table)-guid">character.guid.</a></p><h3 id="mail-receiver">receiver</h3><p>Here is receiver's <a href="330915.html#characters(table)-guid">character.guid.</a></p><h3 id="mail-subject">subject</h3><p>Here is stored mail subject.</p><h3 id="mail-body">body</h3><p>The text contained in the mail.</p><h3 id="mail-has_items">has_items</h3><p>Default: 0,</p><p>When is set to 1, that mail can contain items.</p><p>For items look at <a href="mail_items_333301.html">mail_items</a> table.</p><h3 id="mail-expire_time">expire_time</h3><p>Here is timestamp which stores date for auto-return mail to sender.</p><h3 id="mail-deliver_time">deliver_time</h3><p>Here is timestamp which stores date of send mail.</p><h3 id="mail-money">money</h3><p>The ammout of money in mail, or money to pay when is COD.</p><h3 id="mail-cod">cod</h3><p>Default: 0 - No COD,</p><p>when is set to 1, that field `money` stores gold for COD.</p><h3 id="mail-checked">checked</h3><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Flag</p></th><th class="confluenceTh"><p>Comment</p></th></tr><tr><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p>MAIL_CHECK_MASK_NONE</p></td><td class="confluenceTd"><p>0x00</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>MAIL_CHECK_MASK_READ</p></td><td class="confluenceTd"><p>0x01</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>MAIL_CHECK_MASK_RETURNED</p></td><td class="confluenceTd"><p>0x02</p></td><td class="confluenceTd"><p>This mail was returned. Do not allow returning mail back again.</p></td></tr><tr><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>MAIL_CHECK_MASK_COPIED</p></td><td class="confluenceTd"><p>0x04</p></td><td class="confluenceTd"><p>This mail was copied. Do not allow making a copy of items in mail.</p></td></tr><tr><td class="confluenceTd"><p>8</p></td><td class="confluenceTd"><p>MAIL_CHECK_MASK_COD_PAYMENT</p></td><td class="confluenceTd"><p>0x08</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>16</p></td><td class="confluenceTd"><p>MAIL_CHECK_MASK_HAS_BODY</p></td><td class="confluenceTd"><p>0x10</p></td><td class="confluenceTd"><p>This mail has body text.</p></td></tr></tbody></table></div><p>/td</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

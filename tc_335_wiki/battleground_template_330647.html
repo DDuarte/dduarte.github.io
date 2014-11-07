@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : battleground_template</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : battleground_template
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> soky</span> on Oct 24, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code>
+    <code>
+      <a href="World_331623.html">Back-to:World</a>
+    </code>
+  </code></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>The `battleground_template` table</strong></p>
+</div></div><p>Contains information about the different battlegrounds, like how many players are needed to start, how many can be inside the same one, and the locations where each side starts.</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Structure</strong></p>
+</div></div><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Atributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">id</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">MinPlayersPerTeam</a></p></td><td class="confluenceTd"><p>smallintint(5)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">MaxPlayersPerTeam</a></p></td><td class="confluenceTd"><p>smallint(5)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">MinLvl</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">MaxLvl</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">AllianceStartLoc</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">AllianceStartO</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">HordeStartLoc</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">HordeStartO</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">StartMaxDist</a></p></td><td class="confluenceTd"><p>float</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">Weight</a></p></td><td class="confluenceTd"><p>tinyint (2)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">ScriptName</a></p></td><td class="confluenceTd"><p>char (64)</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="battleground_template_330647.html">Comment</a></p></td><td class="confluenceTd"><p>char (32)</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>Description of the fields</strong></p>
+</div></div><h3 id="battleground_template-id">id</h3><p>The battleground ID.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>ID</p></th><th class="confluenceTh"><p>Type</p></th></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>Alterac Valley</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>Warsong Gulch</p></td></tr><tr><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>Arathi Basin</p></td></tr><tr><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>Nagrand Arena</p></td></tr><tr><td class="confluenceTd"><p>5</p></td><td class="confluenceTd"><p>Blade's Edge Arena</p></td></tr><tr><td class="confluenceTd"><p>6</p></td><td class="confluenceTd"><p>All Arena</p></td></tr><tr><td class="confluenceTd"><p>7</p></td><td class="confluenceTd"><p>Eye of the Storm</p></td></tr><tr><td class="confluenceTd"><p>8</p></td><td class="confluenceTd"><p>Ruins of Lordaeron</p></td></tr><tr><td class="confluenceTd"><p>9</p></td><td class="confluenceTd"><p>Strand of the Ancients</p></td></tr><tr><td class="confluenceTd"><p>10</p></td><td class="confluenceTd"><p>Dalaran Sewers</p></td></tr><tr><td class="confluenceTd"><p>11</p></td><td class="confluenceTd"><p>The Ring of Valor</p></td></tr><tr><td class="confluenceTd"><p>30</p></td><td class="confluenceTd"><p>Isle of Conquest</p></td></tr><tr><td class="confluenceTd"><p>32</p></td><td class="confluenceTd"><p>Random battleground</p></td></tr></tbody></table></div><h3 id="battleground_template-MinPlayersPerTeam">MinPlayersPerTeam</h3><p>Controls the minimum number of players that need to join the battleground on each faction side for the battleground to start. For the battleground to start, all characters (between min and max player values) must be in the same tier. Tiers are set up in ranges of 10 levels except for level 80. So the first tier is 10-19, the next are 20-29, 30-39, 40-49, 50-59, 60-69, 70-79 and finally 80. If characters of different tiers all join the queue, they will join their respective tier's queue and wait for more players of their tier to join the queue. Characters in different tiers can never join the same battleground.</p><h3 id="battleground_template-MaxPlayersPerTeam">MaxPlayersPerTeam</h3><p>Controls how many players from each team can join the battleground.</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>NOTE2: If left to be 0, trinity will use the default DBC value.</p>
+</div></div><h3 id="battleground_template-MinLvl">MinLvl</h3><p>The minimum level that players need to be in order to join the battleground.</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>NOTE: If left to be 0, trinity will use the default DBC value.</p>
+</div></div><h3 id="battleground_template-MaxLvl">MaxLvl</h3><p>The maximum level that players can be to enter the battleground.</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>NOTE: If left to be 0, trinity will use the default DBC value.</p>
+</div></div><h3 id="battleground_template-AllianceStartLoc">AllianceStartLoc</h3><p>The location where the alliance players get teleported to when the battleground first starts. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=WorldSafeLocs.dbc+tc2&amp;linkCreation=true&amp;fromPageId=330647">WorldSafeLocs.dbc</a></p><h3 id="battleground_template-AllianceStartO">AllianceStartO</h3><p>The orientation of the alliance players upon teleport into the battleground. North is 0, south is Pi (3.14159).</p><h3 id="battleground_template-HordeStartLoc">HordeStartLoc</h3><p>The location where the horde players get teleported to when the battleground first starts. See <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=WorldSafeLocs.dbc+tc2&amp;linkCreation=true&amp;fromPageId=330647">WorldSafeLocs.dbc</a></p><h3 id="battleground_template-HordeStartO">HordeStartO</h3><p>The orientation of the horde players upon teleport into the battleground. North is 0, south is Pi (3.14159).</p><h3 id="battleground_template-Weight">Weight</h3><p>Determines what battleground(s) will be more frequently chosen when using Random Battleground.<br /> For example: If you want AV to be less often chosen, give 2 and for all other give 3.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : LockType</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Files_10682464.html">Files</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DBC_331816.html">DBC</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : LockType
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>&lt;noinclude&gt;|<br /> <code>Back-to:DBC</code></p><p>&lt;big&gt;<strong>LockType.dbc</strong>&lt;/big&gt;</p><p>This DBC contains data used with <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Lock.dbc+tc2&amp;linkCreation=true&amp;fromPageId=333259">Lock.dbc</a></p><p><strong>Version is : 3.3.5a</strong></p><h2 id="LockType-Structure"><span class="mw-headline">Structure</span></h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><pre><strong>Column</strong></pre></th><th class="confluenceTh"><pre><strong>Field</strong></pre></th><th class="confluenceTh"><pre><strong>Type</strong></pre></th><th class="confluenceTh"><pre><strong>Notes</strong></pre></th></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd"><pre>ID</pre></td><td class="confluenceTd"><pre>Integer</pre></td><td class="confluenceTd"><pre> </pre></td></tr><tr><td class="confluenceTd">2-18</td><td class="confluenceTd"><pre>Name</pre></td><td class="confluenceTd"><pre>String + <a href="Localization-lang_333246.html">Loc</a></pre></td><td class="confluenceTd"><pre>General name</pre></td></tr><tr><td class="confluenceTd">19-35</td><td class="confluenceTd"><pre>itemstatename</pre></td><td class="confluenceTd"><pre>String + <a href="Localization-lang_333246.html">Loc</a></pre></td><td class="confluenceTd"><pre>the processed item's state (locked, unlocked, fish etc)</pre></td></tr><tr><td class="confluenceTd">36-52</td><td class="confluenceTd"><pre>processname</pre></td><td class="confluenceTd"><pre>String + <a href="Localization-lang_333246.html">Loc</a></pre></td><td class="confluenceTd"><pre>opening processes' name</pre></td></tr><tr><td class="confluenceTd">53</td><td class="confluenceTd"><pre>internal_name</pre></td><td class="confluenceTd"><pre>String</pre></td><td class="confluenceTd"><pre>empty most of the time</pre></td></tr></tbody></table></div><h2 id="LockType-Content"><strong>Content</strong></h2><p>&lt;/noinclude&gt;</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>ID</strong></p></td><td class="confluenceTd"><p><strong>Name</strong></p></td><td class="confluenceTd"><p><strong>ItemStateName</strong></p></td><td class="confluenceTd"><p><strong>ProcessName</strong></p></td><td class="confluenceTd"><p><strong>InternalName</strong></p></td></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>Lockpicking</p></td><td class="confluenceTd"><p>Locked Items</p></td><td class="confluenceTd"><p>Pick</p></td><td class="confluenceTd"><p>PickLock</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>Herbalism</p></td><td class="confluenceTd"><p>Herbs</p></td><td class="confluenceTd"><p>Gather</p></td><td class="confluenceTd"><p>GatherHerbs</p></td></tr><tr><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>Mining</p></td><td class="confluenceTd"><p>Ore Deposits</p></td><td class="confluenceTd"><p>Mine</p></td><td class="confluenceTd"><p>Mine</p></td></tr><tr><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>Disarm Trap</p></td><td class="confluenceTd"><p>Trap</p></td><td class="confluenceTd"><p>Disarm</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>5</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>6</p></td><td class="confluenceTd"><p>Treasure (DND)</p></td><td class="confluenceTd"><p>Treasure</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>7</p></td><td class="confluenceTd"><p>Calcified Elven Gems (DND)</p></td><td class="confluenceTd"><p>Calcified Elven Gems</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>8</p></td><td class="confluenceTd"><p>Close</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Close</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>9</p></td><td class="confluenceTd"><p>Arm Trap</p></td><td class="confluenceTd"><p>Trap</p></td><td class="confluenceTd"><p>Arm</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>10</p></td><td class="confluenceTd"><p>Quick Open</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>11</p></td><td class="confluenceTd"><p>Quick Close</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Close</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>12</p></td><td class="confluenceTd"><p>Open Tinkering</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>13</p></td><td class="confluenceTd"><p>Open Kneeling</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>14</p></td><td class="confluenceTd"><p>Open Attacking</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>15</p></td><td class="confluenceTd"><p>Gahz'ridian (DND)</p></td><td class="confluenceTd"><p>Gahz'ridian</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>16</p></td><td class="confluenceTd"><p>Blasting</p></td><td class="confluenceTd"><p>Locked Items</p></td><td class="confluenceTd"><p>Blast</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>17</p></td><td class="confluenceTd"><p>Pvp Open</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>18</p></td><td class="confluenceTd"><p>Pvp Close</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Close</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>19</p></td><td class="confluenceTd"><p>Fishing (DND)</p></td><td class="confluenceTd"><p>Fish</p></td><td class="confluenceTd"><p>Fish</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>20</p></td><td class="confluenceTd"><p>Inscription</p></td><td class="confluenceTd"><p>Tomes</p></td><td class="confluenceTd"><p>Decipher</p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>21</p></td><td class="confluenceTd"><p>Open From Vehicle</p></td><td class="confluenceTd"><p>Unlocked Items</p></td><td class="confluenceTd"><p>Open</p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

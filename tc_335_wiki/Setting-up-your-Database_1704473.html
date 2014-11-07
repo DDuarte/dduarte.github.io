@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Setting up your Database</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Databases_10682471.html">Install Databases</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Setting up your Database
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> nayd</span>, last modified by <span class='editor'> stryker</span> on Oct 26, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="SettingupyourDatabase-/*&lt;![CDATA[*/div.rbtoc1415397628911{padding:0px;}div.rbtoc1415397628911ul{list-style:disc;margin-left:0px;}div.rbtoc1415397628911li{margin-left:0px;padding-left:0px;}/*]]&gt;*/InstallingTrinityDatabase(TDB)DownloadingtheDatabaseInstalli"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1415397628911 {padding: 0px;}
+div.rbtoc1415397628911 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1415397628911 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1415397628911'>
+<ul class='toc-indentation'>
+<li><a href='#SettingupyourDatabase-InstallingTrinityDatabase(TDB)'>Installing Trinity Database (TDB)</a>
+<ul class='toc-indentation'>
+<li><a href='#SettingupyourDatabase-DownloadingtheDatabase'>Downloading the Database</a></li>
+<li><a href='#SettingupyourDatabase-InstallingTheTrinityDatabases'>Installing The Trinity Databases</a></li>
+<li><a href='#SettingupyourDatabase-KeepingtheDBuptodate'>Keeping the DB up to date</a></li>
+</ul>
+</li>
+<li><a href='#SettingupyourDatabase-Next-'>Next - Setting up the Server</a></li>
+</ul>
+</div></h1><p><u><em><strong>Before proceeding please make sure that you have compiled your sources and they are up-to-date - <a href="Windows_332776.html">HERE</a></strong></em></u></p><h1 id="SettingupyourDatabase-InstallingTrinityDatabase(TDB)">Installing Trinity Database (TDB)</h1><p>About once per month all of the updates made from all previous months are combined into a few bulk .sql files to easily import them into your databases. These updates are similar to how Service Packs are released for Windows. Furthermore, smaller, individual .sql updates are occasionally added as the core is fixed by the developers (these can be seen in Git Extensions while selecting individual commits in the commit view with the <strong>Diff</strong> tab selected). This offers two options:</p><ol><li>(<strong>Beginner</strong>) It is highly recommended to keep your current revision (the commit in <strong>bold</strong> text in Git Extensions) on a commit with a description similar to &quot;DB: TrinityDB revision XX: move SQL updates to the old directory&quot; (<a class="external-link" href="https://github.com/TrinityCore/TrinityCore/commit/4696bcd786abedea9f4208ebb69f635a01947c4e" rel="nofollow" style="text-decoration: none;">example</a>). These commit descriptions mark each monthly compilation, and are also useful for knowing when a new compilation is released and can be downloaded/imported. Doing this will keep your databases 100% up-to-date each month.<br /><br /></li><li>(<strong>Advanced</strong>) If you decide to update your revision outside of a commit with the above description, you <strong>must</strong> also import all of the smaller .sql updates (C:\Trinity\sql\updates folder) that have been done with EACH commit up to yours, if there are any. Not importing these additional updates cause a majority of user errors. This will ensure that your databases are 100% up-to-date.</li></ol><p>This is described in more detail in the following instructions.</p><h2 id="SettingupyourDatabase-DownloadingtheDatabase"><span class="mw-headline">Downloading the Database</span></h2><p>Download the latest database compilation from <a href="http://www.trinitycore.org/f/files/file/5-tdb-full-updates/" class="external-link" rel="nofollow">TrinityCore Downloads</a>.</p><p style="list-style-type: none;">The Download Packages at the top are the ones you want. Find the package with the latest date and download it.</p><ol><li style="list-style-type: none;">For example, a file such as <strong>TDB_full_335.54_2014_07_05.7z</strong> tells us three things:<ul style="margin-left: 1.6em;"><li><strong>TDB:</strong> Trinity Database</li><li><strong>335.54:</strong> The version of the database and the client it belongs to. <strong>335</strong> = WoW version 3.3.5, 54 = the 54th full revision.</li><li><strong>2014_07_05:</strong> The date - July 05th, 2014</li></ul></li></ol><p>The file is in <strong>.7z</strong> format, so you will need an archive program like <a class="external-link" href="http://www.7-zip.org/download.html" rel="nofollow" style="text-decoration: none;">7zip</a> to unpack it.</p><p><em><strong><br /></strong></em></p>    <div class="aui-message problem shadowed information-macro">
+                    <p class="title">Important</p>
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p><em><strong>Note:</strong> There are multiple .sql files to choose from in the .7z archive. If this is your first time installing TrinityCore, you will want to import ONLY the file with &quot;<strong>TDB_full&quot;</strong> at the beginning. <br /></em>The other files are for updating existing world and characters databases from a previous compilation. This makes it easy to update your databases from one compilation to the next as explained in the section above.  </p><p><strong>NEVER apply</strong> the sql files in the <strong>sql\old</strong> directory, as those files are only needed for people updating core between TDB releases.</p><p><br /><strong style="line-height: 1.4285715;"><u>NEVER EVER (LIKE, EVER) ENABLE CONTINUE ON ERROR ON YOUR SQL CLIENT.</u> </strong></p>
+                    </div>
+    </div>
+<h2 id="SettingupyourDatabase-InstallingTheTrinityDatabases"><span class="mw-headline">Installing The Trinity Databases</span></h2><p>Trinity needs 3 databases to run - <a href="http://collab.kpsn.org/display/tc/Auth" rel="nofollow">Auth</a>, <a href="http://collab.kpsn.org/display/tc/Characters" rel="nofollow">Characters</a>, and <a href="http://collab.kpsn.org/display/tc/World" rel="nofollow">World</a>:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p><strong>auth</strong> - holds account data - usernames, passwords, GM access, realm information, etc.</p><p><strong>characters</strong> - holds character data - created characters, inventory, bank items, auction house, tickets, etc.</p><p><strong>world</strong> - holds game-experience content such as NPCs, quests, objects, etc.</p><p>(if you are running 6.x - <strong>hotfixes </strong>as well)</p>
+</div></div><p>The following steps are done using the database management program you installed in Step #5 of <a href="http://collab.kpsn.org/display/tc/TrinityCore+Requirements#TrinityCoreRequirements-Windows" rel="nofollow">Software Required</a> (ex. HeidiSQL or SQLYog):</p><ul><li>In <strong>HeidiSQL</strong>, click on the database you want to use in order to &quot;select&quot; it, then click <strong>Tools &gt; Load SQL File... &gt; (select the file) &gt; Run file(s) directly.</strong></li><li>In <strong>SQLYog</strong>, click on the database you want to use in order to &quot;select&quot; it, then click <strong>Database &gt; Import &gt; Execute SQL Script.</strong></li><li>On <strong>mysql cli</strong> you must use <strong>mysql --default-character-set=utf8</strong> to avoid import failures<ul><li><strong>WE STRONGLY RECOMMEND TO USE THIS METHOD</strong> over the SQLYog or HeidiSQL, it is by far the fastest method to import TDB and it's needed updates.</li></ul></li></ul><p> </p><ol><li>Create the three databases by importing <strong>...\sql\create\create_mysql.sql</strong>. You now have three databases - auth, characters, and world. You may need to refresh your program in order to see the new databases.</li><li>Click on the &quot;<strong>auth</strong>&quot; database and import the auth database structure by importing <strong>...\sql\base\auth_database.sql</strong>.</li><li>Click on the &quot;<strong>characters</strong>&quot; database and import the characters database structure by importing <strong>...\sql\base\character_database.sql</strong>.</li><li>Click on the &quot;<strong>world</strong>&quot; database and import the world database structure by extracting and importing the &quot;<strong>TDB_full_*.sql</strong>&quot; file you downloaded from the <a href="http://collab.kpsn.org/pages/viewpage.action?pageId=1704473#Downloading_the_Database" rel="nofollow">Database download section</a>.</li><li>Click on the &quot;<strong>world</strong>&quot; database and import any <strong>*.sql</strong> file available in your <strong>...\sql\updates\world </strong>folder.</li><li><strong>NOTICE WE NEVER IMPORT sql\updates\auth or sql\updates\character files on fresh installation.</strong></li><li><strong>NEVER ENABLE CONTINUE ON ERROR ON YOUR SQL CLIENT</strong></li></ol>    <div class="aui-message problem shadowed information-macro">
+                    <p class="title">Important</p>
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p><strong>IF THIS IS YOUR FIRST TIME INSTALLING </strong>TrinityCore<strong> DON'T apply any *.sql </strong>file<strong> </strong>on <strong>sql\updates\auth</strong> or <strong>sql\updates\characters</strong>. Continue with <a href="http://collab.kpsn.org/display/tc/Win#Win-SETTINGUPTHESERVER" rel="nofollow">SETTING UP THE SERVER</a>. NOTICE YOU STILL NEED TO APPLY sql\updates\world files.</p>
+                    </div>
+    </div>
+<h2 id="SettingupyourDatabase-KeepingtheDBuptodate"><span class="mw-headline">Keeping the DB up to date</span></h2><p>Both core and DB fixes will be committed to the <a class="external-link" href="https://github.com/TrinityCore/TrinityCore/commits/master" rel="nofollow" style="text-decoration: none;">TrinityCore repository</a>, which you may also view in Git Extensions by following the &quot;Fetch&quot; instructions in <a href="http://collab.kpsn.org/display/tc/Win#Win-KeepingtheSourceUp-to-Date" rel="nofollow">Keeping the Source Up-to-Date</a>. Pending fixes can be found on our <a class="external-link" href="https://github.com/TrinityCore/TrinityCore/issues" rel="nofollow" style="text-decoration: none;">tracker</a> with data from the developers and contributors.</p><p>As mentioned earlier, it is recommended to stay on the same revision as the <a href="http://archive.trinitycore.info/How-to:Win#Downloading_the_Database" style="text-decoration: none;" title="How-to:Win" class="external-link" rel="nofollow">TDB_full</a> database (Beginner).</p><p>If you choose to brave the wilds beyond the current monthly revision, use the (Advanced) instructions below.</p><p><em><strong>Note:</strong> You can run the following query on the World database to see your current DB and core revision:</em></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: sql; gutter: false" style="font-size:12px;">SELECT * FROM `version`;</pre>
+</div></div><p>This assumes that you have already completed the <a href="http://archive.trinitycore.info/How-to:Win#Keeping_the_Source_Up-to-Date" style="text-decoration: none;" title="How-to:Win" class="external-link" rel="nofollow">(Beginner) Keeping the Source Up-to-Date</a>, which means you now have a newly downloaded revision archive.</p><p>This instruction also assumes that you have completed the initial <a href="http://archive.trinitycore.info/How-to:Win#Downloading_the_Database" style="text-decoration: none;" title="How-to:Win" class="external-link" rel="nofollow">Downloading the Database</a> which had you import the TDB_FULL.sql, and it is now approximately one month later - a new revision has been released.</p><p><em><strong>Note:</strong> If you have made any custom changes to your database, you may wish to backup (export) all three of them (world, characters, and auth) before performing the next few steps.</em></p><ul><li><strong>Beginners</strong><ul><li>Extract the <strong style="line-height: 1.4285715;">TDB_FULL.sql</strong> file from the archive and import it into your <strong style="line-height: 1.4285715;">world</strong> database.</li><li>If they exist, also import the <strong style="line-height: 1.4285715;">characters_</strong> and <strong style="line-height: 1.4285715;">auth_</strong> .sql files into their respective databases.</li><li>Once this is finished and you have already compiled your source, you may run the worldserver binary to load your server. The revision update is complete.</li></ul></li></ul><p><em><strong>Note:</strong> It is at this point that most user errors occur. If your worldserver.exe closes abruptly, make sure that your core's version matches your database version. Check that the <strong>`version`</strong> table in your world database matches the commit hash listed beside the archive you downloaded at <a class="external-link" href="https://github.com/TrinityCore/TrinityCore/downloads" rel="nofollow" style="text-decoration: none;">TrinityCore Downloads</a>.</em></p><ul><li><strong>Advanced Users</strong></li></ul><p>If you update your source beyond a monthly revision, you will likely have additional updates in the <strong>...\sql\updates</strong> folder. The folders within show which database they need to be imported to. For example, the &quot;<strong>world</strong>&quot; folder has all of the files that need to be imported to your world DB.</p><p>File naming conventions follow simple and consistent rules:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<pre>yyyy_mm_dd_id_world_tablename.sql -&gt; World DB</pre><pre>yyyy_mm_dd_id_character_tablename.sql -&gt; Characters DB</pre><pre>yyyy_mm_dd_id_auth_tablename.sql -&gt; Auth DB</pre><p>&quot;yyyy&quot; = <strong>the year </strong>| &quot;mm&quot; = <strong>month </strong>| &quot;dd&quot; = <strong>day </strong>| &quot;id&quot; = <strong>daily id </strong>(incremental)</p>
+</div></div><p><em><strong>Note</strong>: The incremental daily id starts at <strong>00</strong>, with 00 needing to be imported first, then <strong>01</strong>, then <strong>02</strong>, etc.</em></p><p>It is imperative to know the date of your previous revision when updating in order to import all of the updates from that revision to your current one.</p><p>Then, simply follow these steps:</p><ul><li>Browse into your <strong style="line-height: 1.4285715;">...\sql\updates\world</strong> folder and import <em style="line-height: 1.4285715;">all</em><strong style="line-height: 1.4285715;">*_world_*.sql</strong> files into your world DB that have a date <strong style="line-height: 1.4285715;"><em>later</em></strong> than your previous revision.</li><li>Do the same above step for the <strong style="line-height: 1.4285715;">characters</strong> and <strong style="line-height: 1.4285715;">auth</strong> folders, <em style="line-height: 1.4285715;">if they exist</em>. If these folders don't exist, there have not been any characters or auth database updates.</li></ul><p> </p>    <div class="aui-message success shadowed information-macro">
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p><strong><em>Note:</em></strong><span> </span><em>If you are comfortable with executing batch files, you are welcome to use the batch file below to make the importing process easier. Also note that doing this will also gather up .sql files you may have already imported. In most cases this is safe, but you should use this batch file at your own risk. Take a look <em>on the <a class="external-link" href="http://www.trinitycore.org/f/index.php?/topic/43-batch-combine-sql-updates/page__p__216__fromsearch__1#entry216" rel="nofollow">Combine SQL Updates</a> thread in the TrinityCore forum for a more detailed batch script and informations.</em></em></p><p>If you don't change the batch script, it <strong>must</strong> be saved and executed in your <strong>...\sql\updates </strong>folder.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Merges all *.sql files in auth/characters/world folder.</b></div><div class="codeContent panelContent pdl">
+<pre class="first-line: 1; theme: RDark; brush: bash; gutter: true" style="font-size:12px;">copy /b world\*.sql /b all_world_updates.sql</pre>
+</div></div><p>If you still have problems, read <a href="http://www.trinitycore.org/f/topic/328-unknown-column-missing-table-duplicate-column-error-sql-problems-sqldriverlogfile-answer-on-1st-post-of-1st-page/" class="external-link" rel="nofollow">http://www.trinitycore.org/f/topic/328-unknown-column-missing-table-duplicate-column-error-sql-problems-sqldriverlogfile-answer-on-1st-post-of-1st-page/</a></p>
+                    </div>
+    </div>
+    <div class="aui-message success shadowed information-macro">
+                    <p class="title">Pro Tip</p>
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p style="text-align: left;"><em>If your world database is ever corrupted (ex. creatures or objects are accidentally deleted), it is easy to revert it back to its original state by re-importing the TDB_FULL.sql into your world database. If you updated your core using the (Advanced) instructions, make sure you also re-import all of the necessary C:\Trinity\sql\updates as explained above.</em></p>
+                    </div>
+    </div>
+<h1 id="SettingupyourDatabase-Next-">Next - <a href="Setting-up-the-Server_7110719.html">Setting up the Server</a></h1><p> </p>
+                    </div>
+
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-7110906"></a>
+                                    <font class="smallfont"><p>This site needs to be implemented in </p><ol><li class="first"><span><a href="http://collab.kpsn.org/display/tc" rel="nofollow">TrinityCore</a></span></li><li> <span><a href="http://collab.kpsn.org/display/tc/TrinityCore+Home" rel="nofollow">TrinityCore Home</a></span></li><li> Installation of Trinity Database (3.3.5a)</li></ol></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by fireemerald at Oct 22, 2013 07:54
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Authserver</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_10682986.html">Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Authserver
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created and last modified by <span class='author'> nefarion</span> on Sep 25, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Authserver-RequestFlowDiagram">Request Flow Diagram</h1><p>This diagram represents the flow of a player authentication in the authserver:</p><p>    
+
+<div id='diagramly-reader-11010055-5307538013015045535' class="diagramly-reader" style="position : relative; display : block">
+	<div id='diagramly-reader-content-11010055-5307538013015045535' class="diagramly-content" style="position : relative; display : block">
+	</div>
+	
+</div>
+
+<script type="text/javascript">
+
+	var CONF_RESOURCE_BASE = AJS.Confluence.getContextPath() + '/download/resources/com.mxgraph.confluence.plugins.diagramly:diagramly-reader/';
+	
+	var graphContainer =  document.getElementById('diagramly-reader-content-11010055-5307538013015045535');
+	
+	var readerOpts = {};
+	readerOpts.fileServlet = '' + '/plugins/servlet/diagramly-fileServlet';
+	readerOpts.stylePath = CONF_RESOURCE_BASE + 'styles';
+	readerOpts.stencilPath = CONF_RESOURCE_BASE + 'stencils';
+	readerOpts.imagePath = CONF_RESOURCE_BASE + 'images';
+	readerOpts.grid = true;  
+	readerOpts.border = true;
+	readerOpts.width = 500;
+	readerOpts.height = 600;
+	readerOpts.fitWindow = true;
+	readerOpts.resourcePath = CONF_RESOURCE_BASE + 'message';
+	readerOpts.editUrl = '' + '/plugins/diagramly/addDiagram.action?pageId=10682988&attachmentId=11010055';
+	readerOpts.removeUrl = '' + '/plugins/diagramly/removeDiagram.action?pageId=10682988&attachmentId=11010055';
+	readerOpts.disableButtons = document.URL.indexOf('editpage.action') != -1;
+	readerOpts.userCanEdit = true;
+	readerOpts.userCanRemove = true;
+	
+	mxUtils.getCurrentStyle = function() {
+		return function(element)
+			{
+				return (element != null) ? element.style : null;
+			};
+	};
+	
+	if (typeof(JSON) == 'undefined')
+	{
+		document.write('<script src="' + CONF_RESOURCE_BASE + 'js/json/json2.min.js"></scr' + 'ipt>');
+	}
+	
+	new DiaReader(graphContainer, 11010055, readerOpts, false);
+
+</script>
+</p><p> </p><h1 id="Authserver-RejectReasons">Reject Reasons</h1><p>Return values are in brackets &quot;()&quot;</p><p>Reasons 1)</p><ul><li>IP banned (0x03)</li><li>Account banned (0x03)</li><li>Unknown Account (0x04)</li><li>Version invalid (0x09)</li><li>Account suspended (0x0B)</li><li>IP Lock enforced, IP differs (0x10)</li><li>Country lock enforced, country differs (<span>0x19</span>)</li></ul><p>Reasons 2)</p><ul><li>Client version is not valid (patching should happen, we just abort)</li><li>BigNumber A == 0, we abort</li><li>Auth token invalid, returns unknown account error (0x04)</li><li>Password incorrect (0x04)</li></ul><h1 id="Authserver-ErrorCodes">Error Codes</h1>
+<div id="expander-1548340502" class="expand-container">
+<div id="expander-control-1548340502" class="expand-control">
+    <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">Error Codes</span>
+</div>
+<div id="expander-content-1548340502" class="expand-content"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Error Code</th><th class="confluenceTh">Name</th></tr><tr><td class="confluenceTd">0x00</td><td class="confluenceTd">WOW_SUCCESS</td></tr><tr><td class="confluenceTd">0x03</td><td class="confluenceTd">WOW_FAIL_BANNED</td></tr><tr><td class="confluenceTd">0x04</td><td class="confluenceTd">WOW_FAIL_UNKNOWN_ACCOUNT</td></tr><tr><td class="confluenceTd">0x05</td><td class="confluenceTd">WOW_FAIL_INCORRECT_PASSWORD</td></tr><tr><td class="confluenceTd">0x06</td><td class="confluenceTd">WOW_FAIL_ALREADY_ONLINE</td></tr><tr><td class="confluenceTd">0x07</td><td class="confluenceTd">WOW_FAIL_NO_TIME</td></tr><tr><td class="confluenceTd">0x08</td><td class="confluenceTd">WOW_FAIL_DB_BUSY</td></tr><tr><td class="confluenceTd">0x09</td><td class="confluenceTd">WOW_FAIL_VERSION_INVALID</td></tr><tr><td class="confluenceTd">0x0A</td><td class="confluenceTd">WOW_FAIL_VERSION_UPDATE</td></tr><tr><td class="confluenceTd">0x0B</td><td class="confluenceTd">WOW_FAIL_INVALID_SERVER</td></tr><tr><td class="confluenceTd">0x0C</td><td class="confluenceTd">WOW_FAIL_SUSPENDED</td></tr><tr><td class="confluenceTd">0x0D</td><td class="confluenceTd">WOW_FAIL_FAIL_NOACCESS</td></tr><tr><td class="confluenceTd">0x0E</td><td class="confluenceTd">WOW_SUCCESS_SURVEY</td></tr><tr><td class="confluenceTd">0x0F</td><td class="confluenceTd">WOW_FAIL_PARENTCONTROL</td></tr><tr><td class="confluenceTd">0x10</td><td class="confluenceTd">WOW_FAIL_LOCKED_ENFORCED</td></tr><tr><td class="confluenceTd">0x11</td><td class="confluenceTd">WOW_FAIL_TRIAL_ENDED</td></tr><tr><td class="confluenceTd">0x12</td><td class="confluenceTd">WOW_FAIL_USE_BATTLENET</td></tr><tr><td class="confluenceTd">0x13</td><td class="confluenceTd">WOW_FAIL_ANTI_INDULGENCE</td></tr><tr><td class="confluenceTd">0x14</td><td class="confluenceTd">WOW_FAIL_EXPIRED</td></tr><tr><td class="confluenceTd">0x15</td><td class="confluenceTd">WOW_FAIL_NO_GAME_ACCOUNT</td></tr><tr><td class="confluenceTd">0x16</td><td class="confluenceTd">WOW_FAIL_CHARGEBACK</td></tr><tr><td class="confluenceTd">0x17</td><td class="confluenceTd">WOW_FAIL_INTERNET_GAME_ROOM_WITHOUT_BNET</td></tr><tr><td class="confluenceTd">0x18</td><td class="confluenceTd">WOW_FAIL_GAME_ACCOUNT_LOCKED</td></tr><tr><td class="confluenceTd">0x19</td><td class="confluenceTd">WOW_FAIL_UNLOCKABLE_LOCK</td></tr><tr><td class="confluenceTd">0x20</td><td class="confluenceTd">WOW_FAIL_CONVERSION_REQUIRED</td></tr><tr><td class="confluenceTd">0xFF</td><td class="confluenceTd">WOW_FAIL_DISCONNECTED</td></tr></tbody></table></div></div>
+</div>
+<p> </p><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010057.xml">Auth Process.xml</a> (application/diagramly)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010058.png">Auth Process-11010055.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010059.xml">Auth Process.xml</a> (application/diagramly)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010060.png">Auth Process-11010055.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010061.xml">Auth Process.xml</a> (application/diagramly)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010062.png">Auth Process-11010055.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010063.xml">Auth Process.xml</a> (application/diagramly)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010064.png">Auth Process-11010055.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010065.xml">Auth Process.xml</a> (application/diagramly)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010066.png">Auth Process-11010055.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010055.xml">Auth Process.xml</a> (application/diagramly)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/10682988/11010056.png">Auth Process-11010055.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

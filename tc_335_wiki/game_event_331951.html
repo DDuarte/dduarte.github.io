@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : game_event</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : game_event
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 31, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code><code><a href="World_331623.html">Back-to:World</a></code></code></p><h1 id="game_event-Table:game_event">Table: game_event</h1><p>This table contains definitions for all game events that are activated or deactivated automatically by the Game Event System in the core.</p><h2 id="game_event-Structure">Structure</h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">eventEntry</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Unique</p></td><td class="confluenceTd"><p>Entry of the game event</p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">start_time</a></p></td><td class="confluenceTd"><p>timestamp</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0000-00-00 00:00:00</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Absolute start date, the event will never start before</p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">end_time</a></p></td><td class="confluenceTd"><p>timestamp</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0000-00-00 00:00:00</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Absolute end date, the event will never start after</p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">occurence</a></p></td><td class="confluenceTd"><p>bigint(20)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>5184000</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Delay in minutes between occurences of the event</p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">length</a></p></td><td class="confluenceTd"><p>bigint(20)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>2592000</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Length in minutes of the event</p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">holiday</a></p></td><td class="confluenceTd"><p>mediumint(8)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Client side holiday id</p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">description</a></p></td><td class="confluenceTd"><p>varchar(255)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>YES</p></td><td class="confluenceTd"><p>NULL</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>Description of the event displayed in console</p></td></tr><tr><td class="confluenceTd"><p><a href="game_event_331951.html">world_event</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>0 if normal event, 1 if world event</p></td></tr></tbody></table></div><h2 id="game_event-Descriptionofthefields">Description of the fields</h2><h3 id="game_event-eventEntry">eventEntry</h3><p>Entry of the event. Keep it as low as possible and prevent making holes in the list. Higher the max id is, the more memory will be used to store the event data.</p><h3 id="game_event-start_time">start_time</h3><p>Absolute start date of the event. The event will start occurring only if the local time at the server is after the one set here.</p><h3 id="game_event-end_time">end_time</h3><p>Absolute end date of the event. The event will stop occurring if the local time at the server is after the one set here.</p><h3 id="game_event-occurence">occurence</h3><p>Number of minutes between 2 occurrences of the event. (2880 = 2 days, 1440 = 1 day, etc)</p><h3 id="game_event-length">length</h3><p>Number of minutes the event will last after the start of the occurrence. (2880 = 2 days, 1440 = 1 day, etc)<br /> This value must be lower than occurrence one or the event will never stop.</p><h3 id="game_event-holiday">holiday</h3><p>Holiday ID from <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=Holiday.dbc&amp;linkCreation=true&amp;fromPageId=331951">Holiday.dbc</a>. This is sent to the client to update the calender.</p><h3 id="game_event-description">description</h3><p>String containing the name of the event displayed in console each time it starts or stops.</p><h3 id="game_event-world_event">world_event</h3><p>This is a boolean field that determines if this game event is a world event or not. 0 = normal event, 1 = world event. For the world event to work, you need to at a minimum, populate <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=game_event_condition_tc2&amp;linkCreation=true&amp;fromPageId=331951">game_event_condition</a> and <a class="createlink" href="/pages/createpage.action?spaceKey=tc&amp;title=game_event_quest_condition_tc2&amp;linkCreation=true&amp;fromPageId=331951">game_event_quest_condition</a>.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 21:59</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

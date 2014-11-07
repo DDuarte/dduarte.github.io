@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : RBAC: Role based Access Control</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Advanced_332236.html">Advanced</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : RBAC: Role based Access Control
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> nayd</span>, last modified by <span class='editor'> guybrush</span> on Oct 29, 2013
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>RBAC gives more control over actions an account can perform</strong></p><p><strong><div class='toc-macro'>[ <a href='#RBAC:RolebasedAccessControl-Systemdefines'>System defines</a> ] [ <a href='#RBAC:RolebasedAccessControl-Operations'>Operations</a> ] [ <a href='#RBAC:RolebasedAccessControl-Precedenceofoperations'>Precedence of operations</a> ] [ <a href='#RBAC:RolebasedAccessControl-Rules'>Rules</a> ] [ <a href='#RBAC:RolebasedAccessControl-Permissions(defaultpermissions)'>Permissions (default permissions)</a> ] [ <a href='#RBAC:RolebasedAccessControl-In-gamecommands'>In-game commands</a> ]</div><br /></strong></p><h3 id="RBAC:RolebasedAccessControl-Systemdefines">System defines</h3><ul><li><u>Permissions</u> to perform some action</li><li><u>Roles</u>: a set of permissions that have some relation</li></ul><h3 id="RBAC:RolebasedAccessControl-Operations">Operations</h3><ul><li>Grant: Assign and allow</li><li>Deny: Assign and do not allow</li><li>Revoke: Remove</li></ul><h3 id="RBAC:RolebasedAccessControl-Precedenceofoperations">Precedence of operations</h3><ol><li>Grant</li><li>Deny</li></ol><p>If you are granted some action by a role but you have denied that permission, the action can not be done.</p><h3 id="RBAC:RolebasedAccessControl-Rules">Rules</h3><ul><li>Permissions can have linked permissions (thus creating a role).</li><li>An account can be assigned granted and denied roles. Permissions inherited from roles are granted if roles is granted and denied if roles is denied.</li><li>An account can be assigned granted and denied permissions.</li><li>An account can have multiple roles and permissions.</li><li>An account can not have same permission or role granted and denied at same time.</li><li>Id 0 can not be used to define a permission.</li></ul><p> </p><h3 id="RBAC:RolebasedAccessControl-Permissions(defaultpermissions)">Permissions (default permissions)</h3><p>See rbac_permissions table for complete listing of available permissions and associated id. This table is self-explanatory.</p><h3 id="RBAC:RolebasedAccessControl-In-gamecommands">In-game commands</h3><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th colspan="1" class="confluenceTh">Name</th><th colspan="1" class="confluenceTh">Syntax</th><th colspan="1" class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">.rbac account</td><td class="confluenceTd">Syntax: .rbac account [$account]</td><td colspan="1" class="confluenceTd"><p><span>View permissions of selected player or given account</span></p><p><span>Note: Only those that affect current realm</span></p><p><span>Note: Shows real permissions after checking group and roles</span></p></td></tr><tr><td class="confluenceTd">.rbac account permission</td><td class="confluenceTd">Syntax: .rbac account list [$account]</td><td colspan="1" class="confluenceTd"><p><span>View permissions of selected player or given account</span></p><p><span>Note: Only those that affect current realm</span></p><p><span>Note: Only those directly granted or denied, does not include inherited permissions from roles</span></p></td></tr><tr><td class="confluenceTd">.rbac account grant</td><td class="confluenceTd">Syntax: .rbac account grant [$account] #id [#realmId]</td><td colspan="1" class="confluenceTd"><p><span>Grant a permission to selected player or given account.</span></p><p><span>#reamID may be -1 for all realms.</span></p></td></tr><tr><td class="confluenceTd">.rbac account deny</td><td class="confluenceTd">Syntax: .rbac account deny [$account] #id [#realmId]</td><td colspan="1" class="confluenceTd"><p><span>Deny a permission to selected player or given account.</span></p><p><span>#reamID may be -1 for all realms.</span></p></td></tr><tr><td class="confluenceTd">.rbac account revoke</td><td class="confluenceTd">Syntax: .rbac account revoke [$account] #id</td><td colspan="1" class="confluenceTd"><p><span>Remove a permission from an account</span></p><p><span>Note: Removes the permission from granted or denied permissions</span></p></td></tr><tr><td class="confluenceTd">.rbac list</td><td class="confluenceTd">Syntax: .rbac list</td><td colspan="1" class="confluenceTd"><p><span>View list of all permissions.</span></p><p><span>If $id is given will show only info for that permission.</span></p></td></tr></tbody></table></div><p> </p><p>Related tables (`auth` database)</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Table Name</th><th colspan="1" class="confluenceTh">Table Description</th><th class="confluenceTh">Field Name</th><th class="confluenceTh">Field Type</th><th class="confluenceTh">Field Description</th></tr><tr><td rowspan="4" class="confluenceTd">rbac_account_permissions</td><td rowspan="4" class="confluenceTd">Account-Permission relation</td><td colspan="1" class="confluenceTd">accountId</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd"><span>Account id</span></td></tr><tr><td colspan="1" class="confluenceTd">permissionId</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">Permission id</td></tr><tr><td colspan="1" class="confluenceTd">granted</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">Granted = 1, Denied = 0</td></tr><tr><td colspan="1" class="confluenceTd">realmId</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">Realm Id, -1 means all</td></tr><tr><td rowspan="2" class="confluenceTd">rbac_permissions</td><td rowspan="2" class="confluenceTd">Permission List</td><td colspan="1" class="confluenceTd">id</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">Permission id</td></tr><tr><td colspan="1" class="confluenceTd">name</td><td colspan="1" class="confluenceTd">text</td><td colspan="1" class="confluenceTd">Permission name</td></tr><tr><td rowspan="2" class="confluenceTd">rbac_default_permissions</td><td rowspan="2" class="confluenceTd">Default permissions to assign to a specific security level (account_access)</td><td class="confluenceTd">secId</td><td class="confluenceTd">int</td><td class="confluenceTd">Security Level id</td></tr><tr><td class="confluenceTd">permissionId</td><td class="confluenceTd">int</td><td class="confluenceTd">Permission id</td></tr><tr><td rowspan="2" class="confluenceTd">rbac_linked_permissions</td><td rowspan="2" class="confluenceTd"><p>Assigns permissions to roles (see rbac_permissions for permissions with name &quot;role&quot;)</p><p>Can also be used to link permissions to permissions (creating new roles)</p></td><td colspan="1" class="confluenceTd">id</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">Security Level id</td></tr><tr><td colspan="1" class="confluenceTd">linkedId</td><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">Permission id</td></tr></tbody></table></div><p> </p><p> </p>    <div class="aui-message success shadowed information-macro">
+                    <p class="title">Suggestion</p>
+                            <span class="aui-icon icon-success">Icon</span>
+                <div class="message-content">
+                            <p>Create a web interface (in PHP or other accessible web technology) to ease the management of the RBAC system.</p><p>If simple and good enough, it could possibly be added to TrinityCore repository (/contrib/ directory)!</p>
+                    </div>
+    </div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

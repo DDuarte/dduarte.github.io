@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : spell_group_stack_rules</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_10682459.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="World_331623.html">World</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : spell_group_stack_rules
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Aug 01, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><code><code><a href="World_331623.html">Back-to:World</a></code></code></p><p><strong>The `spell_group_stack_rules` table</strong></p><p>Table defines if auras in one spell_group can't stack with each other.</p><p>Notes: The table doesn't affect persistent area auras stacking or passive auras stacking (they can stack always) or spells belonging to same spell_rank (they are always subject of SPELL_GROUP_STACK_RULE_EXCLUSIVE rule)</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p><strong>Field</strong></p></td><td class="confluenceTd"><p><strong>Type</strong></p></td><td class="confluenceTd"><p><strong>Attributes</strong></p></td><td class="confluenceTd"><p><strong>Key</strong></p></td><td class="confluenceTd"><p><strong>Null</strong></p></td><td class="confluenceTd"><p><strong>Default</strong></p></td><td class="confluenceTd"><p><strong>Extra</strong></p></td><td class="confluenceTd"><p><strong>Comment</strong></p></td></tr><tr><td class="confluenceTd"><p><a href="spell_group_stack_rules_334089.html">group_id</a></p></td><td class="confluenceTd"><p>int(11)</p></td><td class="confluenceTd"><p>unsigned</p></td><td class="confluenceTd"><p>PRI</p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p><a href="spell_group_stack_rules_334089.html">stack_rule</a></p></td><td class="confluenceTd"><p>tinyint(3)</p></td><td class="confluenceTd"><p>signed</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>NO</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><p><strong>Description of the fields</strong></p><h3 id="spell_group_stack_rules-group_id">group_id</h3><p>Id of group in <a href="spell_group_334101.html#spell_group-id">spell_group</a> table. The spell_group may contain another spell_groups inside, if so stacking rule needs to be defined for these groups separately.</p><h3 id="spell_group_stack_rules-stack_rule">stack_rule</h3><p>Enum SpellGroupStackRule in core:</p><ul><li>SPELL_GROUP_STACK_RULE_DEFAULT = 0<br /> No stacking rule defined - placeholder</li></ul><ul><li>SPELL_GROUP_STACK_RULE_EXCLUSIVE = 1<br /> Auras from group can't stack with each other</li></ul><ul><li>SPELL_GROUP_STACK_RULE_EXCLUSIVE_FROM_SAME_CASTER = 2<br /> Auras from group can't stack with each other when cast by same caster</li></ul><ul><li>SPELL_GROUP_STACK_RULE_EXCLUSIVE_SAME_EFFECT = 3<br /> Same effects of spells will not stack, yet auras will remain on a target.</li></ul><p>A spell should be in only 1 group with this stack rule.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

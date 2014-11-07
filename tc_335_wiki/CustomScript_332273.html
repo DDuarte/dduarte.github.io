@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : CustomScript</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Advanced_332236.html">Advanced</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Custom_10682455.html">Custom</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : CustomScript
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Jul 19, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="CustomScript-AddingthescripttotheSolution">Adding the script to the Solution</h1><p>Assuming you created a script called <strong>My_script.cpp</strong> in <a href="https://github.com/TrinityCore/TrinityCore/tree/master/src/server/scripts/Custom" class="external-link" rel="nofollow">C:\Trinity\src\server\scripts\Custom</a> directory, if you are reading this guide it means you can't figure out how to put it in your solution and compile it with the rest of the source.</p><p>Open the file: <a href="https://github.com/TrinityCore/TrinityCore/blob/master/src/server/game/Scripting/ScriptLoader.cpp" class="external-link" rel="nofollow">C:\Trinity\src\server\game\Scripting\ScriptLoader.cpp</a></p><p>We will assume that your linked your script using 'AddSC_my_script', if you don't know what that means, check other scripts to see how they are linked. You first need to add under ' /* This is where custom scripts' loading functions should be declared. <strong>/ ' and under '/</strong> This is where custom scripts should be added. */' at the bottom of the file the lines:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">void AddSC_my_script();
+AddSC_my_script();
+</pre>
+</div></div><p><strong>Example</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">#ifdef SCRIPTS 
+/* This is where custom scripts&#39; loading functions should be declared. */
+void AddSC_my_script(); 
+#endif
+</pre>
+</div></div><p>and</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">void AddCustomScripts(){
+#ifdef SCRIPTS
+     /* This is where custom scripts should be added. */
+     AddSC_my_script(); 
+#endif 
+}
+</pre>
+</div></div><h1 id="CustomScript-AddingthescripttotheScriptsproject">Adding the script to the Scripts project</h1><h2 id="CustomScript-Windows">Windows</h2><p><strong>This information is deprecated, all scripts should be added to the proper cmakelists file as shown in the Linux instructions below.</strong></p><p>Open the TrinityCore solution file (<a href="http://code.google.com/p/trinitycore/source/browse/win/" class="external-link" rel="nofollow">~build-directory/TrinityCore.sln</a> using the designated compiler that you selected during the CMake process).</p><p>Under the <strong>scripts</strong> project (left hand side of the screen), press the arrow on the left to open the project dependencies. Then right click on the <strong>Source Files</strong> folder, and select 'Add' -&gt; 'Existing Item'. Navigate to the location of your custom script (should be something like C:/Trinity/src/server/scripts/custom), select your script and press 'Add' or 'OK'.</p><p>You are done! Now you can build the solution.</p><h2 id="CustomScript-Linux">Linux</h2><p>Start by placing scripts in source directory:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">~/TrinityCore/src/server/scripts/Custom</pre>
+</div></div><p>Next link each script into the build:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">sudo vi ~/TrinityCore/src/server/scripts/Custom/CMakeLists.txt</pre>
+</div></div><p>add each script with a line break before the Parenthesis and after the Curly Brace with &lt;font color=&quot;darkblue&quot;&gt;<strong>Custom/</strong>&lt;/font&gt; in front of each script.</p><hr /><p><strong>Example</strong>:<br /><br /></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>${scripts_STAT_SRCS}<br /> Custom/CS3.cpp<br /> Custom/CS2.cpp<br /> Custom/CS1.cpp</p><p>message(&quot; -&gt; Prepared: Custom&quot;)<br />&lt;/source&gt;</p>
+</div></div><p><br /><br /></p><hr /><p>Last but not least <a href="http://www.trinitycore.org/w/How-to:Linux#Compiling_the_sourcecode" class="external-link" rel="nofollow">compile</a></p><h1 id="CustomScript-AddingthescripttotheDatabase">Adding the script to the Database</h1><p>You need to link the script to the appropriate areatrigger/creature/gameobject/instance/item the script is for.</p><p>Note: Some script types (such as CommandScripts) do not need to be linked to anything in the DB</p><p><strong>Example</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">UPDATE `areatrigger_scripts` SET ScriptName=&#39;my_script&#39; WHERE `entry`=XXXX;
+UPDATE `creature_template` SET ScriptName=&#39;my_script&#39; WHERE `entry`=XXXXX;
+UPDATE `gameobject_template` SET ScriptName=&#39;my_script&#39; WHERE `entry`=XXXXXX;
+UPDATE `instance_template` SET ScriptName=&#39;my_script&#39; WHERE `map`=XXX;
+UPDATE `item_template` SET ScriptName=&#39;my_script&#39; WHERE `entry`=XXXXX;
+</pre>
+</div></div><p><strong>Note:</strong> You might need to edit the creature/gameobject/etc to make sure the script has effect. For example, if you have created a gossip script for a creature, you will need to set <a href="creature_template_331288.html#creature_template-npcflag">creature_template.npcflag</a>=1 to enable gossip flag on the creature or the script will not work.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

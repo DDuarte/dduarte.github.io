@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Windows setup troubleshooting</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Core_10682447.html">Install Core</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Windows setup troubleshooting
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> aokromes</span> on Oct 02, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This section aims to cover frequent errors encountered by users during installation or basic configuration. Mostly, these are procedures already presented in the installation guide. Feel free to improve this section.</p><h2 id="Windowssetuptroubleshooting-WhenIrunworldserver.exeawindowflashesandnothingelsehappens">When I run worldserver.exe a window flashes and nothing else happens</h2><p>This means that you have startup errors caused by missing database data, missing/incomplete config files, or missing maps. To find out the exact problem, you have a few options:</p><ol><li>Start the worldserver from a console window (command prompt). This will force the worldserver to stay visible if it crashes, and allow you to see the error that explains the missing data.</li><li>Browse into your <strong>Build\bin\Release\logs</strong> folder and open Server.log. You can view startup errors in this file.</li><li>Use a community-made server restarter batch file to run your server, like <a href="http://www.trinitycore.org/f/topic/153-batch-start-worldserver-or-authserver-and-pause-on-crash/" class="external-link" rel="nofollow">this one</a> (you may need to register to see this thread).<br /> Also, make sure:</li></ol><ul><li>The &quot;worldserver.conf&quot; and &quot;authserver.conf&quot; config files are in the <strong>Build\bin\Release</strong> folder and properly configured. If it is a fresh install, don't forget to remove the additional extension &quot;.dist&quot; from these files names.</li><li>The MySQL server is running. To find out, press CTRL+ALT+DEL to view the Task Manager -&gt; Click on the &quot;Services&quot; tab -&gt; Find the name of your service (default &quot;MySQL&quot;). Its Status should be &quot;Running&quot;.</li></ul><h2 id="Windowssetuptroubleshooting-WhenIrunworldserver.exe,Igetanerrorstatingthatmapsordataismissing">When I run worldserver.exe, I get an error stating that maps or data is missing</h2><p>Make sure you put the <strong>dbc</strong>, <strong>maps</strong>, and <strong>vmaps</strong> folders you extracted into the folder set in worldserver.conf. The setting to look for is called <strong>DataDir</strong>.</p><h2 id="Windowssetuptroubleshooting-IgetsomeerrorsregardingtheDBCstores">I get some errors regarding the DBC stores</h2><p>Before running <strong>mapextractor.exe</strong>, run your Client once (the login screen is enough), and make sure it is from the same version that is supported by the core. You need to do this so that the mapextractor.exe knows where your Client is and where to extract the files from. When the mapextractor is running, pay attention to its output to make sure it has the right Client (especially if you have more than one copy of WoW on your machine).</p><h2 id="Windowssetuptroubleshooting-Whenrunningworldserver.exe,Iseelotsoferrors">When running worldserver.exe, I see lots of errors</h2><p>If you are using the supported database, TDB, and have installed it correctly, normally you are not supposed to see error messages during loading. Double-check the database install, or re-import the TDB_Full SQL file you downloaded from the instructions.</p><h2 id="Windowssetuptroubleshooting-IgeterrorswhenapplyingaTDB_Fullsql">I get errors when applying a TDB_Full sql</h2><p>If you are starting from a revision between two monthly revisions, some modifications contained in the TDB_Full dump may have already been applied to your database, and will give error messages when tried to be upgraded again. Development in SQL queries and monthly revisions is done so that re-importing the same updates on top of each other will not affect your database in a negative way, so long as they are imported oldest -&gt; latest.</p><h2 id="Windowssetuptroubleshooting-Icanconnecttomyserver,butmyfriendscan&#39;tconnectfromothercomputers">I can connect to my server, but my friends can't connect from other computers</h2><p>Follow the instructions for the <a href="Windows_332776.html#Windows-Realmlist_Table">Realmlist Table</a>, and make sure everyone's <strong>World of Warcraft/Data/enXX/realmlist.wtf</strong> file is the same IP or DNS name. You can also use the Trinity Forum to <a href="http://www.trinitycore.org/f/index.php?app=core&amp;module=search&amp;search_in=core" class="external-link" rel="nofollow">search</a> for guides if you use a router.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>

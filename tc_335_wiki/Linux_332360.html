@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrinityCore : Linux</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">TrinityCore</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="TrinityCore-Home_330427.html">TrinityCore Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to_1703987.html">How-to</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Installation-Guides_10682444.html">Installation Guides</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Install-Core_10682447.html">Install Core</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            TrinityCore : Linux
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+    
+            Created by <span class='author'> kingpin</span>, last modified by <span class='editor'> nayd</span> on Jul 20, 2014
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>TrinityCore is a rather complex and demanding software, and as such it may seem quite daunting to install and maintain. This how-to will attempt to help with this, and also show how this can be done in a way that also shows you the basics of how linux compilations works.<br /> We also advice you to read your distributions documentation on how to install packages, and also have at least knowledge on how it works with regards to adding users.*</p><p> </p>    <div class="aui-message hint shadowed information-macro">
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            Most of this how-to is based on the use of a Debian based distribution, though we'll try to inform as best as we can when something differs totally.
+                    </div>
+    </div>
+    <div class="aui-message hint shadowed information-macro">
+                            <span class="aui-icon icon-hint">Icon</span>
+                <div class="message-content">
+                            <p>TrinityCore requires gcc 4.7 or higher and SSE2 capable processor. Check your distribution to ensure you have the correct version of gcc available.</p>
+                    </div>
+    </div>
+<h1 id="Linux-Gettingstarted">Getting started</h1><p>We advice you to run/install TrinityCore on a dedicated machine, or a machine that you know you have full control over.<br /> We also advice you to NOT install the software on a shared server solution or any server where other users may have access or might require resources to be available at all times.<br />Your server may be abruptly killed by an angry administrator or system staff for overuse of system resources.</p><h2 id="Linux-Creatingausertoworkwith">Creating a user to work with</h2><p>Start with logging in to your Linux-machine and create an account for the server itself - on most recent distributions this can easily be done with the following command :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">sudo adduser &lt;username&gt;
+</pre>
+</div></div><p><em>Note : Change &lt;username&gt; into the preferred username of your server-account - we will as far as possible avoid using specific usernames in this how-to.</em></p><h2 id="Linux-Requiredsoftware">Required software</h2><p>See <a href="TrinityCore-Requirements_10682398.html">TrinityCore Requirements</a></p><h2 id="Linux-Optionalsoftware">Optional software</h2><p><em>These tools are only needed or useful if you are connecting from a Windows host to your Linux machine</em></p><h4 id="Linux-Graphicaldatabase-viewing/editing">Graphical database-viewing/editing</h4><ul><li><a href="http://www.heidisql.com/" class="external-link" rel="nofollow">HeidiSQL</a></li><li><a href="http://www.webyog.com/en/" class="external-link" rel="nofollow">SQLyog</a></li></ul><p>Please note that the software called Navicat is <strong>NOT</strong> supported due to issues with how it handles SQL-files with &quot;/* */&quot;-style comments. We advise all users to stay well clear of this program unless they really are looking for issues.</p><h4 id="Linux-Remoteconsoleconnectstotheserver">Remote console connects to the server</h4><ul><li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/" class="external-link" rel="nofollow">Putty</a></li><li><a href="http://haanstra.eu/putty/" class="external-link" rel="nofollow">Putty Tray</a></li></ul><h4 id="Linux-FiletransferthroughSFTPorFTP">File transfer through SFTP or FTP</h4><ul><li><a href="http://winscp.net/eng/download.php#download2" class="external-link" rel="nofollow">WinSCP</a></li></ul><h1 id="Linux-Buildingtheserveritself">Building the server itself</h1><h2 id="Linux-Gettingthesourcecode">Getting the source code</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cd ~/
+git clone git://github.com/TrinityCore/TrinityCore.git 
+</pre>
+</div></div><p>A directory <strong>trinitycore</strong> will be created automatically and all the source files will be stored in there.</p><h2 id="Linux-FreeBSDG3DPatch">FreeBSD G3D Patch</h2><p>FreeBSD users will need to apply the patch located <a href="http://code.google.com/p/trinitycore/issues/detail?id=3690#c5" class="external-link" rel="nofollow">here</a> for g3d to compile properly, before doing anything else.</p><h2 id="Linux-Compilingthesourcecode">Compiling the source code</h2><h3 id="Linux-Creatingthebuild-directory">Creating the build-directory</h3><p>To avoid issues with updates and colliding source builds, we create a specific build-directory, so we avoid any possible issues due to that (if any might occur)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cd TrinityCore
+mkdir build
+cd build
+</pre>
+</div></div><h3 id="Linux-Configuringforcompiling">Configuring for compiling</h3><p>To configure the core, we use space-separated parameters attached to the configuration-tool (cmake) - <strong>do read the entire section before even starting on the configuration-part</strong>.<br /> <u><em>This is for your own good, and you HAVE been warned. A full example will also be shown underneath the explanations.</em></u></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cmake ../ [additional parameters]
+</pre>
+</div></div><h4 id="Linux-Parameterexplanations">Parameter explanations</h4><p>path to your OpenSSL library - do not use if you have OpenSSL installed system wide:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>-DOPENSSL_LIBRARIES=&lt;path to OpenSSL library&gt;</p>
+</div></div><p>path to your OpenSSL includes directory - do not use if you have OpenSSL installed system wide:</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>-DOPENSSL_INCLUDE_DIR=&lt;path to OpenSSL includes&gt;</p>
+</div></div><p>-DSERVERS Build worldserver and authserver</p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>-DSCRIPTS Build core with scripts included (enabled by default)<br /> -DTOOLS Build map/vmap extraction/assembler tools -DTOOLS=1 (will include tools)<br /> -DUSE_SCRIPTPCH Use precompiled headers when compiling scripts<br /> -DUSE_COREPCH Use precompiled headers when compiling servers<br /> -DWITH_WARNINGS Show all warnings during compile<br /> -DWITH_COREDEBUG Include additional debug-code in core<br /> -DPREFIX Set installation directory<br /> -DCONF_DIR Set configuration directory<br /> -DLIBSDIR Set library directory<br /> -DCMAKE_C_FLAGS Set C_FLAGS for compile (advanced users only)<br /> -DCMAKE_CXX_FLAGS Set CXX_FLAGS for compile (advanced users only)</p>
+</div></div><p><em>Note : * means &quot;used by default&quot;, and does not need to be set.</em></p><p><strong>The above parameters when combined into a full example :</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cmake ../ -DPREFIX=/home/&lt;username&gt;/server -DWITH_WARNINGS=1
+
+Another Example Below: 
+cmake ../ -DPREFIX=/home/wow/server -DCONF_DIR=/home/wow/server/etc -DLIBSDIR=/home/wow/server/lib -DTOOLS=1 -DWITH_WARNINGS=1</pre>
+</div></div><p>The above build the tools, set installation base directory to <strong>/home/&lt;username&gt;/server</strong> and show all warnings during compile.</p><p>Note that you WILL have to configure the server well if you ever want to use the RA-access functionality.</p><h3 id="Linux-Buildingthecore">Building the core</h3><p>After configuring and checking that everything is in order (read cmakes output), you can build Trinity (this will take some time unless you are on a rather fast machine)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">make
+make install
+</pre>
+</div></div><p>If you have multiple CPU cores, you can enable the use of those during compile :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">make -j &lt;number of cores&gt;
+make install </pre>
+</div></div><p>After compiling and installing, you will find your core binaries in <strong>/home/&lt;username&gt;/server/bin</strong>, and the standard configuration files in the <strong>/home/&lt;username&gt;/server/etc</strong> folder.<br /> <em>(As usual, replace &lt;username&gt; with the username you created earlier).</em> Now you can continue reading on and learn how how to update the source tree.</p><h3 id="Linux-Keepingthecodeuptodate">Keeping the code up to date</h3><p>TrinityCore developers are always at work fixing and adding new features to the core. You can always check them <a href="https://github.com/TrinityCore/TrinityCore/commits/master" class="external-link" rel="nofollow">here</a>. To update the core files, do the following :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cd ~/TrinityCore/
+git pull origin master</pre>
+</div></div><p>Now return to the <a href="Linux_332360.html">compilation-section</a> again, and repeat the instructions there.</p><h2 id="Linux-InstallinglibMPQ(MoPaQ)MPQ-readerlibrary">Installing libMPQ (MoPaQ) MPQ-reader library</h2><p>Installation of the libMPQ library is only required if you want to extract the data files, and/or compile the tools.<br /> Do note that the library has been hard-linked to the binary in later revisions, and is not &quot;enforced&quot; unless the tools are required.</p><h3 id="Linux-Configuring,compilingandinstallinglibMPQ">Configuring, compiling and installing libMPQ</h3><p><em>IMPORTANT : If you are the owner of the machine, and at this stage want the MPQ-library to be available for other users on your Linux-machine (and also making it easier for yourself at later stages), please follow </em><strong>&lt;i&gt;alternative 2&lt;/i&gt;</strong></p><p>Change directory to ~/TrinityCore/dep/libmpq/ before doing this</p><h4 id="Linux-Alternative1:Localinstallation">Alternative 1 : Local installation</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">sh ./autogen.sh
+./configure --prefix=/home/&lt;username&gt;/.sys/
+make
+make install
+</pre>
+</div></div><p><em>Again, replace &lt;username&gt; with the username you chose when creating the account.</em></p><h4 id="Linux-Alternative2:Systemwideinstallation">Alternative 2 : System wide installation</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">sh ./autogen.sh
+./configure
+make
+sudo make install
+</pre>
+</div></div><p><u>As stated above, alternative 2 will build the library as a user without any specific privileges, and then install it into /usr/local as root (the superuser), reachable for other users that wish to use it for their own projects.</u><br /><u> It is safe to allow this library to be installed system wide.</u></p><h2 id="Linux-InstallingMySQLServer">Installing MySQL Server</h2><p>When configuring MySQL make sure you remember the password you set for the default root account and that you enabled both MyISAM and InnoDB engines.</p><p>You can leave all the other settings as default. You might want to enable remote access to your MySQL server if your are also testing a website for your Trinity server or if you have friends testing with you which need access from remote. Remember that this will <strong>decrease the security level</strong> of your MySQL server!</p><h1 id="Linux-Settinguptheserver">Setting up the server</h1><p>Now that you have compiled the source you need to extract some necessary files.</p><h2 id="Linux-Extractingdbc,mapsandvmapsfiles">Extracting dbc, maps and vmaps files</h2><p>In order to run, TrinityCore needs dbc- and map files. In addition, if you want to enable vmaps (Making NPCs unable to see through walls etc.) you will need to extract them as well.<br /> <strong>Warning: use Trinity's extractors. If you use extractors from other projects it is almost certain that your Trinity Core will not recognize the extracted data!</strong></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>To get the Trinity extractors you have to build the project with option -DTOOLS=1 (<a href="Linux_332360.html">#Parameter_explanations</a>).</p>
+</div></div><h3 id="Linux-dbcandmapsfiles">dbc and maps files</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cd &lt;your WoW client directory&gt;
+/home/&lt;username&gt;/server/bin/mapextractor
+mkdir /home/&lt;username&gt;/server/data
+cp -r dbc maps /home/&lt;username&gt;/server/data
+</pre>
+</div></div><h3 id="Linux-VisualMaps(akavmaps-optional)">Visual Maps (aka vmaps - optional)</h3><p>You can also extract vmaps which will take quite a while depending on your machine (1-2 hours).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cd &lt;your WoW client directory&gt;
+/home/&lt;username&gt;/server/bin/vmap4extractor
+mkdir vmaps
+/home/&lt;username&gt;/server/bin/vmap4assembler Buildings vmaps
+cp -r vmaps /home/&lt;username&gt;/server/data
+</pre>
+</div></div><p><span style="color: rgb(0,0,0);">When this is complete you will receive the following message which can be safely ignored.</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">Processing Map 724
+[################################################################]
+Extracting GameObject models...Extracting World\Wmo\Band\Final_Stage.wmo
+No such file.
+Couldn&#39;t open RootWmo!!!
+Done!
+ 
+Extract V4.00 2012_02. Work complete. No errors.</pre>
+</div></div><h3 id="Linux-MovementMaps(akammaps-optionalandexperimental)"><span style="color: rgb(0,0,0);">Movement Maps</span><span style="color: rgb(0,0,0);"> (aka mmaps - optional and experimental)</span></h3><p>Extracting mmaps will take quite a while depending on your machine (2-4 hours).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cd &lt;your WoW client directory&gt;
+mkdir mmaps
+/home/&lt;username&gt;/server/bin/mmaps_generator
+cp -r mmaps /home/&lt;username&gt;/server/data
+</pre>
+</div></div><h2 id="Linux-Configuringtheserver">Configuring the server</h2><p>First of all you need to create 2 files : <strong>worldserver.conf</strong> and <strong>authserver.conf</strong> in your /home/&lt;username&gt;/server/etc/ folder.<br /> You'll find 2 files named <strong>worldserver.conf.dist</strong> and <strong>authserver.conf.dist</strong>. Copy these to their namesakes without the .dist extension.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="theme: RDark; brush: cpp; gutter: false" style="font-size:12px;">cp worldserver.conf.dist worldserver.conf
+cp authserver.conf.dist authserver.conf
+</pre>
+</div></div><p>Now you can go ahead and edit the two files (<strong>worldserver.conf</strong> and <strong>authserver.conf</strong>) to your liking.</p><p> </p><p><a href="Setting-up-the-Server_7110719.html">Click here for ways how to proceed to get onto your server.</a></p><h3 id="Linux-Supportandconclusion">Support and conclusion</h3><p>This guide is for beginners and states what to do and what to edit, assuming you left everything else with default values. Visit the following threads and post questions if you still need special support:</p><ul><li><a href="http://www.trinitycore.org/forum/showpost.php?p=6557&amp;amp;postcount=2" class="external-link" rel="nofollow">TortoiseHG</a></li><li><a href="http://www.trinitycore.org/forum/help-and-support-f6.html" class="external-link" rel="nofollow">Compiling the Source</a></li><li><a href="http://collab.kpsn.org/display/tc/Database_master" rel="nofollow">Installing the Database</a><a href="http://trinitydatabase.org/index.php?/topic/14179-tutorial-how-to-install-tdb/" class="external-link" rel="nofollow"></a></li></ul><p><strong><em>Warning: The TrinityCore development team/owners and the TrinityDB team/owners DO NOT in any case sponsor nor support illegal public servers. If you use these projects to run an illegal public server and not for testing and learning it is your own personal choice.</em></strong></p><h4 id="Linux-SPECIALNOTES!">SPECIAL NOTES!</h4><p><em>Things to notice :</em></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>-DSSLLIB=&lt;path&gt; <strong>has been deprecated and is not used at all (remove this if ever used before)</strong><br />-DWITH_COREDEBUG=0 <strong>not required, as its default is : 0<br /><br /></strong></p>
+</div></div><p><em>The new method for custom SSL-libraries are:</em></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>-DOPENSSL_LIBRARIES=&lt;path to OpenSSL libraries directory&gt;<br />-DOPENSSL_INCLUDE_DIR=&lt;path to OpenSSL br /includes directory&gt;</p>
+</div></div><p><em>The paths for installation can be done without any other parameters but this :</em></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>-DPREFIX=/path/to/where/you/want/core/to/be/installed</p>
+</div></div><p><em>It will create the following structure:</em></p><div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>&lt;path&gt;/bin/ <strong>- binaries will be placed here</strong><br />&lt;path&gt;/etc/ <strong>- config files will be placed here</strong></p>
+</div></div><p>Also, compile has been tested on Debian 7.4 x32/x64, 8 x32/x64, Ubuntu 13.10 x64, Fedora Core 19 x64 - all without problems IF YOU DO NOT MESS AROUND ON YOUR OWN!</p><p> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Nov 07, 2014 22:00</p>
+                </section>
+            </div>
+        </div>     </body>
+</html>
