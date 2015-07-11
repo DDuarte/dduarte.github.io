@@ -18,14 +18,14 @@
         <link rel="stylesheet" type="text/css" href="css/zoom.css" />
         <style>
             .avatar{
-                background-image: url('{{ site.data.requiredInfo.avatar }}');
+                background-image: url('{{ site.avatar }}');
             }
             body.landing #bg {
-                background-image: url("{{ site.data.requiredInfo.background }}");
+                background-image: url("{{ site.background }}");
             }
 
             body.landing.is-touch {
-                background-image: url("{{ site.data.requiredInfo.background }}");
+                background-image: url("{{ site.background }}");
             }
         </style>
     </head>
@@ -33,16 +33,16 @@
         <div id="wrapper">
             <header id="header">
                 <div class="avatar"></div>
-                <p>{{ site.data.requiredInfo.description }}</p>
+                <p>{{ site.description }}</p>
             </header>
             <ul class="icons">
-                {% for icon in site.data.requiredInfo.icons %}
+                {% for icon in site.icons %}
                     <li><a href="{{ icon.link }}" class="icon icon-{{ icon.icon }}"></a></li>
                 {% endfor %}
             </ul>
             <hr />
             <ul class="links">
-                {% for project in site.data.requiredInfo.projects %}
+                {% for project in site.projects %}
                     <li><a href="{{ project.link }}">{{ project.title }}</a></li>
                 {% endfor %}
             </ul>
