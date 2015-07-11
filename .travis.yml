@@ -1,5 +1,4 @@
 sudo: false
-cache: bundler
 
 language: ruby
 rvm:
@@ -8,7 +7,7 @@ rvm:
 install: gem install github-pages html-proofer
 script:
   - jekyll build
-  - htmlproof ./_site
+  - htmlproof ./_site --file-ignore /tc_335_wiki/
 
 env:
   global:
