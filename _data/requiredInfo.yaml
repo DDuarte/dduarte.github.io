@@ -7,11 +7,11 @@ resumeFile: https://dl.dropboxusercontent.com/u/3848960/corgi.pdf
 
 icons:
   - icon: page
-    link: /resume
+    link: "/resume"
   - icon: social-github,
-    link: /github
+    link: "/github"
   - icon: social-twitter,
-    link: /twitter
+    link: "/twitter"
   - icon: paw
     link: "/corgi"
   - icon: social-reddit

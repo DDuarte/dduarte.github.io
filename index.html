@@ -13,62 +13,21 @@
         <script src="js/zoom.min.js"></script>
         <script src="js/transition.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-            <link rel="stylesheet" type="text/css" href="css/foundation-icons.css" />
-            <link rel="stylesheet" type="text/css" href="css/skel.css" />
-            <link rel="stylesheet" type="text/css" href="css/style.css" />
-            <link rel="stylesheet" type="text/css" href="css/icons.css" />
-            <link rel="stylesheet" type="text/css" href="css/style-xlarge.css" />
-            <link rel="stylesheet" type="text/css" href="css/zoom.css" />
-            <style>
-                .avatar{
-                    -moz-border-radius: 50%;
-                    -webkit-border-radius: 50%;
-                    border-radius: 50%;
-                    background: url('{{ site.data.requiredInfo.avatar }}');
-                    background-size: cover;
-                    position: relative;
-                    margin-bottom: 8px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    box-shadow: 0 1px 2px rgba(0,0,0,0.62);
-                    border: solid white 2px;
-                    width: 200px;
-                    height: 200px;
-                }
-                body.landing #bg {
-                    -moz-animation: bg-in 3s;
-                    -webkit-animation: bg-in 3s;
-                    -o-animation: bg-in 3s;
-                    -ms-animation: bg-in 3s;
-                    animation: bg-in 3s;
-                    -moz-animation-delay: 2s;
-                    -webkit-animation-delay: 2s;
-                    -o-animation-delay: 2s;
-                    -ms-animation-delay: 2s;
-                    animation-delay: 2s;
-                    -moz-animation-fill-mode: forwards;
-                    -webkit-animation-fill-mode: forwards;
-                    -o-animation-fill-mode: forwards;
-                    -ms-animation-fill-mode: forwards;
-                    animation-fill-mode: forwards;
-                    background-image: url("{{ site.data.requiredInfo.background }}");
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    height: calc(100% + 20px);
-                    left: -10px;
-                    opacity: 0;
-                    position: fixed;
-                    top: -10px;
-                    width: calc(100% + 20px);
-                }
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/style-xlarge.css" />
+        <link rel="stylesheet" type="text/css" href="css/zoom.css" />
+        <style>
+            .avatar{
+                background-image: url('{{ site.data.requiredInfo.avatar }}');
+            }
+            body.landing #bg {
+                background-image: url("{{ site.data.requiredInfo.background }}");
+            }
 
-                body.landing.is-touch {
-                    background-image: url("{{ site.data.requiredInfo.background }}");
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                }
-            </style>
+            body.landing.is-touch {
+                background-image: url("{{ site.data.requiredInfo.background }}");
+            }
+        </style>
     </head>
     <body class="landing">
         <div id="wrapper">
