@@ -17,6 +17,7 @@ body {
     font-size: 16pt;
     color: #fff;
     text-transform: uppercase;
+    text-shadow: 1px 2px 0px rgb(0, 0, 0);
     letter-spacing: 0.175em;
     background-color: #242424;
 }

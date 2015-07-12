@@ -11,19 +11,25 @@ description: Hi. I'm Duarte Duarte, a software engineering student @ FEUP from P
 resumeFile: docs/cv.pdf
 
 icons:
-  - icon: page
+  - icon: page-pdf
+    title: Resume
     link: resume.html
   - icon: social-github
+    title: Github
     link: http://www.github.com/DDuarte
   - icon: social-linkedin
+    title: LinkedIn
     link: https://www.linkedin.com/in/dduarted
   - icon: social-twitter
+    title: Twitter
     link: https://twitter.com/duarteduarte0
 
 projects:
-  - title: TrinityCore
+  - name: TrinityCore
+    title: TrinityCore Open Source MMO Framework
     link: https://github.com/TrinityCore/TrinityCore
-  - title: NeCG|FEUP
+  - name: NeCG|FEUP
+    title: Computer Graphics Student Group
     link: https://github.com/necg
-  - title: Jekyll Configurable Site
+  - name: Jekyll Configurable Site
     link: https://github.com/DDuarte/JekyllConfigurablePersonalSite
