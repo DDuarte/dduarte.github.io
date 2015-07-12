@@ -4,10 +4,6 @@ language: ruby
 rvm:
   - 2.1
 
-branches:
-  only:
-    - gh-pages
-
 install:
    - bundle install
    - gem install html-proofer
