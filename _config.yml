@@ -2,42 +2,28 @@
 gems:
   - jekyll-redirect-from
 
-permalink: title
-
 # Custom
-siteTitle: Corgi
-siteDescription: My awesome personal site, i'm a Corgi!
-avatar: /img/avatar.jpg
+siteTitle: DDuarte
+siteDescription: Personal site of Duarte Duarte
+avatar: /img/avatar.png
 background: /img/background.jpg
-description: Hey I'm a Corgi. Thanks for visiting my personal site!
-resumeFile: https://dl.dropboxusercontent.com/u/3848960/corgi.pdf
+description: Hi. I'm Duarte Duarte, a software engineering student @ FEUP from Porto, Portugal.
+resumeFile: docs/cv.pdf
 
 icons:
   - icon: page
-    link: "/resume"
-  - icon: social-github,
-    link: "/github"
-  - icon: social-twitter,
-    link: "/twitter"
-  - icon: paw
-    link: "/corgi"
-  - icon: social-reddit
-    link: https://www.reddit.com/r/corgi
-    
-projects:
-  - title: Dogecoin Ticker
-    link: /dogecointicker
-  - title: JSON Configurable Site
-    link: /repo
+    link: resume.html
+  - icon: social-github
+    link: http://www.github.com/DDuarte
+  - icon: social-linkedin
+    link: https://www.linkedin.com/in/dduarted
+  - icon: social-twitter
+    link: https://twitter.com/duarteduarte0
 
-links:
-  - name: corgi
-    link: http://lmgtfy.com/?q=corgi
-  - name: dogecointicker
-    link: https://play.google.com/store/apps/details?id=christophior.dogecointicker.app
-  - name: github
-    link: http://github.com/christophior
-  - name: repo
-    link: https://github.com/christophior/JSONConfigurablePersonalSite
-  - name: twitter
-    link: http://www.twitter.com
+projects:
+  - title: TrinityCore
+    link: https://github.com/TrinityCore/TrinityCore
+  - title: NeCG|FEUP
+    link: https://github.com/necg
+  - title: Jekyll Configurable Site
+    link: https://github.com/DDuarte/JekyllConfigurablePersonalSite

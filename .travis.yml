@@ -4,9 +4,15 @@ language: ruby
 rvm:
   - 2.1
 
-install: gem install github-pages html-proofer
+branches:
+  only:
+    - gh-pages
+
+install:
+   - bundle install
+   - gem install html-proofer
 script:
-  - jekyll build
+  - bundle exec jekyll build
   - htmlproof ./_site --file-ignore /tc_335_wiki/
 
 env:
