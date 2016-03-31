@@ -9,7 +9,7 @@ install:
    - gem install html-proofer
 script:
   - bundle exec jekyll build
-  - htmlproof ./_site --file-ignore /tc_335_wiki/ --href-ignore /https:\/\/www.linkedin.com\/in\/dduarted/
+  - htmlproofer ./_site --file-ignore /tc_335_wiki/ --href-ignore /https:\/\/www.linkedin.com\/in\/dduarted/
 
 env:
   global:
